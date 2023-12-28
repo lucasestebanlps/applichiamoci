@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "536809525168",
+    "project_id": "applichiamoci-fondazione",
+    "storage_bucket": "applichiamoci-fondazione.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536809525168:android:4536e648bef2c92c149075",
+        "android_client_info": {
+          "package_name": "com.example.applichiamoci"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536809525168-q5a2r8a808nsjhf2dradriejvv1is86q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.applichiamoci",
+            "certificate_hash": "7d07306dd2ef692fca6fb121949444a429bdc09c"
+          }
+        },
+        {
+          "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSYbWq8W9hDh9C8p9e1WMqiWUz0dA36uY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536809525168-oc0t70i28nisdo4jnh3br3tjpacs2og1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.applichiamoci"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
