@@ -30,8 +30,7 @@ class OnBoardingController extends GetxController {
         print('=========== GET STORAGE Next button ============');
         print(storage.read('ISFirstTime'));
     }
-
-
+    
       storage.write('IsFirstTime', false);
 
       Get.offAll(const LoginScreen());

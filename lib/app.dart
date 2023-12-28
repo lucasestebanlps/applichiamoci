@@ -1,4 +1,4 @@
-import 'package:applichiamoci/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       theme: LAppTheme.lightTheme,
       darkTheme: LAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const OnBoardingScreen(),
+      home: const Scaffold(backgroundColor: LColors.primary, body: Center(child: CircularProgressIndicator(color: Colors.white),),),
     );
   }
 }
