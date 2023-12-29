@@ -31,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                   // Profile picture
-                  const LCircularImage(image: LImages.google, width: 80, height: 80),
+                  const LCircularImage(image: LImages.userImage, width: 100, height: 100),
                   TextButton(onPressed: () {}, child:  const Text('Change profile picture')),
                   ],
                 ),

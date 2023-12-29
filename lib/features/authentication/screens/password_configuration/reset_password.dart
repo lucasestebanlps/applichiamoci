@@ -27,7 +27,7 @@ class ResetPassword extends StatelessWidget {
             children: [
               // IMAGE
               Image(
-                image: const AssetImage(LImages.deliveredEmailImage),
+                image: const AssetImage(LImages.deliveredEmailIllustration),
                 width: LHelperFunctions.screenWidth() * 0.6,
               ),
               const SizedBox(height: LSizes.spaceBtwSections),

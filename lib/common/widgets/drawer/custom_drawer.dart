@@ -27,7 +27,7 @@ class CustomDrawer extends StatelessWidget {
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.transparent,
               child: ClipOval(
-                child: Image.asset(LImages.google),
+                child: Image.asset(LImages.userImage),
 
               ),
             ),
