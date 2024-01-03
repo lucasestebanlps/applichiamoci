@@ -10,13 +10,17 @@ class HomeDetailScreen extends StatelessWidget {
   final String title;
   final String subtitle;
   final String paragraph;
+  final String? phoneNumber;
+  final String? mapUrl;
 
   const HomeDetailScreen(
       {super.key,
       required this.title,
       required this.image,
       required this.subtitle, 
-      required this.paragraph});
+      required this.paragraph, 
+      this.phoneNumber, 
+      this.mapUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class HomeDetailScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium
               ),
               const SizedBox(height: LSizes.spaceBtwSections),
-              const ActionButtons()
+              ActionButtons(callActionParameter: phoneNumber, mapActionParameter: mapUrl,)
           
              
             ],

@@ -8,12 +8,18 @@ class HomeCard extends StatelessWidget {
   final String subtitle;
   final String description;
   final String paragraph;
+  final String? phoneNumber;
+  final String? mapUrl;
 
   const HomeCard({
     super.key,
     required this.image,
     required this.title,
-    required this.description, required this.subtitle, required this.paragraph,
+    required this.description,
+    required this.subtitle,
+    required this.paragraph, 
+    this.phoneNumber, 
+    this.mapUrl,
   });
 
   @override
@@ -82,6 +88,8 @@ class HomeCard extends StatelessWidget {
           title: title,
           subtitle: subtitle,
           paragraph: paragraph,
+          phoneNumber: phoneNumber,
+          mapUrl: mapUrl,
         ));
   }
 }

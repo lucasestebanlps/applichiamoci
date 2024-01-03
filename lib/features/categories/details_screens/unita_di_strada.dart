@@ -21,11 +21,11 @@ class UnitaDiStrada extends StatelessWidget {
 
       body: ListView(
         children: const [
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'title', description: 'description'),
         ],
       ),
     );

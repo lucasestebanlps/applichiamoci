@@ -1,3 +1,4 @@
+import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,12 +14,13 @@ class EmergencyCallModal extends StatelessWidget {
         textAlign: TextAlign.center,
       ),
       content: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
           _EmergencyServiceButton(
             iconData: Icons.local_hospital,
             label: 'Emergenzia Sanitaria',
-            phoneNumber: 'tel:118',
+            phoneNumber: '118',
           ),
           SizedBox(
             height: LSizes.spaceBtwItems,
@@ -26,7 +28,7 @@ class EmergencyCallModal extends StatelessWidget {
           _EmergencyServiceButton(
             iconData: Icons.security,
             label: 'Emergenzia sicurezza 1',
-            phoneNumber: 'tel:112',
+            phoneNumber: '112',
           ),
           SizedBox(
             height: LSizes.spaceBtwItems,
@@ -34,7 +36,7 @@ class EmergencyCallModal extends StatelessWidget {
           _EmergencyServiceButton(
             iconData: Icons.security,
             label: 'Emergenzia sicurezza 2',
-            phoneNumber: 'tel:113',
+            phoneNumber: '113',
           ),
           SizedBox(
             height: LSizes.spaceBtwItems,
@@ -42,27 +44,26 @@ class EmergencyCallModal extends StatelessWidget {
           _EmergencyServiceButton(
             iconData: Icons.fire_extinguisher,
             label: 'Emergenzia incendi',
-            phoneNumber: 'tel:115',
+            phoneNumber: '115',
           ),
           SizedBox(
             height: LSizes.spaceBtwItems,
           ),
           _EmergencyServiceButton(
             label: 'Emergencia antiviolenza',
-            phoneNumber: 'tel:1522',
+            phoneNumber: '1522',
             iconData: Icons.heart_broken_outlined,
           ),
         ],
-        
       ),
-       actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('Close'),
-          ),
-        ],
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text('Close'),
+        ),
+      ],
     );
   }
 }
@@ -82,22 +83,35 @@ class _EmergencyServiceButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: ElevatedButton.icon(
+      child: ElevatedButton(
         onPressed: () {
           _launchPhoneCall(phoneNumber);
         },
-        label: Text(label, textAlign: TextAlign.start,),
-        icon: Icon(iconData), // Agregar el icono
+        style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(
+                vertical: 15,
+                horizontal: 6), // Ajustar el espacio según sea necesario
+            backgroundColor: Colors.green,
+            side: const BorderSide(color: Colors.green)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Icon(iconData), // Icono
+            const SizedBox(width: 8.0), // Espacio entre el icono y el texto
+            Text(label),
+          ],
+        ),
       ),
     );
   }
 
   void _launchPhoneCall(String phoneNumber) async {
-    if (await canLaunch(phoneNumber)) {
-      await launch(phoneNumber);
+    if (await canLaunchUrl(Uri(scheme: 'tel', path: phoneNumber))) {
+      await launchUrl(Uri(scheme: 'tel', path: phoneNumber));
     } else {
       // Manejar el caso en que no se pueda realizar la llamada
-      print('No se pudo realizar la llamada: $phoneNumber');
+      LLoaders.errorSnackBar(
+          title: 'Error', message: 'Il numero non é disponibile');
     }
   }
 }

@@ -21,9 +21,9 @@ class ServizioIndumenti extends StatelessWidget {
 
       body: ListView(
         children: const [
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S.Pio X (Quartiere Rudiae-Ferrovia', description: 'Distribuzione e all\'occorrenza ritiro vestiti in buone condizioni'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S. Bernardino Realino', description: 'Ritiro indumenti*SOSPESA CAUSA COVID* Bidone indumenti posto fuori dalla parrocchia *SOSPESA CAUSA COVID*'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa S. Cuore di Gesu\'', description: 'Distribuzione indumenti *SOSPESA CAUSA COVID*')
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S.Pio X (Quartiere Rudiae-Ferrovia', description: 'Distribuzione e all\'occorrenza ritiro vestiti in buone condizioni'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S. Bernardino Realino', description: 'Ritiro indumenti*SOSPESA CAUSA COVID* Bidone indumenti posto fuori dalla parrocchia *SOSPESA CAUSA COVID*'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa S. Cuore di Gesu\'', description: 'Distribuzione indumenti *SOSPESA CAUSA COVID*')
         ],
       ),
     );

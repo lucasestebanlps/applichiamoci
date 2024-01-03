@@ -15,7 +15,8 @@ class LImages {
 
  // -- Animations
   static const String productsIllustration = "assets/images/animations/sammy-line-workout.gif";
-  static const String productsSaleIllustration = "assets/images/animations/sammy-line-sale.png";
+  static const String productsSaleIllustration
+   = "assets/images/animations/sammy-line-sale.png";
   static const String staticSuccessIllustration = "assets/images/animations/sammy-line-success.png";
   static const String deliveredInPlaneIllustration = "assets/images/animations/sammy-line-come-back-later.png";
   static const String deliveredEmailIllustration = "assets/images/animations/sammy-line-man-receives-a-mail.png";
@@ -24,6 +25,12 @@ class LImages {
  
   // user image
   static const String userImage = "assets/images/content/user.png";
+  // Home images
+  static const String homeImage1 = "assets/images/home/home-1.jpg";
+  static const String homeImage2 = "assets/images/home/home-2.jpg";
+  static const String homeImage3 = "assets/images/home/home-3.jpg";
+
+
 
 
   // // -- Category Icons

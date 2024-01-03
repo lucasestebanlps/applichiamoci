@@ -21,8 +21,8 @@ class OrientamentoLavorativo extends StatelessWidget {
 
       body: ListView(
         children: const [
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia San Giovanni Maria Vianney', description: 'Supporto e accompagnamento Badanti'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Centro di Prossimità Casa Comune', description: 'Orientamento Lavorativo dal lunedì al sabato h. 14:00-18:00'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia San Giovanni Maria Vianney', description: 'Supporto e accompagnamento Badanti'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Centro di Prossimità Casa Comune', description: 'Orientamento Lavorativo dal lunedì al sabato h. 14:00-18:00'),
         ],
       ),
     );

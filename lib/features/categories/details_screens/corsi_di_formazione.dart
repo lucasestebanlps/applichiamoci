@@ -22,9 +22,9 @@ class CorsiDiFormazione extends StatelessWidget {
 
       body: ListView(
         children: const [
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa S. Maria dell\'Idria', description: 'Corso di Italiano: Martedì h. 8:30/12:00'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa di San Niccolò dei Greci', description: 'Corso di Italiano (durata 2 anni) *Servizio sospeso causa Covid*'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Centro di Prossimità Casa Comune', description: 'Corso di Italiano: Martedì h. 9:30-11:30 /Venerdì h. 9:30-11:30 *SOSPESO*'),   
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa S. Maria dell\'Idria', description: 'Corso di Italiano: Martedì h. 8:30/12:00'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa di San Niccolò dei Greci', description: 'Corso di Italiano (durata 2 anni) *Servizio sospeso causa Covid*'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Centro di Prossimità Casa Comune', description: 'Corso di Italiano: Martedì h. 9:30-11:30 /Venerdì h. 9:30-11:30 *SOSPESO*'),   
         ],
       ),
     );

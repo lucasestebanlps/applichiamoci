@@ -5,12 +5,16 @@ class DetailsCard extends StatelessWidget {
   final AssetImage image;
   final String title;
   final String description;
+  final String phoneNumber;
+  final String mapUrl;
 
   const DetailsCard({
     super.key,
     required this.image,
     required this.title,
-    required this.description,
+    required this.description, 
+    required this.phoneNumber, 
+    required this.mapUrl,
   });
 
   @override
@@ -35,16 +39,17 @@ class DetailsCard extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              Text(title,
-                  style: Theme.of(context).textTheme.headlineSmall),
+              Text(title, style: Theme.of(context).textTheme.headlineSmall),
               const SizedBox(
                 height: 5,
               ),
-              Text(description, textAlign: TextAlign.start, style: Theme.of(context).textTheme.bodyMedium),
+              Text(description,
+                  textAlign: TextAlign.start,
+                  style: Theme.of(context).textTheme.bodyMedium),
               const SizedBox(
                 height: 8,
               ),
-              const ActionButtons()
+              ActionButtons(callActionParameter: phoneNumber, mapActionParameter: mapUrl,)
             ],
           ),
         ),

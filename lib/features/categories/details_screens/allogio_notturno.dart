@@ -19,9 +19,9 @@ class AllogioNotturno extends StatelessWidget {
 
       body: ListView(
         children: const [
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'S. Maria della Porta', description: 'Casa Idria "Il Cammino": per i 4 primi quattro mesi non pagano niente: da 5° mese il 30 %, (solo uomini) Requisiti di ingresso: documentazione'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa S. Maria dell\'Idria', description: 'Casa alloggio (Caritas) *volontarie vincenziane'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Fondazione casa della carità', description: 'Casa alloggio per convalescenti: aperto tutti i giorni *Servizio Gerico*'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'S. Maria della Porta', description: 'Casa Idria "Il Cammino": per i 4 primi quattro mesi non pagano niente: da 5° mese il 30 %, (solo uomini) Requisiti di ingresso: documentazione'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Chiesa S. Maria dell\'Idria', description: 'Casa alloggio (Caritas) *volontarie vincenziane'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Fondazione casa della carità', description: 'Casa alloggio per convalescenti: aperto tutti i giorni *Servizio Gerico*'),
         ],
       ),
     );

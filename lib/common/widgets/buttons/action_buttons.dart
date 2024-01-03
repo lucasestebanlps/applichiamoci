@@ -1,45 +1,53 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class ActionButtons extends StatelessWidget {
-  const ActionButtons({super.key});
-  
+  // ignore: use_super_parameters
+  const ActionButtons({
+    Key? key,
+    this.callActionParameter,
+    this.mapActionParameter,
+  }) : super(key: key);
+
+  final String? callActionParameter;
+  final String? mapActionParameter;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        ElevatedButton(
-          onPressed: () {
-            // Lógica para "llamar"
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
-            side: const BorderSide(color: Colors.green),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0), // Bordes redondeados
+        if (callActionParameter != null)
+          ElevatedButton(
+            onPressed: () => LHelperFunctions.callAction(callActionParameter!),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+              side: const BorderSide(color: Colors.green),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
             ),
-            padding: const EdgeInsets.symmetric(
-                horizontal: 15, vertical: 8), // Añade padding
+            child: const Text('Chiama'),
           ),
-          child: const Text('Chiama'),
-        ),
-        const SizedBox(width: LSizes.spaceBtwItems),
-        ElevatedButton(
-          onPressed: () {
-            // Lógica para "ver mapa"
-          },
-          style: ElevatedButton.styleFrom(
-            // Cambia el color del texto
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0), // Bordes redondeados
+        if (mapActionParameter != null) ...[
+          const SizedBox(width: LSizes.spaceBtwItems),
+          ElevatedButton(
+            onPressed: () => LHelperFunctions.mapAction(mapActionParameter),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
             ),
-            padding: const EdgeInsets.symmetric(
-                horizontal: 15, vertical: 8), // Añade padding
+            child: const Text('Mappa'),
           ),
-          child: const Text('Mappa'),
-        ),
+        ],
       ],
     );
   }
+
 }
+
+

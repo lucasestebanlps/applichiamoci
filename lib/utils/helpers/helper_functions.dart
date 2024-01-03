@@ -1,6 +1,9 @@
+import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:maps_launcher/maps_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LHelperFunctions {
   static Color? getColor(String value) {
@@ -109,5 +112,28 @@ class LHelperFunctions {
       wrappedList.add(Row(children: rowChildren));
     }
     return wrappedList;
+  }
+
+    static void callAction(String callActionParameter) async {
+    final phoneNumber = Uri(scheme: 'tel', path: callActionParameter);
+    if (await canLaunchUrl(phoneNumber)) {
+      await launchUrl(phoneNumber);
+    } else {
+      LLoaders.errorSnackBar(
+        title: 'Error',
+        message: 'Il numero $callActionParameter non é disponibile',
+      );
+    }
+  }
+
+  static void mapAction(String? mapActionParameter) {
+    if (mapActionParameter != null) {
+      MapsLauncher.launchQuery(mapActionParameter);
+    } else {
+      LLoaders.errorSnackBar(
+        title: 'Error',
+        message: 'Il mapa non é disponibile',
+      );
+    }
   }
 }

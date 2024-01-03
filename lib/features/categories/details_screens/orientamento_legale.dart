@@ -21,11 +21,11 @@ class OrientamentoLegale extends StatelessWidget {
 
       body: ListView(
         children: const [
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S.Pio X (Quartiere Rudiae-Ferrovia', description: 'Mercoledì h.9:30.11:00 Supporto legale ed economico presentando Modello isee 7500 euro + documenti familiari; Organizzazione in base alle esigenze personali dei parrocchiani'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia Massimiliano Kolbe', description: 'CAF Volontariato ogni martedì h. 9:30/11:30 - Servizio assistenza fiscale tutti i martedi h. 9:30/11:30'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S. Bernardino Realino', description: 'Aiuti Extra *NON calendarizzati* su richiesta dei parrocchiani'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Centro di Prossimità Casa Comune', description: 'Orientamento Economico-Legale dal lunedì al sabato h. 14:00-18:00'),
-          DetailsCard(image: AssetImage(LImages.onBoardingImage1), title: 'Fondazione Casa della Carità', description: 'Orientamento economico-legale: tutti i giorni h.08:00-20:00'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S.Pio X (Quartiere Rudiae-Ferrovia', description: 'Mercoledì h.9:30.11:00 Supporto legale ed economico presentando Modello isee 7500 euro + documenti familiari; Organizzazione in base alle esigenze personali dei parrocchiani'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia Massimiliano Kolbe', description: 'CAF Volontariato ogni martedì h. 9:30/11:30 - Servizio assistenza fiscale tutti i martedi h. 9:30/11:30'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Parrocchia S. Bernardino Realino', description: 'Aiuti Extra *NON calendarizzati* su richiesta dei parrocchiani'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Centro di Prossimità Casa Comune', description: 'Orientamento Economico-Legale dal lunedì al sabato h. 14:00-18:00'),
+          DetailsCard(phoneNumber: '3398089872', mapUrl: '40.35557664062484, 18.172805504054864', image: AssetImage(LImages.onBoardingImage1), title: 'Fondazione Casa della Carità', description: 'Orientamento economico-legale: tutti i giorni h.08:00-20:00'),
    
         ],
       ),

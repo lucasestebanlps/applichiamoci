@@ -35,29 +35,30 @@ class HomeScreen extends StatelessWidget {
             child: Divider(color: darkMode ? LColors.light : LColors.dark),
           ),
           const HomeCard(
-            image: AssetImage(LImages.onBoardingImage1),
+            image: AssetImage(LImages.homeImage1),
             title: 'Título 1',
             subtitle: 'Subtitle',
-            description:
-                'this is a little description.',
+            description: 'this is a little description.',
             paragraph:
                 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen',
+            phoneNumber: '12345',
+            mapUrl: '40.35557664062484, 18.172805504054864',
           ),
           const HomeCard(
-            image: AssetImage(LImages.onBoardingImage1),
+            image: AssetImage(LImages.homeImage2),
             title: 'Título 2',
             subtitle: 'Subtitle',
-            description:
-                'This is a little description.',
+            description: 'This is a little description.',
             paragraph:
-                'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen',
+                'Lorem Ipsum es simplemente el texto de relleno e las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen',
+            phoneNumber: '12345',
+            mapUrl: '40.35557664062484, 18.172805504054864',
           ),
           const HomeCard(
-            image: AssetImage(LImages.onBoardingImage1),
+            image: AssetImage(LImages.homeImage3),
             title: 'Título 3',
             subtitle: 'Subtitle',
-            description:
-                'This is a little description.',
+            description: 'This is a little description.',
             paragraph:
                 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen',
           ),
