@@ -24,7 +24,6 @@ dependencies:
   logger: ^2.0.2+1
   connectivity_plus: ^5.0.2
   maps_launcher: ^2.2.0
-  google_maps_flutter: ^2.5.0
 
 
   # Icons

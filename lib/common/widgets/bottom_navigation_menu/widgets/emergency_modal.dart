@@ -1,7 +1,6 @@
-import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class EmergencyCallModal extends StatelessWidget {
   const EmergencyCallModal({super.key});
@@ -57,7 +56,7 @@ class EmergencyCallModal extends StatelessWidget {
         ],
       ),
       actions: [
-        TextButton(
+        OutlinedButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -81,37 +80,38 @@ class _EmergencyServiceButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
+    return ElevatedButton(
         onPressed: () {
-          _launchPhoneCall(phoneNumber);
+          LHelperFunctions.callAction(phoneNumber);
         },
         style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(
-                vertical: 15,
-                horizontal: 6), // Ajustar el espacio según sea necesario
-            backgroundColor: Colors.green,
-            side: const BorderSide(color: Colors.green)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Icon(iconData), // Icono
-            const SizedBox(width: 8.0), // Espacio entre el icono y el texto
-            Text(label),
-          ],
+          backgroundColor: Colors.green,
+          side: const BorderSide(color: Colors.green)
         ),
-      ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                iconData,
+                color: Colors.white,
+              ),
+              const SizedBox(width: 16.0),
+              Flexible(
+                child: Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  ),
+                  overflow: TextOverflow.ellipsis, // Trunca el texto y agrega puntos suspensivos
+                  maxLines: 1, // Limita a una sola línea
+                ),
+              ),
+            ],
+          ),
+        ),
     );
-  }
-
-  void _launchPhoneCall(String phoneNumber) async {
-    if (await canLaunchUrl(Uri(scheme: 'tel', path: phoneNumber))) {
-      await launchUrl(Uri(scheme: 'tel', path: phoneNumber));
-    } else {
-      // Manejar el caso en que no se pueda realizar la llamada
-      LLoaders.errorSnackBar(
-          title: 'Error', message: 'Il numero non é disponibile');
-    }
   }
 }
