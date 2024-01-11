@@ -1,3 +1,4 @@
+import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/login_signup/form_divider.dart';
 import 'package:applichiamoci/common/widgets/login_signup/social_buttons.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/widgets/signup_form.dart';
@@ -11,7 +12,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const LAppBar(actions: false),
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(LSizes.defaultSpace),
