@@ -1,3 +1,4 @@
+import 'package:applichiamoci/bindings/general_bindings.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       themeMode: ThemeMode.system,
+      initialBinding: GeneralBindings(),
       // por defecto el tema es light, por eso dentro de theme van todos los estilos para light mode
       theme: LAppTheme.lightTheme,
       darkTheme: LAppTheme.darkTheme,
