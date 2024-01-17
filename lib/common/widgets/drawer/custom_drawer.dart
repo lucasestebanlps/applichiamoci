@@ -1,4 +1,5 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
+import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/screens/profile/profile_screen.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
@@ -65,7 +66,7 @@ class CustomDrawer extends StatelessWidget {
         ListTile(
           leading: const Icon(Iconsax.logout),
           title: const Text('Chiudi sessione'),
-          onTap: () {},
+          onTap: () => AuthenticationRepository.instance.logout(),
         ),
       ]),
     );

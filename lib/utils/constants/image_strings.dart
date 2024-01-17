@@ -41,7 +41,7 @@ class LImages {
   static const String checkInformation =
       "assets/images/animations/141594-animation-of-docer.json";
   static const String succsesfullyRegisterAnimation =
-      "assets/images/animations/104368-thank-you.json";
+      "assets/images/animations/72462-check-register.json";
   
 
   // // -- Category Icons

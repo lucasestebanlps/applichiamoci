@@ -1,5 +1,6 @@
 import 'package:applichiamoci/common/styles/spacing_styles.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -49,7 +50,7 @@ class SuccessScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: onPressed,
-                    child: const Text('Continue'),
+                    child: const Text(LTexts.tContinue),
                   ),
                 ),
               ],
