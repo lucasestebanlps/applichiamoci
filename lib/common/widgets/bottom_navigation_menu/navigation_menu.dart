@@ -27,7 +27,7 @@ class NavigationMenu extends StatelessWidget {
           child: const Icon(
             Iconsax.call,
             color: LColors.white,
-            size: 30,
+            size: 35,
           ),
           onPressed: () {
              showDialog(

@@ -2,6 +2,7 @@
 
 class LTexts {
   // Global texts
+  static const String emergencyNumber = 'Numeri di emergenza:';
 
   //-- OnBoardingTexts
   static const String onBoardingTitle1 = "See the news";
@@ -38,6 +39,7 @@ class LTexts {
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
 
+
   //-- Authentication Headings Text
   static const String loginTitle = "Welcome back,";
   static const String loginSubTitle =
@@ -58,4 +60,5 @@ class LTexts {
       "Your account successfully created!";
   static const String yourAccountCreatedSubTitle =
       "Welcome to Applichiamoci! It's time to change your life and also that of others.";
+  static const String tContinue = 'Continue';
 }
