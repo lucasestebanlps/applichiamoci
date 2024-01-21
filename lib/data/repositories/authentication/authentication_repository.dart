@@ -96,8 +96,6 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  // [ReAuthenticate] - ReAuthentiucate User
-
   // [EmailVerification] - Mail Verification
   Future<void> sendEmailVerification() async {
     try {
@@ -116,6 +114,24 @@ class AuthenticationRepository extends GetxController {
   }
 
   // [EmailAuthentication] - Forget Password
+    Future<void> sendPasswordResetemail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw LFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw LFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const LFormatException();
+    } on PlatformException catch (e) {
+      throw LPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Somethign went wrong. Please try again';
+    }
+  }
+
+  
+  // [ReAuthenticate] - ReAuthentiucate User
 
   // -----------------Federated identity & social sign-in -----------------
 
@@ -151,7 +167,7 @@ class AuthenticationRepository extends GetxController {
 
   // [FacebookAuthentication] - Facebook
 
-  // -----------------Federated identity & social sign-in -----------------
+
 
   // [LogoutUser] - Void for any authentication
   Future<void> logout() async {
