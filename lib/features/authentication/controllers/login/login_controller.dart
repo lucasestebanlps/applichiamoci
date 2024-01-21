@@ -1,5 +1,6 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
+import 'package:applichiamoci/features/personalization/controllers/user_controller.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
@@ -15,6 +16,7 @@ class LoginController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   void onInit() {
@@ -23,7 +25,7 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
-  // SignUp
+  // Email and Password Signin
   Future<void> emailAndPasswordSignIn() async {
     try {
       // Start Loading
@@ -62,6 +64,38 @@ class LoginController extends GetxController {
       LFullScreenLoader.stopLoading();
       // show some generic error to the user
       LLoaders.errorSnackBar(title: 'Error!', message: e.toString());
+    }
+  }
+
+  // Google SignIn Authentication
+  Future<void> googleSignIn() async {
+    try {
+      // Start Loading
+      LFullScreenLoader.openLoadingDialog(
+          'Loggin you in...', LImages.checkInformation);
+
+      // Check internet conectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        LFullScreenLoader.stopLoading();
+        return;
+      }
+
+      // Google Authentication
+      final userCredentials =
+          await AuthenticationRepository.instance.signInWithGoogle();
+
+      // Save user record
+      await userController.saveUserRecord(userCredentials);
+
+      // Stop loader
+      LFullScreenLoader.stopLoading();
+
+      // Redirect
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      LFullScreenLoader.stopLoading();
+      LLoaders.errorSnackBar(title: 'Error', message: e.toString());
     }
   }
 }
