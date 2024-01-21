@@ -1,0 +1,67 @@
+import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
+import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
+import 'package:applichiamoci/utils/constants/image_strings.dart';
+import 'package:applichiamoci/utils/helpers/network_manager.dart';
+import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+class LoginController extends GetxController {
+  // variables
+  final rememberMe = false.obs;
+  final hidePassword = true.obs;
+  final localStorage = GetStorage();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+
+  @override
+  void onInit() {
+    email.text = localStorage.read('REMEMBER_ME_EMAIL') ?? '';
+    password.text = localStorage.read('REMEMBER_ME_PASSWORD') ?? '';
+    super.onInit();
+  }
+
+  // SignUp
+  Future<void> emailAndPasswordSignIn() async {
+    try {
+      // Start Loading
+      LFullScreenLoader.openLoadingDialog(
+          'Loggin you in...', LImages.checkInformation);
+
+      // Check internet conectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        LFullScreenLoader.stopLoading();
+        return;
+      }
+
+      // Form Validation
+      if (!loginFormKey.currentState!.validate()) {
+        LFullScreenLoader.stopLoading();
+        return;
+      }
+
+      // Save data if remember me is selected
+      if (rememberMe.value) {
+        localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
+        localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
+      }
+
+      // Login user using Email & password Authentication
+      final userCredentials = await AuthenticationRepository.instance
+          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      // Remove loader
+      LFullScreenLoader.stopLoading();
+
+      // redirect
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      // Remove loader
+      LFullScreenLoader.stopLoading();
+      // show some generic error to the user
+      LLoaders.errorSnackBar(title: 'Error!', message: e.toString());
+    }
+  }
+}
