@@ -1,8 +1,8 @@
 // This class contains all the App Images in String formats.
 class LImages {
   //-- App Logos
-  static const String darkApplogo = "assets/logo/splash.png";
-  static const String lightApplogo = "assets/logo/splash.png";
+  static const String darkApplogo = "assets/logo/logo_rounded.png";
+  static const String lightApplogo = "assets/logo/logo_rounded.png";
 
   // -- Social Logos
   static const String google = "assets/logo/google-logo.png";
@@ -31,7 +31,7 @@ class LImages {
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
 
   // user image
-  static const String userImage = "assets/images/content/user.png";
+  static const String userImage = "assets/logo/logo_rounded.png";
   // Home images
   static const String homeImage1 = "assets/images/home/home-1.jpg";
   static const String homeImage2 = "assets/images/home/home-2.jpg";

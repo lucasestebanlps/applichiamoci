@@ -1,3 +1,4 @@
+import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:applichiamoci/features/authentication/screens/login/login.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
@@ -16,14 +17,7 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              onPressed: () => Get.back(),
-              icon: const Icon(CupertinoIcons.clear))
-        ],
-      ),
+      appBar: const LAppBar(actions: false),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(LSizes.defaultSpace),
@@ -63,7 +57,8 @@ class ResetPasswordScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () => ForgetPasswordController.insstance.resendPasswordResetEmail(email),
+                  onPressed: () => ForgetPasswordController.insstance
+                      .resendPasswordResetEmail(email),
                   child: const Text(LTexts.resendEmail),
                 ),
               ),

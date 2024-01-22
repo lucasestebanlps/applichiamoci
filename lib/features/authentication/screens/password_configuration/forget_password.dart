@@ -1,3 +1,4 @@
+import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
@@ -13,7 +14,7 @@ class ForgetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(ForgetPasswordController());
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const LAppBar(actions: false),
       body: Padding(
         padding: const EdgeInsets.all(LSizes.defaultSpace),
         child: Column(
@@ -26,7 +27,6 @@ class ForgetPassword extends StatelessWidget {
             Text(LTexts.forgetPasswordsubTitle,
                 style: Theme.of(context).textTheme.labelMedium),
             const SizedBox(height: LSizes.spaceBtwItems * 2),
-
 
             // Text Field
             Form(
