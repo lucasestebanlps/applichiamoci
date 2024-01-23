@@ -40,6 +40,14 @@ class LTexts {
   static const String resendEmailIn = "Resend email in";
   static const String submit = 'Submit';
   static const String done = 'Done';
+  static const String changeName = 'Change Name';
+  static const String insertNewName = 'Here you can change your name and last name.';
+  static const String reAuthUser = 'Re-Authenticate User to confirm';
+  static const String deleteAccount = 'Delete Account';
+  static const String delete = 'Delete';
+  static const String cancel = 'Cancel';
+  static const String verify = 'Verify';
+  static const String sureToDelete = 'Are you sure you want to delete your account permanently? this action is not reversible and all of your data will be removel permanently.';
 
 
   //-- Authentication Headings Text

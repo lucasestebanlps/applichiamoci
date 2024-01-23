@@ -1,6 +1,6 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
-import 'package:applichiamoci/features/categories/widgets/category_card.dart';
+import 'package:applichiamoci/features/screens/categories/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesScreen extends StatelessWidget {

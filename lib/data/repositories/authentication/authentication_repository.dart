@@ -1,4 +1,5 @@
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/navigation_menu.dart';
+import 'package:applichiamoci/data/repositories/user/user_repository.dart';
 import 'package:applichiamoci/features/authentication/screens/login/login.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/verify_email.dart';
@@ -20,6 +21,9 @@ class AuthenticationRepository extends GetxController {
   // Variables
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  // Get Authenticated User Data
+  User? get authUser => _auth.currentUser;
 
   // Called from main.dart on app launch
   @override
@@ -114,7 +118,7 @@ class AuthenticationRepository extends GetxController {
   }
 
   // [EmailAuthentication] - Forget Password
-    Future<void> sendPasswordResetemail(String email) async {
+  Future<void> sendPasswordResetemail(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
@@ -130,8 +134,29 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  
   // [ReAuthenticate] - ReAuthentiucate User
+  Future<void> reAuthenticateWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      // Create a credential
+      AuthCredential credential =
+          EmailAuthProvider.credential(email: email, password: password);
+      // ReAuthenticate
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+
+
+    } on FirebaseAuthException catch (e) {
+      throw LFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw LFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const LFormatException();
+    } on PlatformException catch (e) {
+      throw LPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Somethign went wrong. Please try again';
+    }
+  }
 
   // -----------------Federated identity & social sign-in -----------------
 
@@ -167,8 +192,6 @@ class AuthenticationRepository extends GetxController {
 
   // [FacebookAuthentication] - Facebook
 
-
-
   // [LogoutUser] - Void for any authentication
   Future<void> logout() async {
     try {
@@ -189,4 +212,20 @@ class AuthenticationRepository extends GetxController {
   }
 
   // DELETE USER - Remove user auth and firestore account
+    Future<void> deleteAccount() async {
+    try {
+      await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
+      await _auth.currentUser?.delete();
+    } on FirebaseAuthException catch (e) {
+      throw LFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw LFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const LFormatException();
+    } on PlatformException catch (e) {
+      throw LPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Somethign went wrong. Please try again';
+    }
+  }
 }

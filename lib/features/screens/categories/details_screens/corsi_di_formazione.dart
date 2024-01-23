@@ -1,6 +1,6 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
-import 'package:applichiamoci/features/categories/widgets/details_card.dart';
+import 'package:applichiamoci/features/screens/categories/widgets/details_card.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 
 import 'package:flutter/material.dart';

@@ -79,7 +79,7 @@ class UserModel {
           phoneNumber: data['PhoneNumber'] ?? '',
           profilePicture: data['ProfilePicture'] ?? '');
     } else {
-      throw StateError("Document data is null");
+      return UserModel.empty();
     }
   }
 }
