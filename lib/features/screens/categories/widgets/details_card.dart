@@ -1,4 +1,5 @@
 import 'package:applichiamoci/common/widgets/buttons/action_buttons.dart';
+import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class DetailsCard extends StatelessWidget {
@@ -20,35 +21,39 @@ class DetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.all(LSizes.sm),
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(LSizes.sm),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // -------- IMAGE --------
               ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
+                  topLeft: Radius.circular(LSizes.borderRadiusSm),
+                  topRight: Radius.circular(LSizes.borderRadiusSm),
                 ),
                 child: Image(
                   image: image,
                 ),
               ),
+              // -------- TITLE --------
               const SizedBox(
-                height: 8,
+                height: LSizes.spaceBtwItems,
               ),
               Text(title, style: Theme.of(context).textTheme.headlineSmall),
               const SizedBox(
-                height: 5,
+                height: LSizes.sm,
               ),
+              // -------- DESCRIPTION --------
               Text(description,
                   textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.bodyMedium),
               const SizedBox(
-                height: 8,
+                height: LSizes.spaceBtwItems,
               ),
+              // -------- BUTTONS --------
               ActionButtons(callActionParameter: phoneNumber, mapActionParameter: mapUrl,)
             ],
           ),

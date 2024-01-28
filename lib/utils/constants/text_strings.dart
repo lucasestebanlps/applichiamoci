@@ -47,6 +47,8 @@ class LTexts {
   static const String delete = 'Delete';
   static const String cancel = 'Cancel';
   static const String verify = 'Verify';
+  static const String viewMore = 'View more';
+
   static const String sureToDelete = 'Are you sure you want to delete your account permanently? this action is not reversible and all of your data will be removel permanently.';
 
 

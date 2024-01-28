@@ -1,4 +1,5 @@
 import 'package:applichiamoci/features/screens/home/widgets/home_detail_screen.dart';
+import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,35 +26,36 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(3.0),
+      padding: const EdgeInsets.symmetric(horizontal: LSizes.sm),
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(LSizes.sm),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // ------- Image -------
               ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
+                  topLeft: Radius.circular(LSizes.cardRadiusMd),
+                  topRight: Radius.circular(LSizes.cardRadiusMd),
                 ),
                 child: Image(
                   image: image,
                 ),
               ),
               const SizedBox(
-                height: 5,
+                height: LSizes.sm,
               ),
+              // ------- Title -------
               Text(title,
                   style: const TextStyle(
                       fontWeight: FontWeight.w400, fontSize: 20)),
-              const SizedBox(
-                height: 5,
-              ),
+              // ------- SubTitle -------
               Text(description, textAlign: TextAlign.start),
               const SizedBox(
-                height: 5,
+                height: LSizes.sm,
               ),
+              // ------- Button -------
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -67,12 +69,11 @@ class HomeCard extends StatelessWidget {
                       backgroundColor: Colors.blue, // Color de fondo
                       shape: RoundedRectangleBorder(
                         borderRadius:
-                            BorderRadius.circular(10.0), // Bordes redondeados
+                            BorderRadius.circular(LSizes.cardRadiusMd), // Bordes redondeados
                       ),
                     ),
                     child: const Text('View more'),
                   ),
-                  const SizedBox(width: 8),
                 ],
               ),
             ],

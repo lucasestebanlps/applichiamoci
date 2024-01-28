@@ -1,6 +1,7 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/features/screens/categories/widgets/category_card.dart';
+import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -16,22 +17,22 @@ class CategoriesScreen extends StatelessWidget {
         ]),
       ),
       endDrawer: const CustomDrawer(),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Dos elementos por línea
-          crossAxisSpacing:  4, // Espaciado horizontal entre elementos
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: LSizes.sm),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // Dos elementos por línea
+            crossAxisSpacing: 5, mainAxisSpacing: 5// Espaciado horizontal entre elementos
+          ),
+          itemCount: categorias.length,
+          itemBuilder: (context, index) {
+            return CategoryCard(
+              icon: categorias[index].icon,
+              name: categorias[index].name,
+              page: categorias[index].page,
+            );
+          },
         ),
-        itemCount: categorias.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child: CategoryCard(
-                icon: categorias[index].icon,
-                name: categorias[index].name,
-                page: categorias[index].page,
-            ),
-          );
-        },
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/features/screens/home/widgets/home_card.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
+import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +32,8 @@ class HomeScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.headlineMedium)),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Divider(color: darkMode ? LColors.light : LColors.dark),
+            padding: const EdgeInsets.all(LSizes.sm),
+            child: Divider(color: darkMode ? LColors.light : LColors.dark, height: LSizes.dividerHeight,),
           ),
           const HomeCard(
             image: AssetImage(LImages.homeImage1),

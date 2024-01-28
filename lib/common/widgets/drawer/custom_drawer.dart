@@ -25,7 +25,7 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(padding: EdgeInsets.zero, children: [
         Obx(() {
           if (controller.profileLoading.value) {
-            return const LShimerEffect(width: 80, height: 15);
+            return const LShimerEffect(width: 80, height: 200);
           } else { return
             UserAccountsDrawerHeader(
               // Name

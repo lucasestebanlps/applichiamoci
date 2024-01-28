@@ -68,6 +68,7 @@ flutter:
     - assets/images/content/user.png
     - assets/images/home/
     - assets/images/
+    - assets/splash/
 
   #--------------- LOCAL FONTS ------------------#
   fonts:
