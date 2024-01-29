@@ -23,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: const LAppBar(
         showBackArrow: true,
-        title: Text('Edit profile'),
+        title: Text(LTexts.editProfile),
       ),
       endDrawer: const CustomDrawer(),
 
@@ -64,41 +64,35 @@ class ProfileScreen extends StatelessWidget {
               const Divider(),
               const SizedBox(height: LSizes.spaceBtwItems),
               const LSSectionHeading(
-                  title: 'Profile Information', showActionButton: false),
+                  title: LTexts.profileInformation, showActionButton: false),
               const SizedBox(height: LSizes.spaceBtwItems),
               LProfileMenu(
-                  onPressed: () => Get.to(() => const ChangeName()), title: 'Name', value: controller.user.value.fullName),
+                  onPressed: () => Get.to(() => const ChangeName()), title: LTexts.name, value: controller.user.value.fullName),
               LProfileMenu(
                   onPressed: () {},
-                  title: 'Username',
+                  title: LTexts.userName,
                   value: controller.user.value.username),
               const SizedBox(height: LSizes.spaceBtwItems / 2),
               const Divider(),
               const SizedBox(height: LSizes.spaceBtwItems),
               const LSSectionHeading(
-                  title: 'Personal Information', showActionButton: false),
+                  title: LTexts.personalInformation, showActionButton: false),
               const SizedBox(height: LSizes.spaceBtwItems),
               LProfileMenu(
                 onPressed: () {},
-                title: 'Email',
+                title: LTexts.email,
                 value: controller.user.value.email,
                 icon: Iconsax.copy,
               ),
               LProfileMenu(
-                  onPressed: () {}, title: 'Tel', value: controller.user.value.phoneNumber),
-              LProfileMenu(onPressed: () {}, title: 'Gender', value: 'M'),
-              LProfileMenu(
-                  onPressed: () {},
-                  title: 'Date of birth',
-                  value: '21 Feb, 1994'),
-              const SizedBox(height: LSizes.spaceBtwItems),
+                  onPressed: () {}, title: LTexts.tel, value: controller.user.value.phoneNumber),
               const Divider(),
               const SizedBox(height: LSizes.spaceBtwItems),
               Center(
                 child: TextButton(
                   onPressed: () => controller.deleteAccountWarningPopup(),
                   child: const Text(
-                    'Delete Account',
+                    LTexts.deleteAccount,
                     style: TextStyle(color: Colors.red),
                   ),
                 ),

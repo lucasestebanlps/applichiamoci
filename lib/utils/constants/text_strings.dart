@@ -49,7 +49,12 @@ class LTexts {
   static const String cancel = 'Cancel';
   static const String verify = 'Verify';
   static const String viewMore = 'View more';
-
+  static const String editProfile = 'Edit Profile';
+  static const String tel = 'Tel';
+  static const String name = 'Name';
+  static const String userName = 'Username';
+  static const String profileInformation = 'Profile Information';
+  static const String personalInformation = 'Personal Information';
   static const String sureToDelete = 'Are you sure you want to delete your account permanently? this action is not reversible and all of your data will be removel permanently.';
 
 
