@@ -7,6 +7,8 @@ import 'package:applichiamoci/features/screens/profile/widgets/change_name.dart'
 import 'package:applichiamoci/features/screens/profile/widgets/profile_menu.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:applichiamoci/utils/theme/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -36,11 +38,25 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     // Profile picture
-                    const LCircularImage(
-                        image: LImages.userImage, width: 100, height: 100),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty
+                          ? networkImage
+                          : LImages.userImage;
+                      return controller.imageUploading.value
+                          ? const LShimerEffect(
+                              width: 80, height: 80, radius: 80)
+                          : LCircularImage(
+                            fit: BoxFit.cover,
+                              image: image,
+                              width: 100,
+                              height: 100,
+                              isNetworkImage: networkImage.isNotEmpty,
+                            );
+                    }),
                     TextButton(
-                        onPressed: () {},
-                        child: const Text('Change profile picture')),
+                        onPressed: () => controller.uploadUserProfilePicture(),
+                        child: const Text(LTexts.changeProfilePicture)),
                   ],
                 ),
               ),

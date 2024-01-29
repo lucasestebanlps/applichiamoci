@@ -1,3 +1,4 @@
+import 'package:applichiamoci/common/widgets/l_circular_image.dart';
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/personalization/controllers/user_controller.dart';
@@ -37,12 +38,22 @@ class CustomDrawer extends StatelessWidget {
               accountEmail: Text(controller.user.value.email,
                   style: Theme.of(context).textTheme.bodyMedium),
               // Account Picture
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.transparent,
-                child: ClipOval(
-                  child: Image.asset(LImages.userImage),
-                ),
-              ),
+              currentAccountPicture: Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty
+                          ? networkImage
+                          : LImages.userImage;
+                      return controller.imageUploading.value
+                          ? const LShimerEffect(
+                              width: 80, height: 80, radius: 80)
+                          : LCircularImage(
+                            fit: BoxFit.cover,
+                              image: image,
+                              width: 100,
+                              height: 100,
+                              isNetworkImage: networkImage.isNotEmpty,
+                            );
+                    }),
               decoration: BoxDecoration(
                 color: darkMode ? LColors.dark : LColors.light,
                 // can add a bg image to drawer here

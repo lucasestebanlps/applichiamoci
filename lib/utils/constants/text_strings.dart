@@ -41,6 +41,7 @@ class LTexts {
   static const String submit = 'Submit';
   static const String done = 'Done';
   static const String changeName = 'Change Name';
+  static const String changeProfilePicture = 'Change profile picture';
   static const String insertNewName = 'Here you can change your name and last name.';
   static const String reAuthUser = 'Re-Authenticate User to confirm';
   static const String deleteAccount = 'Delete Account';

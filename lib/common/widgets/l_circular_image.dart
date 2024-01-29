@@ -1,18 +1,20 @@
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
+import 'package:applichiamoci/utils/theme/shimmer.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class LCircularImage extends StatelessWidget {
   const LCircularImage({
-    super.key, 
-    this.fit,  
-    required this.image,  
-    this.isNetworkImage = false, 
-    this.overlayColor, 
-    this.backgroundColor, 
-    this.width = 56, 
-    this.height = 56, 
+    super.key,
+    this.fit,
+    required this.image,
+    this.isNetworkImage = false,
+    this.overlayColor,
+    this.backgroundColor,
+    this.width = 56,
+    this.height = 56,
     this.padding = LSizes.sm,
   });
 
@@ -30,15 +32,26 @@ class LCircularImage extends StatelessWidget {
       height: height,
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
-        // if img background color is null, then switch it to light and dark mode color design.
         color: backgroundColor ?? (LHelperFunctions.isDarkMode(context) ? LColors.dark : LColors.light),
-        borderRadius: BorderRadius.circular(100)
+        shape: BoxShape.circle,
       ),
-      child: Center(
-        child: Image(
-          fit: fit,
-          image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider,
-          color: overlayColor,
+      child: ClipOval(
+        child: Center(
+          child: isNetworkImage
+              ? CachedNetworkImage(
+                  imageUrl: image,
+                  width: width,
+                  height: height,
+                  fit: fit ?? BoxFit.cover,
+                  color: overlayColor,
+                  progressIndicatorBuilder: (context, url, downloadProgress) => const LShimerEffect(width: 55, height: 55, radius: 55),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                )
+              : Image(
+                  fit: fit ?? BoxFit.cover,
+                  image: AssetImage(image),
+                  color: overlayColor,
+                ),
         ),
       ),
     );
