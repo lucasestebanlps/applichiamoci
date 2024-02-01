@@ -1,5 +1,5 @@
-import 'package:applichiamoci/features/screens/categories/categories_screen.dart';
-import 'package:applichiamoci/features/screens/home/home_screen.dart';
+import 'package:applichiamoci/features/screens/categories/screen/categories_screen.dart';
+import 'package:applichiamoci/features/screens/home/screen/home_screen.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_modal.dart';

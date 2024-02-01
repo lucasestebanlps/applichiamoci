@@ -1,6 +1,6 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
-import 'package:applichiamoci/features/screens/categories/widgets/lugares_screen.dart';
+import 'package:applichiamoci/features/screens/categories/screen/widgets/lugares_screen.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
