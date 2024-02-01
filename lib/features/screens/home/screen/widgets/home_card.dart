@@ -1,4 +1,4 @@
-import 'package:applichiamoci/features/screens/home/widgets/home_detail_screen.dart';
+import 'package:applichiamoci/features/screens/home/screen/widgets/home_detail_screen.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

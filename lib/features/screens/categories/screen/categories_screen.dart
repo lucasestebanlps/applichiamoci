@@ -31,7 +31,7 @@ class CategoriesScreen extends StatelessWidget {
       ),
       endDrawer: const CustomDrawer(),
       body: Padding(
-        padding: const EdgeInsets.all(LSizes.sm),
+        padding: const EdgeInsets.symmetric(horizontal: LSizes.sm),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
