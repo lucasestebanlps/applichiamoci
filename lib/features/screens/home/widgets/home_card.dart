@@ -28,6 +28,7 @@ class HomeCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: LSizes.sm),
       child: Card(
+        elevation: 3,
         child: Padding(
           padding: const EdgeInsets.all(LSizes.sm),
           child: Column(
