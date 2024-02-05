@@ -6,7 +6,7 @@ import 'package:applichiamoci/features/screens/profile/profile_screen.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
-import 'package:applichiamoci/utils/theme/shimmer.dart';
+import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

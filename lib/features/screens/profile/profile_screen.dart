@@ -9,7 +9,7 @@ import 'package:applichiamoci/features/screens/profile/widgets/profile_menu.dart
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
-import 'package:applichiamoci/utils/theme/shimmer.dart';
+import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

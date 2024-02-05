@@ -1,7 +1,7 @@
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
-import 'package:applichiamoci/utils/theme/shimmer.dart';
+import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
