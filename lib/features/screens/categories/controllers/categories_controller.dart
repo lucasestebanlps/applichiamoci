@@ -9,34 +9,29 @@ class CategoryController extends GetxController {
   final isLoading = false.obs;
   final _categoryRepository = Get.put(CategoryRepository());
   RxList<CategoryModel> allCategories = <CategoryModel>[].obs;
+ List<String> loadedCategories = []; // Lista para almacenar las categorías ya cargadas
 
   @override
   void onInit() {
-    fetchCategories();
     super.onInit();
+    fetchCategories();
   }
 
-  // Load category data
+  // Load categories data
   Future<void> fetchCategories() async {
     try {
       // Show loader while loading categories
       isLoading.value = true;
 
-      // Fetch categories from data source (Firestore, API, etc.)
+      // Fetch categories using _categoryRepository
       final categories = await _categoryRepository.getAllCategories();
 
       // Update the categories list
       allCategories.assignAll(categories);
-
-      // Filter featured categories
     } catch (e) {
       LLoaders.errorSnackBar(title: 'Error', message: e.toString());
     } finally {
       isLoading.value = false;
     }
   }
-
-  // Load selected category data
-
-  // Get Category or Sub-Category products
 }

@@ -18,7 +18,7 @@ class ActionButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        if (callActionParameter != null)
+        if (callActionParameter != null && callActionParameter!.isNotEmpty)
           ElevatedButton(
             onPressed: () => LHelperFunctions.callAction(callActionParameter!),
             style: ElevatedButton.styleFrom(
@@ -31,7 +31,7 @@ class ActionButtons extends StatelessWidget {
             ),
             child: const Text('Chiama'),
           ),
-        if (mapActionParameter != null) ...[
+        if (mapActionParameter != null && mapActionParameter!.isNotEmpty) ...[
           const SizedBox(width: LSizes.spaceBtwItems),
           ElevatedButton(
             onPressed: () => LHelperFunctions.mapAction(mapActionParameter),

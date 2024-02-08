@@ -1,5 +1,5 @@
 import 'package:applichiamoci/features/screens/categories/models/category_model.dart';
-import 'package:applichiamoci/features/screens/categories/screen/widgets/lugares_screen.dart';
+import 'package:applichiamoci/features/screens/categories/screen/widgets/places_screen.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +17,7 @@ class LCategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => LugaresScreen(categoria: category.name));
+        Get.to(() => PlacesScreen(category: category.id, nameCategory: category.name,));
       },
       child: Card(
         elevation: 3.0,
