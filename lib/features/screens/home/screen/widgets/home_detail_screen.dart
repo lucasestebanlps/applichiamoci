@@ -1,65 +1,62 @@
-// detail_screen.dart
+import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:flutter/material.dart';
+import 'package:applichiamoci/features/screens/home/models/home_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/buttons/action_buttons.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
+import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
-import 'package:flutter/material.dart';
 
 class HomeDetailScreen extends StatelessWidget {
-  final AssetImage image;
-  final String title;
-  final String subtitle;
-  final String paragraph;
-  final String? phoneNumber;
-  final String? mapUrl;
+  final HomeModel home;
 
-  const HomeDetailScreen(
-      {super.key,
-      required this.title,
-      required this.image,
-      required this.subtitle, 
-      required this.paragraph, 
-      this.phoneNumber, 
-      this.mapUrl});
+  const HomeDetailScreen({super.key, required this.home});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LAppBar(
         showBackArrow: true,
-        title: Column(children: [
-          Text(title, style: Theme.of(context).textTheme.headlineSmall!)
-        ]),
+        title: Text(
+          home.title,
+          style: Theme.of(context).textTheme.headlineSmall!,
+        ),
       ),
       endDrawer: const CustomDrawer(),
-
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(LSizes.defaultSpace),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image(image: image),
-              const SizedBox(height: LSizes.spaceBtwItems),
-          
-              Text(
-                title,
-                style: Theme.of(context).textTheme.headlineMedium,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CachedNetworkImage(
+              imageUrl: home.image ?? '',
+              height: 250,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => const LShimerEffect(
+                width: double.infinity,
+                height: 250,
               ),
-              Text(
-                subtitle,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              const SizedBox(height: LSizes.spaceBtwItems /2),
-              Text(paragraph,
-                style: Theme.of(context).textTheme.bodyMedium
-              ),
-              const SizedBox(height: LSizes.spaceBtwSections),
-              ActionButtons(callActionParameter: phoneNumber, mapActionParameter: mapUrl,)
-          
-             
-            ],
-          ),
+              errorWidget: (context, url, error) =>
+                  const Icon(Icons.error), // Widget de error si no se puede cargar la imagen
+            ),
+            const SizedBox(height: LSizes.spaceBtwItems),
+            Text(
+              home.subtitle,
+              style: Theme.of(context).textTheme.titleMedium
+                    ),
+            const SizedBox(height: LSizes.spaceBtwItems / 2),
+            Text(
+              home.paragraph,
+              style: Theme.of(context).textTheme.bodyLarge
+            ),
+            const SizedBox(height: LSizes.spaceBtwSections),
+            ActionButtons(
+              callActionParameter: home.phoneNumber,
+              mapActionParameter: home.mapUrl,
+            ),
+          ],
         ),
       ),
     );

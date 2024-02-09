@@ -4,11 +4,9 @@ class CategoryModel {
   String id;
   String name;
   String icon;
-  String parentId;
   int backgroundColor;
 
   CategoryModel({
-    this.parentId = '',
     required this.id,
     required this.name,
     required this.icon,
@@ -25,7 +23,6 @@ class CategoryModel {
       'name': name,
       'icon': icon,
       'backgroundColor': backgroundColor,
-      'parentId': parentId,
     };
   }
 
@@ -41,7 +38,7 @@ class CategoryModel {
           name: data['name'] ?? '',
           icon: data['icon'] ?? '',
           backgroundColor: data['backgroundColor'] ?? '',
-          parentId: data['parentId'] ?? '');
+        );
     } else {
       return CategoryModel.empty();
     }

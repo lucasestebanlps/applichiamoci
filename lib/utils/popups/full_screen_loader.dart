@@ -25,11 +25,13 @@ class LFullScreenLoader {
                     : LColors.light,
                 width: double.infinity,
                 height: double.infinity,
-                child: Column(
-                  children: [
-                    const SizedBox(height: 250),
-                    LAnimationLoaderWidget(text: text, animation: animation)
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 250),
+                      LAnimationLoaderWidget(text: text, animation: animation)
+                    ],
+                  ),
                 ),
               ),
             )
