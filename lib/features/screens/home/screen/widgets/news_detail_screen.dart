@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:applichiamoci/features/screens/home/models/home_model.dart';
+import 'package:applichiamoci/features/screens/home/models/news_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/buttons/action_buttons.dart';
@@ -7,10 +7,10 @@ import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 
-class HomeDetailScreen extends StatelessWidget {
-  final HomeModel home;
+class NewsDetailScreen extends StatelessWidget {
+  final NewsModel home;
 
-  const HomeDetailScreen({super.key, required this.home});
+  const NewsDetailScreen({super.key, required this.home});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class HomeDetailScreen extends StatelessWidget {
             const SizedBox(height: LSizes.spaceBtwSections),
             ActionButtons(
               callActionParameter: home.phoneNumber,
-              mapActionParameter: home.mapUrl,
+              mapActionParameter: home.mapCoordinates,
             ),
           ],
         ),

@@ -1,16 +1,16 @@
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
-import 'package:applichiamoci/features/screens/home/screen/widgets/home_detail_screen.dart';
+import 'package:applichiamoci/features/screens/home/screen/widgets/news_detail_screen.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:applichiamoci/features/screens/home/models/home_model.dart';
+import 'package:applichiamoci/features/screens/home/models/news_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class HomeCard extends StatelessWidget {
-  final HomeModel home;
+class NewsCard extends StatelessWidget {
+  final NewsModel home;
 
-  const HomeCard({super.key, required this.home});
+  const NewsCard({super.key, required this.home});
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class HomeCard extends StatelessWidget {
     );
   }
 
-  void _navigateToDetailScreen(HomeModel home) {
-    Get.to(() => HomeDetailScreen(home: home));
+  void _navigateToDetailScreen(NewsModel home) {
+    Get.to(() => NewsDetailScreen(home: home));
   }
 }

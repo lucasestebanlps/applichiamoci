@@ -87,7 +87,7 @@ class PlacesScreen extends StatelessWidget {
                         const SizedBox(height: LSizes.spaceBtwItems),
                         ActionButtons(
                             callActionParameter: places[index].phoneNumber,
-                            mapActionParameter: places[index].direction),
+                            mapActionParameter: places[index].mapCoordinates),
                       ],
                     ),
                   ),

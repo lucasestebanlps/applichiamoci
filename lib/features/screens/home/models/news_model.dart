@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class HomeModel {
+class NewsModel {
   final String id;
   final String? image;
   final String title;
@@ -8,13 +8,13 @@ class HomeModel {
   final String description;
   final String paragraph;
   final String? phoneNumber;
-  final String? mapUrl;
+  final String? mapCoordinates;
 
-  HomeModel({
+  NewsModel({
     this.image = '',
     this.subtitle = '',
     this.phoneNumber,
-    this.mapUrl,
+    this.mapCoordinates,
     required this.id,
     required this.description,
     required this.title,
@@ -22,7 +22,7 @@ class HomeModel {
   });
 
   // Empty helper function
-  static HomeModel empty() => HomeModel(
+  static NewsModel empty() => NewsModel(
       id: '',
       title: '',
       paragraph: '',
@@ -30,7 +30,7 @@ class HomeModel {
       image: '',
       subtitle: '',
       phoneNumber: '',
-      mapUrl: '');
+      mapCoordinates: '');
 
   // Convert model to Json structure so that you can store data in Firebase
   Map<String, dynamic> toJson() {
@@ -41,18 +41,18 @@ class HomeModel {
       'description': description,
       'image': image,
       'phoneNumber': phoneNumber,
-      'mapUrl': mapUrl,
+      'mapCoordinates': mapCoordinates,
     };
   }
 
   // Map Json oriented document snapshot from Firebase to UserModel
-  factory HomeModel.fromSnapshot(
+  factory NewsModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;
 
       // Map JSON record to the model
-      return HomeModel(
+      return NewsModel(
         id: document.id,
         title: data['title'] ?? '',
         subtitle: data['subtitle'] ?? '',
@@ -60,10 +60,10 @@ class HomeModel {
         paragraph: data['paragraph'] ?? '',
         phoneNumber: data['phoneNumber'] ?? '',
         image: data['image'] ?? '',
-        mapUrl: data['mapUrl'] ?? '',
+        mapCoordinates: data['mapCoordinates'] ?? '',
       );
     } else {
-      return HomeModel.empty();
+      return NewsModel.empty();
     }
   }
 }

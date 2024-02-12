@@ -1,5 +1,5 @@
 import 'package:applichiamoci/features/screens/categories/screen/categories_screen.dart';
-import 'package:applichiamoci/features/screens/home/screen/home_screen.dart';
+import 'package:applichiamoci/features/screens/home/screen/news_screen.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_modal.dart';
@@ -50,7 +50,7 @@ class NavigationMenu extends StatelessWidget {
               ? LColors.white.withOpacity(0.1)
               : LColors.black.withOpacity(0.1),
           destinations: const [
-            NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Iconsax.home), label: 'Notizie'),
             SizedBox(width: 40),
             NavigationDestination(
                 icon: Icon(Iconsax.category), label: 'Servizi'),
@@ -66,7 +66,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    const HomeScreen(),
+    const NewsScreen(),
     Container(),
     const CategoriesScreen()
   ];

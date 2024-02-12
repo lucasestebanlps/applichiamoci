@@ -1,4 +1,4 @@
-import 'package:applichiamoci/features/screens/home/models/home_model.dart';
+import 'package:applichiamoci/features/screens/home/models/news_model.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -12,11 +12,11 @@ class HomeRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   // Get all categoires
-  Future<List<HomeModel>> getAllNews() async {
+  Future<List<NewsModel>> getAllNews() async {
     try {
       final snapshot = await _db.collection('News').get();
       final list = snapshot.docs
-          .map((document) => HomeModel.fromSnapshot(document))
+          .map((document) => NewsModel.fromSnapshot(document))
           .toList();
       return list;
     } on FirebaseException catch (e) {

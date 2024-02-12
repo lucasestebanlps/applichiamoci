@@ -1,14 +1,14 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/home/home_repository.dart';
-import 'package:applichiamoci/features/screens/home/models/home_model.dart';
+import 'package:applichiamoci/features/screens/home/models/news_model.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  static HomeController get instance => Get.find();
+class NewsController extends GetxController {
+  static NewsController get instance => Get.find();
 
   final isLoading = false.obs;
   final _homeRepository = Get.put(HomeRepository());
-  RxList<HomeModel> allNews = <HomeModel>[].obs;
+  RxList<NewsModel> allNews = <NewsModel>[].obs;
 
   @override
   void onInit() {
