@@ -1,14 +1,14 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/buttons/action_buttons.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
-import 'package:applichiamoci/common/widgets/shimmer/places_shimmer.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
 import 'package:applichiamoci/features/screens/categories/models/place_model.dart';
-import 'package:applichiamoci/features/screens/categories/screen/widgets/error_text_categories.dart';
+import 'package:applichiamoci/common/widgets/text/error_text_icon.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class PlacesScreen extends StatelessWidget {
@@ -40,9 +40,20 @@ class PlacesScreen extends StatelessWidget {
         child: Obx(() {
           // Muestra el loader mientras se cargan los lugares
           if (placesController.isLoading.value) {
-            return const LPlacesShimmer(itemCount: 4);
+            return const Center(child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SpinKitSquareCircle(
+                  color: Colors.blue, // Color del indicador de carga
+                  size: 50.0,         // Tamaño del indicador de carga
+                ),
+                SizedBox(height: LSizes.spaceBtwItems),
+                Text('Loading...')
+              ],
+            ),);
           } else if (placesController.placesForCategory.isEmpty) {
-            return const ErrorTextCategories();
+            return const LErrorCenteredText(icon: Icons.warning, text: 'Nessun luogo disponibile per questa categoria.',);
           } else {
             // Lista de lugares para la categoría seleccionada
             List<PlaceModel> places = placesController.placesForCategory;

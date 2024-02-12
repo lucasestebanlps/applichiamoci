@@ -1,4 +1,3 @@
-import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:applichiamoci/features/screens/home/models/home_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';

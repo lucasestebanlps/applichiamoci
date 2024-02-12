@@ -1,23 +1,25 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
-class ErrorTextCategories extends StatelessWidget {
-  const ErrorTextCategories({
-    super.key,
+class LErrorCenteredText extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  const LErrorCenteredText({
+    super.key, required this.icon, required this.text,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
-            Icons.warning,
+            icon,
             size: 50,
             color: Colors.orange,
           ),
-          Text(
+          const Text(
             '¡Ops!',
             style: TextStyle(
               fontSize: 24,
@@ -25,11 +27,11 @@ class ErrorTextCategories extends StatelessWidget {
               color: Colors.orange,
             ),
           ),
-          SizedBox(height: LSizes.spaceBtwItems),
+          const SizedBox(height: LSizes.spaceBtwItems),
           Text(
-            'Nessun luogo disponibile per questa categoria.',
+            text,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.grey,
             ),
