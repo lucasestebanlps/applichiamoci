@@ -31,10 +31,14 @@ class SignUpController extends GetxController {
       LFullScreenLoader.openLoadingDialog(
           'We are processing your information...', LImages.checkInformation);
 
-      // Check internet conectivity
+      // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
+        // Mostrar mensaje de error al usuario
+        LLoaders.errorSnackBar(
+            title: 'Error!',
+            message: 'No internet connection. Please check your connection.');
         return;
       }
 
