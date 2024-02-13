@@ -2,7 +2,7 @@ import 'package:applichiamoci/features/screens/categories/screen/categories_scre
 import 'package:applichiamoci/features/screens/home/screen/news_screen.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
-import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_modal.dart';
+import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -30,9 +30,11 @@ class NavigationMenu extends StatelessWidget {
             size: 35,
           ),
           onPressed: () {
-             showDialog(
+            showModalBottomSheet(
               context: context,
-              builder: (context) => const EmergencyCallModal(),
+              builder: (BuildContext context) {
+                return const EmergencyCallBottomSheet();
+              },
             );
           },
         ),
@@ -65,10 +67,5 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [
-    const NewsScreen(),
-    Container(),
-    const CategoriesScreen()
-  ];
+  final screens = [const NewsScreen(), Container(), const CategoriesScreen()];
 }
-
