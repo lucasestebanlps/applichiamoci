@@ -164,35 +164,47 @@ class UserController extends GetxController {
   }
 
   // Upload Profile Image
-  uploadUserProfilePicture() async {
-    try {
-      final image = await ImagePicker().pickImage(
-          source: ImageSource.gallery,
-          imageQuality: 70,
-          maxHeight: 512,
-          maxWidth: 512);
-      if (image != null) {
-        imageUploading.value = true;
-        // Upload image
-        final imageUrl =
-            await userRepository.uploadImage('Users/Images/Profile/', image);
+uploadUserProfilePicture() async {
+  try {
+    final image = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 70,
+      maxHeight: 512,
+      maxWidth: 512,
+    );
+    if (image != null) {
+      imageUploading.value = true;
 
-        // Update user image record
-        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
-        await userRepository.updateSingleField(json);
+      // Get current user's profile picture URL
+      final currentImageUrl = user.value.profilePicture;
 
-        user.value.profilePicture = imageUrl;
-
-        user.refresh();
-        LLoaders.successSnackBar(
-            title: 'Congratulations',
-            message: 'Your profile image has been updated');
+      // If there's a previous image, delete it from Firebase Storage
+      if (currentImageUrl.isNotEmpty) {
+        await userRepository.deleteImage(currentImageUrl);
       }
-    } catch (e) {
-      LLoaders.errorSnackBar(
-          title: 'Error', message: 'Something went wrong $e');
-    } finally {
-      imageUploading.value = false;
+
+      // Upload new image
+      final imageUrl = await userRepository.uploadImage('Users/Images/Profile/', image);
+
+      // Update user image record
+      Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+      await userRepository.updateSingleField(json);
+
+      user.value.profilePicture = imageUrl;
+
+      user.refresh();
+      LLoaders.successSnackBar(
+        title: 'Congratulations',
+        message: 'Your profile image has been updated',
+      );
     }
+  } catch (e) {
+    LLoaders.errorSnackBar(
+      title: 'Error',
+      message: 'Something went wrong $e',
+    );
+  } finally {
+    imageUploading.value = false;
   }
+}
 }

@@ -7,7 +7,7 @@ class EmergencyServiceButton extends StatelessWidget {
   final IconData iconData;
   final Color? highlightColor;
 
-  const EmergencyServiceButton({
+  const EmergencyServiceButton({super.key, 
     required this.label,
     required this.phoneNumber,
     required this.iconData,
