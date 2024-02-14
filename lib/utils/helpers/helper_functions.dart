@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LHelperFunctions {
@@ -114,25 +115,43 @@ class LHelperFunctions {
     return wrappedList;
   }
 
-    static void callAction(String callActionParameter) async {
-    final phoneNumber = Uri(scheme: 'tel', path: callActionParameter);
-    if (await canLaunchUrl(phoneNumber)) {
-      await launchUrl(phoneNumber);
+ static void callAction(String callActionParameter) async {
+    final status = await Permission.phone.request();
+    if (status.isGranted) {
+      final phoneNumber = Uri(scheme: 'tel', path: callActionParameter);
+      if (await canLaunchUrl(phoneNumber)) {
+        await launchUrl(phoneNumber);
+      } else {
+        LLoaders.errorSnackBar(
+          title: 'Error',
+          message: 'Il numero $callActionParameter non é disponibile',
+          mainButton: true
+        );
+      }
     } else {
       LLoaders.errorSnackBar(
-        title: 'Error',
-        message: 'Il numero $callActionParameter non é disponibile',
+        title: 'Permission Denied',
+        message: 'Access to phone is required to make a call.',
+        mainButton: true
       );
     }
   }
 
-  static void mapAction(String? mapActionParameter) {
-    if (mapActionParameter != null) {
-      MapsLauncher.launchQuery(mapActionParameter);
+  static void mapAction(String? mapActionParameter) async {
+    final status = await Permission.locationWhenInUse.request();
+    if (status.isGranted) {
+      if (mapActionParameter != null) {
+        MapsLauncher.launchQuery(mapActionParameter);
+      } else {
+        LLoaders.errorSnackBar(
+          title: 'Error',
+          message: 'Il mapa non é disponibile',
+        );
+      }
     } else {
       LLoaders.errorSnackBar(
-        title: 'Error',
-        message: 'Il mapa non é disponibile',
+        title: 'Permission Denied',
+        message: 'Access to location is required to open maps.',
       );
     }
   }

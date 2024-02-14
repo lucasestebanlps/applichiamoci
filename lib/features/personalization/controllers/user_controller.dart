@@ -13,6 +13,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
@@ -163,48 +164,62 @@ class UserController extends GetxController {
     }
   }
 
-  // Upload Profile Image
-uploadUserProfilePicture() async {
-  try {
-    final image = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 70,
-      maxHeight: 512,
-      maxWidth: 512,
-    );
-    if (image != null) {
-      imageUploading.value = true;
+  
 
-      // Get current user's profile picture URL
-      final currentImageUrl = user.value.profilePicture;
-
-      // If there's a previous image, delete it from Firebase Storage
-      if (currentImageUrl.isNotEmpty) {
-        await userRepository.deleteImage(currentImageUrl);
+    // Upload Profile Image
+  uploadUserProfilePicture() async {
+    try {
+      // Solicitar permiso de acceso a la galería de fotos
+      var status = await Permission.storage.request();
+      if (status != PermissionStatus.granted) {
+        // Si el permiso no se concede, muestra un mensaje al usuario y proporciona un botón para que lo active
+        LLoaders.errorSnackBar(
+          title: 'Permission Denied',
+          message: 'Access to gallery is required to update profile picture.',
+          mainButton: true
+        );
+        return;
       }
-
-      // Upload new image
-      final imageUrl = await userRepository.uploadImage('Users/Images/Profile/', image);
-
-      // Update user image record
-      Map<String, dynamic> json = {'ProfilePicture': imageUrl};
-      await userRepository.updateSingleField(json);
-
-      user.value.profilePicture = imageUrl;
-
-      user.refresh();
-      LLoaders.successSnackBar(
-        title: 'Congratulations',
-        message: 'Your profile image has been updated',
+      final image = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 70,
+        maxHeight: 512,
+        maxWidth: 512,
       );
+      if (image != null) {
+        imageUploading.value = true;
+
+        // Get current user's profile picture URL
+        final currentImageUrl = user.value.profilePicture;
+
+        // If there's a previous image, delete it from Firebase Storage
+        if (currentImageUrl.isNotEmpty) {
+          await userRepository.deleteImage(currentImageUrl);
+        }
+
+        // Upload new image
+        final imageUrl =
+            await userRepository.uploadImage('Users/Images/Profile/', image);
+
+        // Update user image record
+        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+        await userRepository.updateSingleField(json);
+
+        user.value.profilePicture = imageUrl;
+
+        user.refresh();
+        LLoaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your profile image has been updated',
+        );
+      }
+    } catch (e) {
+      LLoaders.errorSnackBar(
+        title: 'Error',
+        message: 'Something went wrong $e',
+      );
+    } finally {
+      imageUploading.value = false;
     }
-  } catch (e) {
-    LLoaders.errorSnackBar(
-      title: 'Error',
-      message: 'Something went wrong $e',
-    );
-  } finally {
-    imageUploading.value = false;
-  }
-}
+  }  
 }

@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>tel</string>
+		</array>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>Access to your location is required to open maps.</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>Permiso necesario para acceder a la galería de fotos</string>
+		<key>NSPhotoLibraryAddUsageDescription</key>
+		<string>Permiso necesario para guardar fotos en la galería</string>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
