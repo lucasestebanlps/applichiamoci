@@ -56,10 +56,14 @@ class LTexts {
   static const String profileInformation = 'Profile Information';
   static const String personalInformation = 'Personal Information';
   static const String sureToDelete = 'Are you sure you want to delete your account permanently? this action is not reversible and all of your data will be removel permanently.';
+  static const String accetare = 'Accetare';
+  static const String annulla = 'Annulla';
+  static const String avvertimento = 'Avvertimento';
+  static const String sitioFondazioneEmanuele = 'Andrai al sito ufficiale della Fondazione Emmanuel';
 
 
   //-- Authentication Headings Text
-  static const String loginTitle = "Welcome back,";
+  static const String loginTitle = "Welcome back!";
   static const String loginSubTitle =
       "Find the place or service you need with just a few clicks";
   static const String signupTitle = "Let's create your account";

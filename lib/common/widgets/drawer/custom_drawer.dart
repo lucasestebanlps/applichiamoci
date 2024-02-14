@@ -5,6 +5,7 @@ import 'package:applichiamoci/features/personalization/controllers/user_controll
 import 'package:applichiamoci/features/screens/profile/profile_screen.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +28,8 @@ class CustomDrawer extends StatelessWidget {
         Obx(() {
           if (controller.profileLoading.value) {
             return const LShimerEffect(width: 80, height: 200);
-          } else { return
-            UserAccountsDrawerHeader(
+          } else {
+            return UserAccountsDrawerHeader(
               // Name
               accountName: Text(
                 controller.user.value.fullName,
@@ -39,21 +40,19 @@ class CustomDrawer extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium),
               // Account Picture
               currentAccountPicture: Obx(() {
-                      final networkImage = controller.user.value.profilePicture;
-                      final image = networkImage.isNotEmpty
-                          ? networkImage
-                          : LImages.userImage;
-                      return controller.imageUploading.value
-                          ? const LShimerEffect(
-                              width: 80, height: 80, radius: 80)
-                          : LCircularImage(
-                            fit: BoxFit.cover,
-                              image: image,
-                              width: 100,
-                              height: 100,
-                              isNetworkImage: networkImage.isNotEmpty,
-                            );
-                    }),
+                final networkImage = controller.user.value.profilePicture;
+                final image =
+                    networkImage.isNotEmpty ? networkImage : LImages.userImage;
+                return controller.imageUploading.value
+                    ? const LShimerEffect(width: 80, height: 80, radius: 80)
+                    : LCircularImage(
+                        fit: BoxFit.cover,
+                        image: image,
+                        width: 100,
+                        height: 100,
+                        isNetworkImage: networkImage.isNotEmpty,
+                      );
+              }),
               decoration: BoxDecoration(
                 color: darkMode ? LColors.dark : LColors.light,
                 // can add a bg image to drawer here
@@ -71,12 +70,22 @@ class CustomDrawer extends StatelessWidget {
           leading: const Icon(Iconsax.heart),
           title: const Text('Dona ora'),
           onTap: () async {
-            var url = Uri.parse('https://fondazione-emmanuel.org');
-            if (await canLaunchUrl(url)) {
-              await launchUrl(url);
-            } else {
-              LLoaders.errorSnackBar(
-                  title: 'Error', message: 'Non é possibilie andare al sitio');
+            bool confirm = await LHelperFunctions().showConfirmationDialog(
+              context,
+              LTexts.avvertimento,
+              LTexts.sitioFondazioneEmanuele,
+            );
+
+            if (confirm) {
+              var url = Uri.parse('https://fondazione-emmanuel.org');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
+              } else {
+                LLoaders.errorSnackBar(
+                  title: 'Error',
+                  message: 'Non é possibilie andare al sito',
+                );
+              }
             }
           },
         ),

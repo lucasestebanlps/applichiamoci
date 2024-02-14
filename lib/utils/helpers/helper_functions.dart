@@ -1,4 +1,5 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -98,7 +99,8 @@ class LHelperFunctions {
     return MediaQuery.of(Get.context!).size.width;
   }
 
-  static String getFormattedDate(DateTime date, {String format = 'dd MMM yyyy'}) {
+  static String getFormattedDate(DateTime date,
+      {String format = 'dd MMM yyyy'}) {
     return DateFormat(format).format(date);
   }
 
@@ -109,13 +111,14 @@ class LHelperFunctions {
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize) {
     final wrappedList = <Widget>[];
     for (var i = 0; i < widgets.length; i += rowSize) {
-      final rowChildren = widgets.sublist(i, i + rowSize > widgets.length ? widgets.length : i + rowSize);
+      final rowChildren = widgets.sublist(
+          i, i + rowSize > widgets.length ? widgets.length : i + rowSize);
       wrappedList.add(Row(children: rowChildren));
     }
     return wrappedList;
   }
 
- static void callAction(String callActionParameter) async {
+  static void callAction(String callActionParameter) async {
     final status = await Permission.phone.request();
     if (status.isGranted) {
       final phoneNumber = Uri(scheme: 'tel', path: callActionParameter);
@@ -123,17 +126,15 @@ class LHelperFunctions {
         await launchUrl(phoneNumber);
       } else {
         LLoaders.errorSnackBar(
-          title: 'Error',
-          message: 'Il numero $callActionParameter non é disponibile',
-          mainButton: true
-        );
+            title: 'Error',
+            message: 'Il numero $callActionParameter non é disponibile',
+            mainButton: true);
       }
     } else {
       LLoaders.errorSnackBar(
-        title: 'Permission Denied',
-        message: 'Access to phone is required to make a call.',
-        mainButton: true
-      );
+          title: 'Permission Denied',
+          message: 'Access to phone is required to make a call.',
+          mainButton: true);
     }
   }
 
@@ -154,5 +155,37 @@ class LHelperFunctions {
         message: 'Access to location is required to open maps.',
       );
     }
+  }
+
+    Future<bool> showConfirmationDialog(
+    BuildContext context,
+    String title,
+    String content,
+  ) async {
+    // Mostrar el diálogo de confirmación y esperar la respuesta del usuario
+    bool? confirmed = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(content),
+          actions: <Widget>[
+            TextButton(
+              child: const Text(LTexts.annulla),
+              onPressed: () {
+                Navigator.of(context).pop(false); // Indicar que se canceló la acción
+              },
+            ),
+            TextButton(
+              child: const Text(LTexts.accetare),
+              onPressed: () {
+                Navigator.of(context).pop(true); // Indicar que se confirmó la acción
+              },
+            ),
+          ],
+        );
+      },
+    );
+    return confirmed ?? false; // Si el usuario cierra el diálogo sin seleccionar ninguna opción, se considera como cancelado
   }
 }
