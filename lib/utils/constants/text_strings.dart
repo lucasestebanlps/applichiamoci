@@ -17,6 +17,7 @@ class LTexts {
 
   // -- Home Screen Texts
   static const String notizieTitle = "Notizie";
+  static const String servizi = "Servizi";
 
   //-- Authentication Form Text
   static const String firstName = "First Name";

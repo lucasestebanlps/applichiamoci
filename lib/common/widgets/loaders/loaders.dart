@@ -16,6 +16,7 @@ class LLoaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: Colors.white,
+      margin: const EdgeInsets.all(LSizes.md),
       backgroundColor: Colors.orange,
       padding: const EdgeInsets.symmetric(horizontal: LSizes.md, vertical: 0),
       snackPosition: SnackPosition.BOTTOM,
@@ -91,7 +92,8 @@ class LLoaders {
       shouldIconPulse: true,
       colorText: Colors.white,
       backgroundColor: Colors.red.shade600,
-      padding: const EdgeInsets.symmetric(horizontal: LSizes.md, vertical: 0),
+      margin: const EdgeInsets.all(LSizes.md),
+      padding: const EdgeInsets.symmetric(horizontal: LSizes.sm, vertical: 0),
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       messageText: Column(
@@ -102,6 +104,7 @@ class LLoaders {
               // Columna para el icono
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                
                 children: [
                   Icon(Iconsax.warning_2, color: Colors.white),
                 ],
@@ -172,6 +175,8 @@ class LLoaders {
       shouldIconPulse: true,
       colorText: Colors.white,
       backgroundColor: Colors.green.shade600,
+            margin: const EdgeInsets.all(LSizes.md),
+
       padding: const EdgeInsets.symmetric(horizontal: LSizes.md, vertical: 0),
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),

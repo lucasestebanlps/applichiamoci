@@ -1,6 +1,7 @@
 import 'package:applichiamoci/features/screens/categories/screen/categories_screen.dart';
 import 'package:applichiamoci/features/screens/home/screen/news_screen.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -47,12 +48,12 @@ class NavigationMenu extends StatelessWidget {
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
               controller.selectedIndex.value = index,
-          backgroundColor: darkMode ? LColors.black : LColors.light,
+          backgroundColor: Colors.transparent,
           indicatorColor: darkMode
               ? LColors.white.withOpacity(0.1)
               : LColors.black.withOpacity(0.1),
           destinations: const [
-            NavigationDestination(icon: Icon(Iconsax.home), label: 'Notizie'),
+            NavigationDestination(icon: Icon(Iconsax.home), label: LTexts.servizi),
             SizedBox(width: 40),
             NavigationDestination(
                 icon: Icon(Iconsax.category), label: 'Servizi'),

@@ -171,15 +171,15 @@ class LHelperFunctions {
           content: Text(content),
           actions: <Widget>[
             TextButton(
-              child: const Text(LTexts.annulla),
+              child: const Text(LTexts.accetare),
               onPressed: () {
-                Navigator.of(context).pop(false); // Indicar que se canceló la acción
+                Navigator.of(context).pop(true); // Indicar que se canceló la acción
               },
             ),
             TextButton(
-              child: const Text(LTexts.accetare),
+              child: const Text(LTexts.annulla),
               onPressed: () {
-                Navigator.of(context).pop(true); // Indicar que se confirmó la acción
+                Navigator.of(context).pop(false); // Indicar que se confirmó la acción
               },
             ),
           ],

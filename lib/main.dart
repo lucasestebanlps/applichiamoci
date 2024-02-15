@@ -23,5 +23,5 @@ Future<void> main() async {
       .then((FirebaseApp value) => Get.put(AuthenticationRepository()));
   // Todo: initialize authentication
 
-  runApp(const App());
+  runApp(const SafeArea(left:false, child: App()));
 }

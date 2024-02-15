@@ -1,4 +1,3 @@
-import 'package:applichiamoci/common/styles/spacing_styles.dart';
 import 'package:applichiamoci/common/widgets/login_signup/form_divider.dart';
 import 'package:applichiamoci/common/widgets/login_signup/social_buttons.dart';
 import 'package:applichiamoci/features/authentication/screens/login/widgets/login_form.dart';
@@ -19,7 +18,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
           child: Padding(
-        padding: LSpacingStyle.paddingWithAppBarWeight,
+        padding: const EdgeInsets.all(LSizes.md),
         child: Column(
           children: [
             // Logo, Title & Subtitle
@@ -30,20 +29,13 @@ class LoginScreen extends StatelessWidget {
 
             // Divider
             LFormDivider(dividerText: LTexts.orSignInWith.capitalize!),
-          
+
             const SizedBox(height: LSizes.spaceBtwSections),
             // Footer
             const LSocialButtons()
-
-          ],        
+          ],
         ),
       )),
     );
   }
 }
-
-
-
-
-
-

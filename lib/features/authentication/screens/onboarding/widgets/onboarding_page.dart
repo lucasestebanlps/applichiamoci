@@ -14,26 +14,29 @@ class OnBoardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(LSizes.defaultSpace),
-      child: Column(
-        children: [
-          Image(
-              width: LHelperFunctions.screenWidth() * 0.8,
-              height: LHelperFunctions.screenHeight() * 0.6,
-              image: AssetImage(image)),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineMedium,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: LSizes.spaceBtwItems),
-          Text(
-            subTitle,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          ),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(LSizes.defaultSpace),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image(
+                width: LHelperFunctions.screenWidth() * 0.8,
+                height: LHelperFunctions.screenHeight() * 0.6,
+                image: AssetImage(image)),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.headlineMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: LSizes.spaceBtwItems),
+            Text(
+              subTitle,
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

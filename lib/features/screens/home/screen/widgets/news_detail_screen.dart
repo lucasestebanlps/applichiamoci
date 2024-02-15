@@ -24,33 +24,46 @@ class NewsDetailScreen extends StatelessWidget {
       ),
       endDrawer: const CustomDrawer(),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(LSizes.defaultSpace),
+        padding: const EdgeInsets.all(LSizes.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CachedNetworkImage(
-              imageUrl: home.image ?? '',
-              height: 250,
-              width: double.infinity,
-              fit: BoxFit.cover,
-              placeholder: (context, url) => const LShimerEffect(
-                width: double.infinity,
+            // ------ IMAGEN ------
+
+            ClipRRect(
+              borderRadius: BorderRadius.circular(LSizes.cardRadiusSm),
+              child: CachedNetworkImage(
+                imageUrl: home.image ?? '',
                 height: 250,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => const LShimerEffect(
+                  width: double.infinity,
+                  height: 250,
+                ),
+                errorWidget: (context, url, error) => const Icon(Icons
+                    .error), // Widget de error si no se puede cargar la imagen
               ),
-              errorWidget: (context, url, error) =>
-                  const Icon(Icons.error), // Widget de error si no se puede cargar la imagen
             ),
             const SizedBox(height: LSizes.spaceBtwItems),
-            Text(
-              home.subtitle,
-              style: Theme.of(context).textTheme.titleMedium
-                    ),
-            const SizedBox(height: LSizes.spaceBtwItems / 2),
-            Text(
-              home.paragraph,
-              style: Theme.of(context).textTheme.bodyLarge
-            ),
+
+            // ------ TITLE ------
+            Text(home.title.replaceAll(r'\n', '\n'),
+                style: Theme.of(context).textTheme.headlineMedium),
+
+            // ------ SUBTITLE ------
+            Text(home.subtitle.replaceAll(r'\n', '\n'),
+                style: Theme.of(context).textTheme.titleLarge),
+            const SizedBox(height: LSizes.spaceBtwItems),
+
+            // ------ PARAGRAPH ------
+
+            Text(home.paragraph.replaceAll(r'\n', '\n'),
+                style: Theme.of(context).textTheme.bodyMedium),
             const SizedBox(height: LSizes.spaceBtwSections),
+
+            // ------ BUTTONS ------
+
             ActionButtons(
               callActionParameter: home.phoneNumber,
               mapActionParameter: home.mapCoordinates,

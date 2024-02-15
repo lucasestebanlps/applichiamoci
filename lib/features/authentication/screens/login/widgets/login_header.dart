@@ -19,7 +19,6 @@ class LLoginHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start, // Alineación a la izquierda
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: LSizes.md),
           Image(
             height: 100,
             image: AssetImage(dark ? LImages.lightApplogo : LImages.darkApplogo),

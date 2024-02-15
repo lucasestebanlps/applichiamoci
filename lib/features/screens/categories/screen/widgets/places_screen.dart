@@ -81,7 +81,8 @@ class PlacesScreen extends StatelessWidget {
                         const SizedBox(height: LSizes.spaceBtwItems),
                         Text(places[index].title,
                             style: Theme.of(context).textTheme.headlineSmall),
-                        Text(places[index].description,
+                        Text(
+                            places[index].description.replaceAll(r'\n', '\n'),
                             textAlign: TextAlign.start,
                             style: Theme.of(context).textTheme.bodyMedium),
                         const SizedBox(height: LSizes.spaceBtwItems),

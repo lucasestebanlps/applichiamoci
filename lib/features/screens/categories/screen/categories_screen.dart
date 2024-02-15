@@ -1,5 +1,3 @@
-// categories_screen.dart
-
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/common/widgets/shimmer/category_shimmer.dart';
@@ -35,8 +33,9 @@ class CategoriesScreen extends StatelessWidget {
           }
           // Cuando las categorias estan cargadas genera la grid de categorias
           return GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: MediaQuery.of(context).orientation == Orientation.portrait ? 2 : 4,
+
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
             ),

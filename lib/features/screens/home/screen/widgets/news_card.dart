@@ -19,7 +19,8 @@ class NewsCard extends StatelessWidget {
       child: Card(
         elevation: 5, // Aumentar la elevación para agregar sombras más notables
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0), // Bordes redondeados para la card
+          borderRadius: BorderRadius.circular(
+              LSizes.cardRadiusSm), // Bordes redondeados para la card
         ),
         child: InkWell(
           onTap: () {
@@ -30,8 +31,10 @@ class NewsCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ClipRRect( // Bordes redondeados para la imagen
-                  borderRadius: BorderRadius.circular(15.0),
+                // ------ IMAGEN ------
+                ClipRRect(
+                  // Bordes redondeados para la imagen
+                  borderRadius: BorderRadius.circular(LSizes.cardRadiusSm),
                   child: CachedNetworkImage(
                     imageUrl: home.image ?? '',
                     height: 200,
@@ -41,26 +44,25 @@ class NewsCard extends StatelessWidget {
                       width: double.infinity,
                       height: 200,
                     ),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
-                const SizedBox(height: LSizes.sm),
+                const SizedBox(height: LSizes.spaceBtwItems),
+
+                // ------ TITLE ------
                 Text(
-                  home.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  ),
+                  home.title.replaceAll(r'\n', '\n'),
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                Text(
-                  home.description,
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey[700],
-                  ),
-                ),
+
+                // ------ DESCRIPTION ------
+                Text(home.description.replaceAll(r'\n', '\n'),
+                    textAlign: TextAlign.start,
+                    style: Theme.of(context).textTheme.titleSmall),
                 const SizedBox(height: LSizes.sm),
+
+                // ------ BUTTON VIEW MORE ------
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -71,15 +73,16 @@ class NewsCard extends StatelessWidget {
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.blue,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius:
+                              BorderRadius.circular(LSizes.cardRadiusSm),
                         ),
                       ),
                       child: const Text(
                         LTexts.viewMore,
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                   ],

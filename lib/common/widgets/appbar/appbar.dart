@@ -1,4 +1,3 @@
-import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/device/device_utility.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +26,6 @@ class LAppBar extends StatelessWidget implements PreferredSizeWidget {
     final backArrowColor = darkMode ? Colors.white : Colors.black;
 
     return AppBar(
-      backgroundColor: darkMode ? LColors.dark : LColors.light,
       automaticallyImplyLeading: false,
       leading: showBackArrow
           ? IconButton(
