@@ -38,7 +38,7 @@ class LLoginForm extends StatelessWidget {
               () => TextFormField(
                 controller: controller.password,
                 validator: (value) =>
-                    LValidator.validateEmptyText(value, 'Password'),
+                    LValidator.validateEmptyText(value, LTexts.password),
                 obscureText: controller.hidePassword.value,
                 decoration: InputDecoration(
                     labelText: LTexts.password,
@@ -64,7 +64,8 @@ class LLoginForm extends StatelessWidget {
                     Obx(
                       () => Checkbox(
                           value: controller.rememberMe.value,
-                          onChanged: (value) => controller.rememberMe.value = !controller.rememberMe.value),
+                          onChanged: (value) => controller.rememberMe.value =
+                              !controller.rememberMe.value),
                     ),
                     const Text(LTexts.rememberMe)
                   ],

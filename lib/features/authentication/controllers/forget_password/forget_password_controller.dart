@@ -2,6 +2,7 @@ import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,9 @@ class ForgetPasswordController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          'Loggin you in...', LImages.checkInformation);
+          LTexts.loginLoading, LImages.checkInformation);
 
-      // Check internet conectivity
+      // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
@@ -36,32 +37,30 @@ class ForgetPasswordController extends GetxController {
 
       // Send Email to Reset Password
       await AuthenticationRepository.instance
-          .sendPasswordResetemail(email.text.trim());
+          .sendPasswordResetEmail(email.text.trim());
 
       // Remove Loader
       LFullScreenLoader.stopLoading();
 
-      // Show succsess  message
+      // Show success message
       LLoaders.successSnackBar(
-          title: 'Email Sent',
-          message: 'Email link sent to reset your password.'.tr);
+          title: LTexts.emailSentTitle, message: LTexts.emailSentMessage.tr);
 
       // Redirect
       Get.to(() => ResetPasswordScreen(email: email.text.trim()));
-
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: 'Error', message: e.toString());
+      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
     }
   }
 
   resendPasswordResetEmail(String email) async {
-      try {
+    try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          'Loggin you in...', LImages.checkInformation);
+          LTexts.loginLoading, LImages.checkInformation);
 
-      // Check internet conectivity
+      // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
@@ -69,22 +68,17 @@ class ForgetPasswordController extends GetxController {
       }
 
       // Send Email to Reset Password
-      await AuthenticationRepository.instance
-          .sendPasswordResetemail(email);
+      await AuthenticationRepository.instance.sendPasswordResetEmail(email);
 
       // Remove Loader
       LFullScreenLoader.stopLoading();
 
-      // Show succsess  message
+      // Show success message
       LLoaders.successSnackBar(
-          title: 'Email Sent',
-          message: 'Email link sent to reset your password.'.tr);
-
-
+          title: LTexts.emailSentTitle, message: LTexts.emailSentMessage.tr);
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: 'Error', message: e.toString());
+      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
     }
   }
 }
-

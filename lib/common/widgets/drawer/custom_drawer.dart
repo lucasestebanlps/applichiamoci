@@ -63,17 +63,17 @@ class CustomDrawer extends StatelessWidget {
         }),
         ListTile(
           leading: const Icon(Iconsax.edit),
-          title: const Text('Edit profile'),
+          title: const Text(LTexts.editProfile),
           onTap: () => Get.to(() => const ProfileScreen()),
         ),
         ListTile(
           leading: const Icon(Iconsax.heart),
-          title: const Text('Dona ora'),
+          title: const Text(LTexts.donaOra),
           onTap: () async {
             bool confirm = await LHelperFunctions().showConfirmationDialog(
               context,
-              LTexts.avvertimento,
-              LTexts.sitioFondazioneEmanuele,
+              LTexts.warning,
+              LTexts.sitoFondazioneEmanuele,
             );
 
             if (confirm) {
@@ -82,21 +82,26 @@ class CustomDrawer extends StatelessWidget {
                 await launchUrl(url);
               } else {
                 LLoaders.errorSnackBar(
-                  title: 'Error',
-                  message: 'Non é possibilie andare al sito',
+                  title: LTexts.error,
+                  message: LTexts.errorNonEpossibile,
                 );
               }
             }
           },
         ),
         ListTile(
+          leading: const Icon(Iconsax.message_question),
+          title: const Text('FAQ'),
+          onTap: () {},
+        ),
+        ListTile(
           leading: const Icon(Iconsax.people),
-          title: const Text('Sopra noi'),
+          title: const Text(LTexts.sopraNoi),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(Iconsax.logout),
-          title: const Text('Chiudi sessione'),
+          title: const Text(LTexts.chiudiSessione),
           onTap: () => AuthenticationRepository.instance.logout(),
         ),
       ]),

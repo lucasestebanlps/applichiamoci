@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/authentication/models/user_model.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/format_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
@@ -27,7 +28,7 @@ class UserRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -50,7 +51,7 @@ class UserRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -68,7 +69,7 @@ class UserRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -86,7 +87,7 @@ class UserRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -101,7 +102,7 @@ class UserRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -119,7 +120,7 @@ class UserRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -133,7 +134,7 @@ class UserRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 }

@@ -29,7 +29,7 @@ class NewsScreen extends StatelessWidget {
         } else if (homeController.allNews.isEmpty) {
           return const LErrorCenteredText(
             icon: Icons.warning,
-            text: 'Per ora non ci sono novità..',
+            text: LTexts.noNews,
           );
         } else {
           return ListView.builder(

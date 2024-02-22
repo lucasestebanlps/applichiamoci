@@ -5,6 +5,7 @@ import 'package:applichiamoci/features/screens/categories/controllers/categories
 import 'package:applichiamoci/features/screens/categories/screen/widgets/category_card.dart';
 import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart'; // Agrega la importación de PlacesController
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,14 +14,17 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryController = Get.put<CategoryController>(CategoryController());
-    final placesController = Get.put<PlacesController>(PlacesController()); // Crea la instancia de PlacesController aquí
+    final categoryController =
+        Get.put<CategoryController>(CategoryController());
+    final placesController = Get.put<PlacesController>(
+        PlacesController()); // Crea la instancia de PlacesController aquí
 
     return Scaffold(
       appBar: LAppBar(
         showBackArrow: false,
         title: Column(children: [
-          Text('Servizi', style: Theme.of(context).textTheme.headlineSmall!)
+          Text(LTexts.servizi,
+              style: Theme.of(context).textTheme.headlineSmall!)
         ]),
       ),
       endDrawer: const CustomDrawer(),
@@ -34,8 +38,10 @@ class CategoriesScreen extends StatelessWidget {
           // Cuando las categorias estan cargadas genera la grid de categorias
           return GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: MediaQuery.of(context).orientation == Orientation.portrait ? 2 : 4,
-
+              crossAxisCount:
+                  MediaQuery.of(context).orientation == Orientation.portrait
+                      ? 2
+                      : 4,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
             ),

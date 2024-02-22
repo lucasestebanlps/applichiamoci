@@ -1,4 +1,5 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -104,7 +105,6 @@ class LLoaders {
               // Columna para el icono
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                
                 children: [
                   Icon(Iconsax.warning_2, color: Colors.white),
                 ],
@@ -150,7 +150,7 @@ class LLoaders {
                   onPressed: () async {
                     await openAppSettings();
                   },
-                  child: const Text('Open Settings',
+                  child: const Text(LTexts.openSettingsText,
                       style: TextStyle(color: Colors.white)),
                 ),
               ],
@@ -175,7 +175,7 @@ class LLoaders {
       shouldIconPulse: true,
       colorText: Colors.white,
       backgroundColor: Colors.green.shade600,
-            margin: const EdgeInsets.all(LSizes.md),
+      margin: const EdgeInsets.all(LSizes.md),
 
       padding: const EdgeInsets.symmetric(horizontal: LSizes.md, vertical: 0),
       snackPosition: SnackPosition.BOTTOM,

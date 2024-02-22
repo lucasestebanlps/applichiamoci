@@ -27,7 +27,8 @@ class SuccessScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // IMAGE
-                Lottie.asset(image, width: MediaQuery.of(context).size.width * 0.6),
+                Lottie.asset(image,
+                    width: MediaQuery.of(context).size.width * 0.6),
                 const SizedBox(height: LSizes.spaceBtwSections),
 
                 // Title & SubTitle
@@ -50,7 +51,7 @@ class SuccessScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: onPressed,
-                    child: const Text(LTexts.tContinue),
+                    child: const Text(LTexts.continueButton),
                   ),
                 ),
               ],

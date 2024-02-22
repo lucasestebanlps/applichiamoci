@@ -3,6 +3,7 @@ import 'package:applichiamoci/data/repositories/user/user_repository.dart';
 import 'package:applichiamoci/features/authentication/screens/login/login.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/verify_email.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/format_exceptions.dart';
@@ -77,7 +78,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -96,7 +97,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
@@ -113,12 +114,12 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
   // [EmailAuthentication] - Forget Password
-  Future<void> sendPasswordResetemail(String email) async {
+  Future<void> sendPasswordResetEmail(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
@@ -130,11 +131,11 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
-  // [ReAuthenticate] - ReAuthentiucate User
+  // [ReAuthenticate] - ReAuthenticate User
   Future<void> reAuthenticateWithEmailAndPassword(
       String email, String password) async {
     try {
@@ -143,8 +144,6 @@ class AuthenticationRepository extends GetxController {
           EmailAuthProvider.credential(email: email, password: password);
       // ReAuthenticate
       await _auth.currentUser!.reauthenticateWithCredential(credential);
-
-
     } on FirebaseAuthException catch (e) {
       throw LFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -154,19 +153,18 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
-  // -----------------Federated identity & social sign-in -----------------
+  // ----------------- Federated identity & social sign-in -----------------
 
   // [GoogleAuthentication] - Google
   Future<UserCredential?> signInWithGoogle() async {
     try {
       // Trigger the authentication flow
       final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
-      // Obteain the auth details from the request
-
+      // Obtain the auth details from the request
       final GoogleSignInAuthentication? googleAuth =
           await userAccount?.authentication;
 
@@ -207,12 +205,12 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 
   // DELETE USER - Remove user auth and firestore account
-    Future<void> deleteAccount() async {
+  Future<void> deleteAccount() async {
     try {
       await UserRepository.instance.removeUserRecord(_auth.currentUser!.uid);
       await _auth.currentUser?.delete();
@@ -225,7 +223,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 }

@@ -79,9 +79,7 @@ class UserController extends GetxController {
       }
     } catch (e) {
       LLoaders.warningSnackBar(
-          title: 'Data not saved',
-          message:
-              'Something went wrong while saving your information. You can re-save your data in your Profile');
+          title: LTexts.dataNotSaved, message: LTexts.savingInformationError);
     }
   }
 
@@ -109,7 +107,7 @@ class UserController extends GetxController {
   void deleteUserAccount() async {
     try {
       LFullScreenLoader.openLoadingDialog(
-          'Processing', LImages.checkInformation);
+          LTexts.processing, LImages.checkInformation);
 
       // Firstr re-authenticate user
       final auth = AuthenticationRepository.instance;
@@ -129,7 +127,7 @@ class UserController extends GetxController {
       }
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.warningSnackBar(title: 'Error', message: e.toString());
+      LLoaders.warningSnackBar(title: LTexts.error, message: e.toString());
     }
   }
 
@@ -137,7 +135,7 @@ class UserController extends GetxController {
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
       LFullScreenLoader.openLoadingDialog(
-          'Processing', LImages.checkInformation);
+          LTexts.processing, LImages.checkInformation);
 
       // Check internet conectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -160,13 +158,11 @@ class UserController extends GetxController {
       Get.offAll(() => const LoginScreen());
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.warningSnackBar(title: 'Error', message: e.toString());
+      LLoaders.warningSnackBar(title: LTexts.error, message: e.toString());
     }
   }
 
-  
-
-    // Upload Profile Image
+  // Upload Profile Image
   uploadUserProfilePicture() async {
     try {
       // Solicitar permiso de acceso a la galería de fotos
@@ -174,10 +170,9 @@ class UserController extends GetxController {
       if (status != PermissionStatus.granted) {
         // Si el permiso no se concede, muestra un mensaje al usuario y proporciona un botón para que lo active
         LLoaders.errorSnackBar(
-          title: 'Permission Denied',
-          message: 'Access to gallery is required to update profile picture.',
-          mainButton: true
-        );
+            title: LTexts.permissionDenied,
+            message: LTexts.accesRequired,
+            mainButton: true);
         return;
       }
       final image = await ImagePicker().pickImage(
@@ -209,17 +204,17 @@ class UserController extends GetxController {
 
         user.refresh();
         LLoaders.successSnackBar(
-          title: 'Congratulations',
-          message: 'Your profile image has been updated',
+          title: LTexts.congratulations,
+          message: LTexts.profileImageUpdated,
         );
       }
     } catch (e) {
       LLoaders.errorSnackBar(
-        title: 'Error',
-        message: 'Something went wrong $e',
+        title: LTexts.error,
+        message: '$LTexts.somethingWentWrong $e',
       );
     } finally {
       imageUploading.value = false;
     }
-  }  
+  }
 }

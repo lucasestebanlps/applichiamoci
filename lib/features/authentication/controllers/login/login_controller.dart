@@ -2,6 +2,7 @@ import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/personalization/controllers/user_controller.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
@@ -30,16 +31,14 @@ class LoginController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          'Loggin you in...', LImages.checkInformation);
+          LTexts.loginLoading, LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
-        LLoaders.errorSnackBar(
-            title: 'Error!',
-            message: 'No internet connection. Please check your connection.');
+        LLoaders.errorSnackBar(title: LTexts.error, message: LTexts.noInternet);
         return;
       }
 
@@ -67,7 +66,7 @@ class LoginController extends GetxController {
       // Remove loader
       LFullScreenLoader.stopLoading();
       // show some generic error to the user
-      LLoaders.errorSnackBar(title: 'Error!', message: e.toString());
+      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
     }
   }
 
@@ -76,16 +75,14 @@ class LoginController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          'Loggin you in...', LImages.checkInformation);
+          LTexts.loginLoading, LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
-        LLoaders.errorSnackBar(
-            title: 'Error!',
-            message: 'No internet connection. Please check your connection.');
+        LLoaders.errorSnackBar(title: LTexts.error, message: LTexts.noInternet);
         return;
       }
 
@@ -103,7 +100,7 @@ class LoginController extends GetxController {
       AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: 'Error', message: e.toString());
+      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
     }
   }
 }

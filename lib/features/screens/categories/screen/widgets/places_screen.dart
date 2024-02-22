@@ -1,5 +1,8 @@
+import 'package:applichiamoci/common/widgets/buttons/view_more_button.dart';
+import 'package:applichiamoci/features/screens/categories/screen/widgets/palces_detail_screen.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:flutter/material.dart';
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
-import 'package:applichiamoci/common/widgets/buttons/action_buttons.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
@@ -7,7 +10,6 @@ import 'package:applichiamoci/features/screens/categories/models/place_model.dar
 import 'package:applichiamoci/common/widgets/text/error_text_icon.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +24,6 @@ class PlacesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final PlacesController placesController = Get.find<PlacesController>();
 
-    // Cargar los lugares solo si no se han cargado previamente o si la categoría ha cambiado
     if (placesController.placesForCategory.isEmpty ||
         placesController.currentCategory != category) {
       placesController.fetchPlacesForCategory(category);
@@ -38,24 +39,27 @@ class PlacesScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(LSizes.sm),
         child: Obx(() {
-          // Muestra el loader mientras se cargan los lugares
           if (placesController.isLoading.value) {
-            return const Center(child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SpinKitSquareCircle(
-                  color: Colors.blue, // Color del indicador de carga
-                  size: 50.0,         // Tamaño del indicador de carga
-                ),
-                SizedBox(height: LSizes.spaceBtwItems),
-                Text('Loading...')
-              ],
-            ),);
+            return const Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SpinKitSquareCircle(
+                    color: Colors.blue,
+                    size: 50.0,
+                  ),
+                  SizedBox(height: LSizes.spaceBtwItems),
+                  Text(LTexts.loadingText)
+                ],
+              ),
+            );
           } else if (placesController.placesForCategory.isEmpty) {
-            return const LErrorCenteredText(icon: Icons.warning, text: 'Nessun luogo disponibile per questa categoria.',);
+            return const LErrorCenteredText(
+              icon: Icons.warning,
+              text: LTexts.noLogoAvailable,
+            );
           } else {
-            // Lista de lugares para la categoría seleccionada
             List<PlaceModel> places = placesController.placesForCategory;
             return ListView.builder(
               itemCount: places.length,
@@ -74,21 +78,26 @@ class PlacesScreen extends StatelessWidget {
                             height: 200,
                             width: double.infinity,
                             fit: BoxFit.cover,
-                            placeholder: (context, url) =>
-                                const LShimerEffect(width: double.infinity, height: 200), // Placeholder mientras se carga la imagen
-                            errorWidget: (context, url, error) => const Icon(Icons.error), // Widget de error si no se puede cargar la imagen
+                            placeholder: (context, url) => const LShimerEffect(
+                                width: double.infinity, height: 200),
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.error),
                           ),
                         const SizedBox(height: LSizes.spaceBtwItems),
                         Text(places[index].title,
                             style: Theme.of(context).textTheme.headlineSmall),
                         Text(
-                            places[index].description.replaceAll(r'\n', '\n'),
-                            textAlign: TextAlign.start,
-                            style: Theme.of(context).textTheme.bodyMedium),
+                          places[index].description.replaceAll(r'\n', '\n'),
+                          textAlign: TextAlign.start,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                         const SizedBox(height: LSizes.spaceBtwItems),
-                        ActionButtons(
-                            callActionParameter: places[index].phoneNumber,
-                            mapActionParameter: places[index].mapCoordinates),
+                        ViewMoreButton(
+                          onPressed: () {
+                            Get.to(
+                                () => PlaceDetailScreen(place: places[index]));
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -101,4 +110,3 @@ class PlacesScreen extends StatelessWidget {
     );
   }
 }
-

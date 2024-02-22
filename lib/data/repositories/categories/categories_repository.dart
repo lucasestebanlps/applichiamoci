@@ -1,4 +1,5 @@
 import 'package:applichiamoci/features/screens/categories/models/category_model.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -24,7 +25,7 @@ class CategoryRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw 'Somethign went wrong. Please try again';
+      throw LTexts.somethingWentWrong;
     }
   }
 }

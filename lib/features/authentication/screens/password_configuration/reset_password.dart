@@ -38,7 +38,7 @@ class ResetPasswordScreen extends StatelessWidget {
               const SizedBox(height: LSizes.spaceBtwItems),
 
               Text(
-                LTexts.changeYourPasswordsubTitle,
+                LTexts.changeYourPasswordSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),

@@ -53,10 +53,11 @@ class NavigationMenu extends StatelessWidget {
               ? LColors.white.withOpacity(0.1)
               : LColors.black.withOpacity(0.1),
           destinations: const [
-            NavigationDestination(icon: Icon(Iconsax.home), label: LTexts.servizi),
+            NavigationDestination(
+                icon: Icon(Iconsax.home), label: LTexts.servizi),
             SizedBox(width: 40),
             NavigationDestination(
-                icon: Icon(Iconsax.category), label: 'Servizi'),
+                icon: Icon(Iconsax.category), label: LTexts.servizi),
           ],
         ),
       ),

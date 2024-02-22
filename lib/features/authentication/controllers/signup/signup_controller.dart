@@ -4,6 +4,7 @@ import 'package:applichiamoci/data/repositories/user/user_repository.dart';
 import 'package:applichiamoci/features/authentication/models/user_model.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/verify_email.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
@@ -29,16 +30,14 @@ class SignUpController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          'We are processing your information...', LImages.checkInformation);
+          LTexts.processingInformation, LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
-        LLoaders.errorSnackBar(
-            title: 'Error!',
-            message: 'No internet connection. Please check your connection.');
+        LLoaders.errorSnackBar(title: LTexts.error, message: LTexts.noInternet);
         return;
       }
 
@@ -51,9 +50,8 @@ class SignUpController extends GetxController {
       // Privacy Policy Check
       if (privacyPolicy.value) {
         LLoaders.warningSnackBar(
-          title: 'Accept Privacy Policy',
-          message:
-              'In order to create account, you moust have to read and accept the Privacy Policy & Terms of use.',
+          title: LTexts.acceptPrivacyPolicy,
+          message: LTexts.messagePrivacyPolicy,
         );
         LFullScreenLoader.stopLoading();
         return;
@@ -82,8 +80,8 @@ class SignUpController extends GetxController {
 
       // Show success message
       LLoaders.successSnackBar(
-          title: 'Congratulations',
-          message: 'Your account has been created! Verify email to continue.');
+          title: LTexts.congratulations,
+          message: LTexts.accountCreatedSuccessfully);
 
       // Move to verify email screen
       Get.to(() => VerifyEmailScreen(email: email.text.trim()));
@@ -92,7 +90,7 @@ class SignUpController extends GetxController {
       LFullScreenLoader.stopLoading();
 
       // show some generic error to the user
-      LLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
     }
   }
 }

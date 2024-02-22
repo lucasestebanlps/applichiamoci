@@ -126,14 +126,14 @@ class LHelperFunctions {
         await launchUrl(phoneNumber);
       } else {
         LLoaders.errorSnackBar(
-            title: 'Error',
+            title: LTexts.error,
             message: 'Il numero $callActionParameter non é disponibile',
             mainButton: true);
       }
     } else {
       LLoaders.errorSnackBar(
-          title: 'Permission Denied',
-          message: 'Access to phone is required to make a call.',
+          title: LTexts.permissionDenied,
+          message: LTexts.accessToPhoneRequiredMessage,
           mainButton: true);
     }
   }
@@ -145,19 +145,19 @@ class LHelperFunctions {
         MapsLauncher.launchQuery(mapActionParameter);
       } else {
         LLoaders.errorSnackBar(
-          title: 'Error',
+          title: LTexts.error,
           message: 'Il mapa non é disponibile',
         );
       }
     } else {
       LLoaders.errorSnackBar(
-        title: 'Permission Denied',
-        message: 'Access to location is required to open maps.',
+        title: LTexts.permissionDenied,
+        message: LTexts.accessToLocationRequiredMessage,
       );
     }
   }
 
-    Future<bool> showConfirmationDialog(
+  Future<bool> showConfirmationDialog(
     BuildContext context,
     String title,
     String content,
@@ -171,21 +171,24 @@ class LHelperFunctions {
           content: Text(content),
           actions: <Widget>[
             TextButton(
-              child: const Text(LTexts.accetare),
+              child: const Text(LTexts.accept),
               onPressed: () {
-                Navigator.of(context).pop(true); // Indicar que se canceló la acción
+                Navigator.of(context)
+                    .pop(true); // Indicar que se canceló la acción
               },
             ),
             TextButton(
-              child: const Text(LTexts.annulla),
+              child: const Text(LTexts.cancel),
               onPressed: () {
-                Navigator.of(context).pop(false); // Indicar que se confirmó la acción
+                Navigator.of(context)
+                    .pop(false); // Indicar que se confirmó la acción
               },
             ),
           ],
         );
       },
     );
-    return confirmed ?? false; // Si el usuario cierra el diálogo sin seleccionar ninguna opción, se considera como cancelado
+    return confirmed ??
+        false; // Si el usuario cierra el diálogo sin seleccionar ninguna opción, se considera como cancelado
   }
 }

@@ -77,8 +77,9 @@ class ProfileScreen extends StatelessWidget {
               // ------ USERNAME -------
               LProfileMenu(
                   onPressed: () {
-        _copyToClipboard(context, controller.user.value.username, 'Username');
-      },
+                    _copyToClipboard(
+                        context, controller.user.value.username, 'Username');
+                  },
                   title: LTexts.userName,
                   value: controller.user.value.username,
                   icon: Iconsax.copy),
@@ -92,9 +93,10 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ EMAIL -------
               LProfileMenu(
-                 onPressed: () {
-        _copyToClipboard(context, controller.user.value.email, 'Email');
-      },
+                onPressed: () {
+                  _copyToClipboard(
+                      context, controller.user.value.email, 'Email');
+                },
                 title: LTexts.email,
                 value: controller.user.value.email,
                 icon: Iconsax.copy,
@@ -119,9 +121,10 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-void _copyToClipboard(BuildContext context, String textToCopy, String fieldName) {
+void _copyToClipboard(
+    BuildContext context, String textToCopy, String fieldName) {
   FlutterClipboard.copy(textToCopy).then((_) {
     LLoaders.successSnackBar(
-        title: 'Copied', message: '$fieldName copied to clipboard');
+        title: LTexts.copied, message: '$fieldName $LTexts.copiedToClipboard');
   });
 }
