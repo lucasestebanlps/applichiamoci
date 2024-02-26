@@ -4,7 +4,7 @@ class CategoryModel {
   String id;
   String name;
   String icon;
-  int backgroundColor;
+  String backgroundColor;
 
   CategoryModel({
     required this.id,
@@ -15,7 +15,7 @@ class CategoryModel {
 
   // Empty helper function
   static CategoryModel empty() =>
-      CategoryModel(id: '', name: '', icon: '', backgroundColor: 0);
+      CategoryModel(id: '', name: '', icon: '', backgroundColor: '');
 
   // Convert model to Json structure so that you can store data in Firebase
   Map<String, dynamic> toJson() {
@@ -34,11 +34,11 @@ class CategoryModel {
 
       // Map JSON record to the model
       return CategoryModel(
-          id: document.id,
-          name: data['name'] ?? '',
-          icon: data['icon'] ?? '',
-          backgroundColor: data['backgroundColor'] ?? '',
-        );
+        id: document.id,
+        name: data['name'] ?? '',
+        icon: data['icon'] ?? '',
+        backgroundColor: data['backgroundColor'] ?? '',
+      );
     } else {
       return CategoryModel.empty();
     }

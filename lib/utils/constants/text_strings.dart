@@ -63,7 +63,7 @@ class LTexts {
   static const String delete = 'Elimina';
   static const String cancel = 'Annulla';
   static const String verify = 'Verifica';
-  static const String viewMore = 'Visualizza altro';
+  static const String viewMore = '+ info';
   static const String tel = 'Tel';
   static const String name = 'Nome';
   static const String userName = 'Nome Utente';
@@ -72,6 +72,8 @@ class LTexts {
   static const String sureToDelete =
       'Sei sicuro di voler eliminare il tuo account definitivamente? Questa azione non è reversibile e tutti i tuoi dati verranno rimossi definitivamente.';
   static const String accept = 'Accetta';
+  static const String buttonCall = 'Chiama';
+  static const String buttonMap = 'Mappa';
 
   static const String warning = 'Avvertimento';
   static const String savingInformationError =
@@ -89,7 +91,7 @@ class LTexts {
   static const String congratulations = 'Auguri!';
 
   //-- Authentication Headings Text
-  static const String loginTitle = "Bentornato!";
+  static const String loginTitle = "Benvenuti!";
   static const String loginSubTitle =
       "Trova il luogo o il servizio di cui hai bisogno con pochi clic";
   static const String signupTitle = "Creiamo il tuo account";

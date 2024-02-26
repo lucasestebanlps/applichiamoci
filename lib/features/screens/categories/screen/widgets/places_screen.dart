@@ -65,30 +65,25 @@ class PlacesScreen extends StatelessWidget {
               itemCount: places.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
-                  elevation: 3.0,
+                  margin: EdgeInsets.only(bottom: LSizes.spaceBtwItems),
+                  elevation: 5.0,
                   child: Padding(
-                    padding: const EdgeInsets.all(LSizes.sm),
+                    padding: const EdgeInsets.all(LSizes.md),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (places[index].image != null &&
-                            places[index].image!.isNotEmpty)
-                          CachedNetworkImage(
-                            imageUrl: places[index].image ?? '',
-                            height: 200,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                            placeholder: (context, url) => const LShimerEffect(
-                                width: double.infinity, height: 200),
-                            errorWidget: (context, url, error) =>
-                                const Icon(Icons.error),
-                          ),
-                        const SizedBox(height: LSizes.spaceBtwItems),
                         Text(places[index].title,
-                            style: Theme.of(context).textTheme.headlineSmall),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.titleLarge),
+                        SizedBox(
+                          height: LSizes.sm,
+                        ),
                         Text(
                           places[index].description.replaceAll(r'\n', '\n'),
-                          textAlign: TextAlign.start,
+                          maxLines: 2, // Limita el texto a dos líneas
+                          overflow: TextOverflow
+                              .ellipsis, // Agrega puntos suspensivos si el texto se desborda
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         const SizedBox(height: LSizes.spaceBtwItems),

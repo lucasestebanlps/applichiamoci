@@ -10,7 +10,7 @@ import 'package:applichiamoci/utils/constants/sizes.dart';
 class NewsDetailScreen extends StatelessWidget {
   final NewsModel home;
 
-  const NewsDetailScreen({super.key, required this.home});
+  const NewsDetailScreen({Key? key, required this.home}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,53 +24,93 @@ class NewsDetailScreen extends StatelessWidget {
       ),
       endDrawer: const CustomDrawer(),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(LSizes.md),
+        padding: const EdgeInsets.only(bottom: LSizes.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ------ IMAGEN ------
-
-            ClipRRect(
-              borderRadius: BorderRadius.circular(LSizes.cardRadiusSm),
-              child: CachedNetworkImage(
-                imageUrl: home.image ?? '',
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                placeholder: (context, url) => const LShimerEffect(
-                  width: double.infinity,
-                  height: 250,
-                ),
-                errorWidget: (context, url, error) => const Icon(Icons
-                    .error), // Widget de error si no se puede cargar la imagen
+            // Image
+            if (home.image != null &&
+                home.image!.isNotEmpty) // Verifica si la imagen está disponible
+              Stack(
+                children: [
+                  ClipPath(
+                    clipper: MyClipper(),
+                    child: CachedNetworkImage(
+                      imageUrl: home.image!,
+                      height: 300,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => const LShimerEffect(
+                        width: double.infinity,
+                        height: 300,
+                      ),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(height: LSizes.spaceBtwItems),
+            if (home.image != null) const SizedBox(height: LSizes.md),
 
-            // ------ TITLE ------
-            Text(home.title.replaceAll(r'\n', '\n'),
-                style: Theme.of(context).textTheme.headlineMedium),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: LSizes.md),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Title
+                  Text(
+                    home.title.replaceAll(r'\n', '\n'),
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: LSizes.sm),
 
-            // ------ SUBTITLE ------
-            Text(home.subtitle.replaceAll(r'\n', '\n'),
-                style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: LSizes.spaceBtwItems),
+                  // Subtitle
+                  Text(
+                    home.subtitle.replaceAll(r'\n', '\n'),
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: LSizes.sm),
 
-            // ------ PARAGRAPH ------
+                  const Divider(),
 
-            Text(home.paragraph.replaceAll(r'\n', '\n'),
-                style: Theme.of(context).textTheme.bodyMedium),
-            const SizedBox(height: LSizes.spaceBtwSections),
+                  const SizedBox(height: LSizes.sm),
 
-            // ------ BUTTONS ------
+                  // Description
+                  Text(
+                    home.description.replaceAll(r'\n', '\n'),
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: LSizes.spaceBtwSections),
 
-            ActionButtons(
-              callActionParameter: home.phoneNumber,
-              mapActionParameter: home.mapCoordinates,
+                  // Action Buttons
+                  ActionButtons(
+                    callActionParameter: home.phoneNumber,
+                    mapActionParameter: home.mapCoordinates,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+}
+
+class MyClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height - 50);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 50);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }

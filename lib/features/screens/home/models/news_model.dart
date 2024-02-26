@@ -6,7 +6,6 @@ class NewsModel {
   final String title;
   final String subtitle;
   final String description;
-  final String paragraph;
   final String? phoneNumber;
   final String? mapCoordinates;
 
@@ -18,14 +17,12 @@ class NewsModel {
     required this.id,
     required this.description,
     required this.title,
-    required this.paragraph,
   });
 
   // Empty helper function
   static NewsModel empty() => NewsModel(
       id: '',
       title: '',
-      paragraph: '',
       description: '',
       image: '',
       subtitle: '',
@@ -37,7 +34,6 @@ class NewsModel {
     return {
       'title': title,
       'subtitle': subtitle,
-      'paragraph': paragraph,
       'description': description,
       'image': image,
       'phoneNumber': phoneNumber,
@@ -57,7 +53,6 @@ class NewsModel {
         title: data['title'] ?? '',
         subtitle: data['subtitle'] ?? '',
         description: data['description'] ?? '',
-        paragraph: data['paragraph'] ?? '',
         phoneNumber: data['phoneNumber'] ?? '',
         image: data['image'] ?? '',
         mapCoordinates: data['mapCoordinates'] ?? '',

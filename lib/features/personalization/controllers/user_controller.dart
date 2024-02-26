@@ -211,7 +211,7 @@ class UserController extends GetxController {
     } catch (e) {
       LLoaders.errorSnackBar(
         title: LTexts.error,
-        message: '$LTexts.somethingWentWrong $e',
+        message: '$e',
       );
     } finally {
       imageUploading.value = false;

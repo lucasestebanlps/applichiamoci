@@ -18,19 +18,12 @@ class ViewMoreButton extends StatelessWidget {
           onPressed: onPressed, // Usa la función onPressed directamente aquí
           style: TextButton.styleFrom(
             backgroundColor: Colors.blue,
-            shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(8), // Cambia a un valor específico
-            ),
           ),
-          child: const Text(
-            LTexts.viewMore,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          child: Text(LTexts.viewMore,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelLarge
+                  ?.copyWith(color: Colors.white)),
         ),
       ],
     );

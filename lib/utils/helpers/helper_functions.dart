@@ -153,6 +153,7 @@ class LHelperFunctions {
       LLoaders.errorSnackBar(
         title: LTexts.permissionDenied,
         message: LTexts.accessToLocationRequiredMessage,
+        mainButton: true,
       );
     }
   }

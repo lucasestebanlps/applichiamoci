@@ -22,51 +22,66 @@ class NewsCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(
               LSizes.cardRadiusSm), // Bordes redondeados para la card
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(LSizes.sm),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // ------ IMAGEN ------
-              ClipRRect(
-                // Bordes redondeados para la imagen
-                borderRadius: BorderRadius.circular(LSizes.cardRadiusSm),
-                child: CachedNetworkImage(
-                  imageUrl: home.image ?? '',
-                  height: 200,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // ------ IMAGEN ------
+            ClipRRect(
+              // Bordes redondeados para la imagen
+              borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(LSizes.cardRadiusSm)),
+              child: CachedNetworkImage(
+                imageUrl: home.image ?? '',
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => const LShimerEffect(
                   width: double.infinity,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => const LShimerEffect(
-                    width: double.infinity,
-                    height: 200,
-                  ),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  height: 200,
                 ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-              const SizedBox(height: LSizes.spaceBtwItems),
+            ),
+            const SizedBox(height: LSizes.spaceBtwItems),
 
-              // ------ TITLE ------
-              Text(
-                home.title.replaceAll(r'\n', '\n'),
-                style: Theme.of(context).textTheme.headlineMedium,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: LSizes.md),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // ------ TITLE ------
+                  Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    home.title.replaceAll(r'\n', '\n'),
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+
+                  const SizedBox(
+                    height: LSizes.sm,
+                  ),
+
+                  // ------ DESCRIPTION ------
+                  Text(home.description.replaceAll(r'\n', '\n'),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.start,
+                      style: Theme.of(context).textTheme.bodyMedium),
+                  const SizedBox(height: LSizes.spaceBtwItems),
+
+                  // ------ BUTTON VIEW MORE ------
+                  ViewMoreButton(
+                    onPressed: () {
+                      Get.to(() => NewsDetailScreen(
+                            home: home,
+                          ));
+                    },
+                  ),
+                  const SizedBox(height: LSizes.sm),
+                ],
               ),
-
-              // ------ DESCRIPTION ------
-              Text(home.description.replaceAll(r'\n', '\n'),
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleSmall),
-              const SizedBox(height: LSizes.sm),
-
-              // ------ BUTTON VIEW MORE ------
-              ViewMoreButton(
-                onPressed: () {
-                  Get.to(() => NewsDetailScreen(
-                        home: home,
-                      ));
-                },
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -27,9 +28,12 @@ class ActionButtons extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
             ),
-            child: const Text('Chiama'),
+            child: Text(
+              LTexts.buttonCall,
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
           ),
         if (mapActionParameter != null && mapActionParameter!.isNotEmpty) ...[
           const SizedBox(width: LSizes.spaceBtwItems),
@@ -39,15 +43,15 @@ class ActionButtons extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
             ),
-            child: const Text('Mappa'),
+            child: Text(
+              LTexts.buttonMap,
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
           ),
         ],
       ],
     );
   }
-
 }
-
-

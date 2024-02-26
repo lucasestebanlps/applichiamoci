@@ -7,6 +7,9 @@ class PlaceModel {
   String? phoneNumber;
   String? mapCoordinates;
   String? image;
+  String? ownerName;
+  String? email;
+  String? category;
   String categoryId; // Nuevo campo para la relación con la categoría
 
   PlaceModel({
@@ -16,6 +19,9 @@ class PlaceModel {
     this.phoneNumber,
     this.mapCoordinates,
     this.image,
+    this.ownerName,
+    this.email,
+    this.category,
     required this.categoryId, // Asegúrarse de pasarlo en el constructor
   });
 
@@ -26,6 +32,9 @@ class PlaceModel {
       description: '',
       image: '',
       mapCoordinates: '',
+      ownerName: '',
+      email: '',
+      category: '',
       phoneNumber: '',
       categoryId: '');
 
@@ -37,6 +46,9 @@ class PlaceModel {
       'phoneNumber': phoneNumber,
       'mapCoordinates': mapCoordinates,
       'image': image,
+      'ownerName': ownerName,
+      'email': email,
+      'category': category,
     };
   }
 
@@ -54,6 +66,9 @@ class PlaceModel {
         phoneNumber: data['phoneNumber'] ?? '',
         mapCoordinates: data['mapCoordinates'] ?? '',
         image: data['image'] ?? '',
+        ownerName: data['ownerName'] ?? '',
+        category: data['category'] ?? '',
+        email: data['email'] ?? '',
         categoryId: document.reference.parent.id,
       );
     } else {
