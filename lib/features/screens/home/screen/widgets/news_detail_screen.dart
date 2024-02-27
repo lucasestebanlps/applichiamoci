@@ -10,7 +10,7 @@ import 'package:applichiamoci/utils/constants/sizes.dart';
 class NewsDetailScreen extends StatelessWidget {
   final NewsModel home;
 
-  const NewsDetailScreen({Key? key, required this.home}) : super(key: key);
+  const NewsDetailScreen({super.key, required this.home});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,6 @@ class NewsDetailScreen extends StatelessWidget {
                     home.title.replaceAll(r'\n', '\n'),
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
-                  const SizedBox(height: LSizes.sm),
 
                   // Subtitle
                   Text(
@@ -81,18 +80,15 @@ class NewsDetailScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(height: LSizes.spaceBtwSections),
-
-                  // Action Buttons
-                  ActionButtons(
-                    callActionParameter: home.phoneNumber,
-                    mapActionParameter: home.mapCoordinates,
-                  ),
                 ],
               ),
             ),
           ],
         ),
       ),
+      floatingActionButton: ActionButtons(
+          callActionParameter: home.phoneNumber,
+          mapActionParameter: home.mapCoordinates),
     );
   }
 }

@@ -28,7 +28,7 @@ class NewsCard extends StatelessWidget {
             // ------ IMAGEN ------
             ClipRRect(
               // Bordes redondeados para la imagen
-              borderRadius: BorderRadius.vertical(
+              borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(LSizes.cardRadiusSm)),
               child: CachedNetworkImage(
                 imageUrl: home.image ?? '',
@@ -45,7 +45,7 @@ class NewsCard extends StatelessWidget {
             const SizedBox(height: LSizes.spaceBtwItems),
 
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: LSizes.md),
+              padding: const EdgeInsets.symmetric(horizontal: LSizes.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

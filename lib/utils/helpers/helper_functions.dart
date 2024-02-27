@@ -138,6 +138,22 @@ class LHelperFunctions {
     }
   }
 
+  static void emailAction(String emailActionParameter) async {
+    final email = Uri(
+      scheme: 'mailto',
+      path: emailActionParameter,
+      query: 'subject=&body=',
+    );
+    if (await canLaunchUrl(email)) {
+      await launchUrl(email);
+    } else {
+      LLoaders.errorSnackBar(
+          title: LTexts.error,
+          message: 'Il mail $emailActionParameter non é disponibile',
+          mainButton: false);
+    }
+  }
+
   static void mapAction(String? mapActionParameter) async {
     final status = await Permission.locationWhenInUse.request();
     if (status.isGranted) {

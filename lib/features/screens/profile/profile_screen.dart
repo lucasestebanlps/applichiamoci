@@ -125,6 +125,7 @@ void _copyToClipboard(
     BuildContext context, String textToCopy, String fieldName) {
   FlutterClipboard.copy(textToCopy).then((_) {
     LLoaders.successSnackBar(
-        title: LTexts.copied, message: '$fieldName $LTexts.copiedToClipboard');
+        title: LTexts.copied,
+        message: '$fieldName ${LTexts.copiedToClipboard}');
   });
 }

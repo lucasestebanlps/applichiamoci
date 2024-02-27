@@ -1,3 +1,4 @@
+import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/buttons/action_buttons.dart';
@@ -10,7 +11,7 @@ import 'package:applichiamoci/features/screens/categories/models/place_model.dar
 class PlaceDetailScreen extends StatelessWidget {
   final PlaceModel place;
 
-  const PlaceDetailScreen({Key? key, required this.place}) : super(key: key);
+  const PlaceDetailScreen({super.key, required this.place});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class PlaceDetailScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                       placeholder: (context, url) => const LShimerEffect(
                         width: double.infinity,
-                        height: 250,
+                        height: 300,
                       ),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error),
@@ -51,59 +52,107 @@ class PlaceDetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
             if (place.image != null) const SizedBox(height: LSizes.md),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: LSizes.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Title
+                  // ---- TITLE ----
                   Text(
                     place.title,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
+
+                  // ---- DIRECTION ----
+
+                  if (place.direction != null && place.direction!.isNotEmpty)
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () => LHelperFunctions.mapAction(
+                                  place.mapCoordinates),
+                              style: ButtonStyle(
+                                padding: MaterialStateProperty.all<
+                                    EdgeInsetsGeometry>(EdgeInsets.zero),
+                                // Aquí también puedes ajustar el margen si es necesario.
+                                // Por ejemplo:
+                                // margin: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
+                              ),
+                              child: Row(
+                                children: [
+                                  const Icon(Icons.location_on),
+                                  const SizedBox(width: LSizes.spaceBtwItems),
+                                  Text(
+                                    place.direction!,
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Divider(),
+                      ],
+                    ),
                   const SizedBox(height: LSizes.sm),
 
-                  // Owner
+                  // ---- OWNER ----
                   if (place.ownerName != null && place.ownerName!.isNotEmpty)
-                    Column(children: [
-                      Row(
-                        children: [
-                          Icon(Icons.person),
-                          const SizedBox(width: LSizes.spaceBtwItems),
-                          Text(
-                            place.ownerName!,
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: LSizes.sm),
-                    ]),
+                    Row(
+                      children: [
+                        const Icon(Icons.person),
+                        const SizedBox(width: LSizes.spaceBtwItems),
+                        Text(
+                          place.ownerName!,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      ],
+                    ),
 
-                  // Email
+                  // ---- EMAIL ----
                   if (place.email != null && place.email!.isNotEmpty)
-                    Column(children: [
-                      Row(
-                        children: [
-                          Icon(Icons.email),
-                          const SizedBox(width: LSizes.spaceBtwItems),
-                          Text(
-                            place.email!,
-                            style: Theme.of(context).textTheme.bodyLarge,
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () =>
+                              LHelperFunctions.emailAction(place.email!),
+                          style: ButtonStyle(
+                            padding:
+                                MaterialStateProperty.all<EdgeInsetsGeometry>(
+                              EdgeInsets.zero,
+                            ),
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: LSizes.sm),
-                    ]),
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.email,
+                                color: Colors.blue, // Color azul para el icono
+                              ),
+                              const SizedBox(width: LSizes.spaceBtwItems),
+                              Text(
+                                place.email!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(color: Colors.blue),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
 
-                  // Category
+                  // ---- CATEGORY ----
                   if (place.category != null && place.category!.isNotEmpty)
                     Column(
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.people),
+                            const Icon(Icons.people),
                             const SizedBox(width: LSizes.spaceBtwItems),
                             Text(
                               place.category!,
@@ -115,7 +164,7 @@ class PlaceDetailScreen extends StatelessWidget {
                       ],
                     ),
 
-                  Divider(),
+                  const Divider(),
 
                   const SizedBox(height: LSizes.sm),
 
@@ -125,18 +174,17 @@ class PlaceDetailScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(height: LSizes.spaceBtwSections),
-
-                  // Action Buttons
-                  ActionButtons(
-                    callActionParameter: place.phoneNumber,
-                    mapActionParameter: place.mapCoordinates,
-                  ),
+                  const SizedBox(height: LSizes.spaceBtwSections),
+                  const SizedBox(height: LSizes.spaceBtwItems),
                 ],
               ),
             ),
           ],
         ),
       ),
+      floatingActionButton: ActionButtons(
+          callActionParameter: place.phoneNumber,
+          mapActionParameter: place.mapCoordinates),
     );
   }
 }

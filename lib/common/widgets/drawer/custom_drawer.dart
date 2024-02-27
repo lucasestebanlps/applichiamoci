@@ -100,6 +100,11 @@ class CustomDrawer extends StatelessWidget {
           onTap: () {},
         ),
         ListTile(
+          leading: const Icon(Iconsax.document),
+          title: const Text(LTexts.termsOfUse),
+          onTap: () {},
+        ),
+        ListTile(
           leading: const Icon(Iconsax.logout),
           title: const Text(LTexts.chiudiSessione),
           onTap: () => AuthenticationRepository.instance.logout(),

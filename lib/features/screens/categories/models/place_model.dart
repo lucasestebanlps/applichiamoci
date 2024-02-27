@@ -4,6 +4,7 @@ class PlaceModel {
   String id;
   String title;
   String description;
+  String? direction;
   String? phoneNumber;
   String? mapCoordinates;
   String? image;
@@ -17,6 +18,7 @@ class PlaceModel {
     required this.title,
     required this.description,
     this.phoneNumber,
+    this.direction,
     this.mapCoordinates,
     this.image,
     this.ownerName,
@@ -30,6 +32,7 @@ class PlaceModel {
       id: '',
       title: '',
       description: '',
+      direction: '',
       image: '',
       mapCoordinates: '',
       ownerName: '',
@@ -44,6 +47,7 @@ class PlaceModel {
       'title': title,
       'description': description,
       'phoneNumber': phoneNumber,
+      'direction': direction,
       'mapCoordinates': mapCoordinates,
       'image': image,
       'ownerName': ownerName,
@@ -63,6 +67,7 @@ class PlaceModel {
         id: document.id,
         title: data['title'] ?? '',
         description: data['description'] ?? '',
+        direction: data['direction'] ?? '',
         phoneNumber: data['phoneNumber'] ?? '',
         mapCoordinates: data['mapCoordinates'] ?? '',
         image: data['image'] ?? '',

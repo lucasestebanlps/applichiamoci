@@ -4,12 +4,10 @@ import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
-import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
 import 'package:applichiamoci/features/screens/categories/models/place_model.dart';
 import 'package:applichiamoci/common/widgets/text/error_text_icon.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
@@ -65,7 +63,7 @@ class PlacesScreen extends StatelessWidget {
               itemCount: places.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
-                  margin: EdgeInsets.only(bottom: LSizes.spaceBtwItems),
+                  margin: const EdgeInsets.only(bottom: LSizes.spaceBtwItems),
                   elevation: 5.0,
                   child: Padding(
                     padding: const EdgeInsets.all(LSizes.md),
@@ -76,7 +74,7 @@ class PlacesScreen extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.titleLarge),
-                        SizedBox(
+                        const SizedBox(
                           height: LSizes.sm,
                         ),
                         Text(
