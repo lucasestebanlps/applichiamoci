@@ -10,6 +10,7 @@ import 'package:applichiamoci/utils/exceptions/format_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -32,7 +33,9 @@ class AuthenticationRepository extends GetxController {
     // Remove the native splash screen
     FlutterNativeSplash.remove();
     // Redirect to the appropriate screen
-    screenRedirect();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      screenRedirect();
+    });
   }
 
   // Function to determine the relevant screen and redirect accordingly
@@ -78,7 +81,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw somethingWentWrong;
     }
   }
 
@@ -97,7 +100,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw somethingWentWrong;
     }
   }
 
@@ -114,7 +117,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw somethingWentWrong;
     }
   }
 
@@ -131,7 +134,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw somethingWentWrong;
     }
   }
 
@@ -153,7 +156,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw somethingWentWrong;
     }
   }
 
@@ -205,7 +208,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw somethingWentWrong;
     }
   }
 
@@ -223,7 +226,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw somethingWentWrong;
     }
   }
 }
