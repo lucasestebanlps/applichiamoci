@@ -1,5 +1,6 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -19,17 +20,17 @@ class ModalCompany extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text(LTexts.companyNumber),
+              title: Text(LTexts.companyNumber.tr()),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(LSizes
                     .cardRadiusSm), // Cambia el radio de borde según lo necesites
               ),
-              content: const Column(
+              content: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    LTexts.companyExplanation,
+                    LTexts.companyExplanation.tr(),
                   ),
                 ],
               ),
@@ -38,13 +39,13 @@ class ModalCompany extends StatelessWidget {
                   onPressed: () {
                     // Agrega aquí la lógica para ir al sitio web de la empresa
                   },
-                  child: const Text(LTexts.goToWebsite),
+                  child: Text(tr(LTexts.goToWebsite)),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop(); // Cierra el AlertDialog
                   },
-                  child: const Text(LTexts.cancel),
+                  child: Text(tr(LTexts.cancel)),
                 ),
               ],
             );

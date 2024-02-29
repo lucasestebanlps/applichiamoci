@@ -1,3 +1,5 @@
+import 'package:applichiamoci/common/widgets/drawer/languaje_selector.dart';
+import 'package:applichiamoci/common/widgets/drawer/prueba.dart';
 import 'package:applichiamoci/common/widgets/l_circular_image.dart';
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
@@ -8,6 +10,7 @@ import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -61,19 +64,20 @@ class CustomDrawer extends StatelessWidget {
             );
           }
         }),
+        const LanguageSelectorPrueba(),
         ListTile(
           leading: const Icon(Iconsax.edit),
-          title: const Text(LTexts.editProfile),
+          title: Text(tr(LTexts.editProfile)),
           onTap: () => Get.to(() => const ProfileScreen()),
         ),
         ListTile(
           leading: const Icon(Iconsax.heart),
-          title: const Text(LTexts.donaOra),
+          title: Text(tr(LTexts.donaOra)),
           onTap: () async {
             bool confirm = await LHelperFunctions().showConfirmationDialog(
               context,
-              LTexts.warning,
-              LTexts.sitoFondazioneEmanuele,
+              tr(LTexts.warning),
+              tr(LTexts.sitoFondazioneEmanuele),
             );
 
             if (confirm) {
@@ -82,8 +86,8 @@ class CustomDrawer extends StatelessWidget {
                 await launchUrl(url);
               } else {
                 LLoaders.errorSnackBar(
-                  title: LTexts.error,
-                  message: LTexts.errorNonEpossibile,
+                  title: tr(LTexts.error),
+                  message: tr(LTexts.errorNonEpossibile),
                 );
               }
             }
@@ -91,22 +95,22 @@ class CustomDrawer extends StatelessWidget {
         ),
         ListTile(
           leading: const Icon(Iconsax.message_question),
-          title: const Text('FAQ'),
+          title: Text('FAQ ${tr(LTexts.legal)}'),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(Iconsax.people),
-          title: const Text(LTexts.sopraNoi),
+          title: Text(tr(LTexts.sopraNoi)),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(Iconsax.document),
-          title: const Text(LTexts.termsOfUse),
+          title: Text(tr(LTexts.termsOfUse)),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(Iconsax.logout),
-          title: const Text(LTexts.chiudiSessione),
+          title: Text(tr(LTexts.chiudiSessione)),
           onTap: () => AuthenticationRepository.instance.logout(),
         ),
       ]),

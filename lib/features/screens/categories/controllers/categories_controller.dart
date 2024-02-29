@@ -2,6 +2,7 @@ import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/categories/categories_repository.dart';
 import 'package:applichiamoci/features/screens/categories/models/category_model.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController {
@@ -31,7 +32,7 @@ class CategoryController extends GetxController {
       // Update the categories list
       allCategories.assignAll(categories);
     } catch (e) {
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
     } finally {
       isLoading.value = false;
     }

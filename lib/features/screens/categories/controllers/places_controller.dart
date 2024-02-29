@@ -2,6 +2,7 @@ import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/categories/places_repository.dart';
 import 'package:applichiamoci/features/screens/categories/models/place_model.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart';
 
 class PlacesController extends GetxController {
@@ -20,7 +21,7 @@ class PlacesController extends GetxController {
       // si no hay categorias
       if (categoria == null) {
         LLoaders.errorSnackBar(
-            title: LTexts.error, message: LTexts.noCategoriesError);
+            title: tr(LTexts.error), message: tr(LTexts.noCategoriesError));
         return;
       }
 
@@ -45,7 +46,7 @@ class PlacesController extends GetxController {
             false; // Desactivar el loader después de cargar los lugares
       }
     } catch (e) {
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
     }
   }
 }

@@ -3,6 +3,7 @@ import 'package:applichiamoci/features/personalization/controllers/update_name_c
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/validators/validation.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -14,8 +15,8 @@ class ChangeName extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(UpdateNameController());
     return Scaffold(
-      appBar: const LAppBar(
-          title: Text(LTexts.changeName),
+      appBar: LAppBar(
+          title: Text(tr(LTexts.changeName)),
           showBackArrow: true,
           actions: false),
       body: Padding(
@@ -25,7 +26,7 @@ class ChangeName extends StatelessWidget {
           children: [
             // Headings
             Text(
-              LTexts.insertNewName,
+              tr(LTexts.insertNewName),
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: LSizes.spaceBtwSections),
@@ -41,11 +42,11 @@ class ChangeName extends StatelessWidget {
                   validator: (value) =>
                       LValidator.validateEmptyText(value, 'First Name'),
                   expands: false,
-                  decoration: const InputDecoration(
-                      labelText: LTexts.firstName,
-                      prefixIcon: Icon(Iconsax.user)),
+                  decoration: InputDecoration(
+                      labelText: tr(LTexts.firstName),
+                      prefixIcon: const Icon(Iconsax.user)),
                 ),
-                            const SizedBox(height: LSizes.spaceBtwInputFields),
+                const SizedBox(height: LSizes.spaceBtwInputFields),
 
                 // Edit Last Name
                 TextFormField(
@@ -53,9 +54,9 @@ class ChangeName extends StatelessWidget {
                   validator: (value) =>
                       LValidator.validateEmptyText(value, 'Last Name'),
                   expands: false,
-                  decoration: const InputDecoration(
-                      labelText: LTexts.firstName,
-                      prefixIcon: Icon(Iconsax.user)),
+                  decoration: InputDecoration(
+                      labelText: tr(LTexts.firstName),
+                      prefixIcon: const Icon(Iconsax.user)),
                 ),
               ]),
             ),
@@ -63,8 +64,11 @@ class ChangeName extends StatelessWidget {
 
             // Save Button
             SizedBox(
-             width: double.infinity,
-             child: ElevatedButton(onPressed: () =>  controller.updateUserName(), child: const Text(LTexts.changeName),),
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () => controller.updateUserName(),
+                child: Text(tr(LTexts.changeName)),
+              ),
             )
           ],
         ),

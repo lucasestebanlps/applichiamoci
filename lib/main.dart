@@ -14,6 +14,9 @@ Future<void> main() async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
 
+  // initialize easy controller
+  await EasyLocalization.ensureInitialized();
+
   // GetX Local Storage
   await GetStorage.init();
 
@@ -25,19 +28,18 @@ Future<void> main() async {
       .then((FirebaseApp value) => Get.put(AuthenticationRepository()));
   // Todo: initialize authentication
 
-  await EasyLocalization.ensureInitialized();
   runApp(
     SafeArea(
       left: false,
       child: EasyLocalization(
         supportedLocales: const [
+          Locale('it', 'IT'),
           Locale('en', 'US'),
-          Locale('fr', 'FR'),
-          Locale('it', 'IT')
+          Locale('fr', 'FR')
         ],
         path:
             'assets/translations', // <-- change the path of the translation files
-        fallbackLocale: const Locale('en', 'US'),
+        fallbackLocale: const Locale('it', 'IT'),
         child: const App(),
       ),
     ),

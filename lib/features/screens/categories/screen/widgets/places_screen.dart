@@ -1,6 +1,7 @@
 import 'package:applichiamoci/common/widgets/buttons/view_more_button.dart';
 import 'package:applichiamoci/features/screens/categories/screen/widgets/palces_detail_screen.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
@@ -38,24 +39,24 @@ class PlacesScreen extends StatelessWidget {
         padding: const EdgeInsets.all(LSizes.sm),
         child: Obx(() {
           if (placesController.isLoading.value) {
-            return const Center(
+            return Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SpinKitSquareCircle(
+                  const SpinKitSquareCircle(
                     color: Colors.blue,
                     size: 50.0,
                   ),
-                  SizedBox(height: LSizes.spaceBtwItems),
-                  Text(LTexts.loadingText)
+                  const SizedBox(height: LSizes.spaceBtwItems),
+                  Text(tr(LTexts.loadingText))
                 ],
               ),
             );
           } else if (placesController.placesForCategory.isEmpty) {
-            return const LErrorCenteredText(
+            return LErrorCenteredText(
               icon: Icons.warning,
-              text: LTexts.noLogoAvailable,
+              text: tr(LTexts.noLogoAvailable),
             );
           } else {
             List<PlaceModel> places = placesController.placesForCategory;

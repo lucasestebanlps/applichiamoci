@@ -5,6 +5,7 @@ import 'package:applichiamoci/common/widgets/success_screen/success_screen.dart'
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -24,9 +25,9 @@ class VerifyEmailController extends GetxController {
     try {
       await AuthenticationRepository.instance.sendEmailVerification();
       LLoaders.warningSnackBar(
-          title: LTexts.emailSentTitle, message: LTexts.verifyEmail);
+          title: tr(LTexts.emailSentTitle), message: tr(LTexts.verifyEmail));
     } catch (e) {
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
     }
   }
 
@@ -40,8 +41,8 @@ class VerifyEmailController extends GetxController {
         Get.off(
           () => SuccessScreen(
             image: LImages.succsesfullyRegisterAnimation,
-            title: LTexts.yourAccountCreatedTitle,
-            subTitle: LTexts.yourAccountCreatedSubTitle,
+            title: tr(LTexts.yourAccountCreatedTitle),
+            subTitle: tr(LTexts.yourAccountCreatedSubTitle),
             onPressed: () => AuthenticationRepository.instance.screenRedirect(),
           ),
         );
@@ -55,8 +56,8 @@ class VerifyEmailController extends GetxController {
     if (currentUser != null && currentUser.emailVerified) {
       Get.off(() => SuccessScreen(
           image: LImages.succsesfullyRegisterAnimation,
-          title: LTexts.yourAccountCreatedTitle,
-          subTitle: LTexts.yourAccountCreatedSubTitle,
+          title: tr(LTexts.yourAccountCreatedTitle),
+          subTitle: tr(LTexts.yourAccountCreatedSubTitle),
           onPressed: () => AuthenticationRepository.instance.screenRedirect()));
     }
   }

@@ -9,7 +9,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Initializing EasyLocalization"); // Agregar este print statement
     return GetMaterialApp(
       themeMode: ThemeMode.system,
       initialBinding: GeneralBindings(),

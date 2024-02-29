@@ -7,6 +7,7 @@ import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,14 +31,15 @@ class SignUpController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          LTexts.processingInformation, LImages.checkInformation);
+          tr(LTexts.processingInformation), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
-        LLoaders.errorSnackBar(title: LTexts.error, message: LTexts.noInternet);
+        LLoaders.errorSnackBar(
+            title: tr(LTexts.error), message: tr(LTexts.noInternet));
         return;
       }
 
@@ -50,8 +52,8 @@ class SignUpController extends GetxController {
       // Privacy Policy Check
       if (privacyPolicy.value) {
         LLoaders.warningSnackBar(
-          title: LTexts.acceptPrivacyPolicy,
-          message: LTexts.messagePrivacyPolicy,
+          title: tr(LTexts.acceptPrivacyPolicy),
+          message: tr(LTexts.messagePrivacyPolicy),
         );
         LFullScreenLoader.stopLoading();
         return;
@@ -80,8 +82,8 @@ class SignUpController extends GetxController {
 
       // Show success message
       LLoaders.successSnackBar(
-          title: LTexts.congratulations,
-          message: LTexts.accountCreatedSuccessfully);
+          title: tr(LTexts.congratulations),
+          message: tr(LTexts.accountCreatedSuccessfully));
 
       // Move to verify email screen
       Get.to(() => VerifyEmailScreen(email: email.text.trim()));
@@ -90,7 +92,7 @@ class SignUpController extends GetxController {
       LFullScreenLoader.stopLoading();
 
       // show some generic error to the user
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
     }
   }
 }

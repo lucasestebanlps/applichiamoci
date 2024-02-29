@@ -3,6 +3,7 @@ import 'package:applichiamoci/features/authentication/controllers/forget_passwor
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/validators/validation.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -21,10 +22,10 @@ class ForgetPassword extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Headings
-            Text(LTexts.forgetPasswordtitle,
+            Text(tr(LTexts.forgetPasswordtitle),
                 style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: LSizes.spaceBtwItems),
-            Text(LTexts.forgetPasswordsubTitle,
+            Text(tr(LTexts.forgetPasswordsubTitle),
                 style: Theme.of(context).textTheme.labelMedium),
             const SizedBox(height: LSizes.spaceBtwItems * 2),
 
@@ -34,9 +35,9 @@ class ForgetPassword extends StatelessWidget {
               child: TextFormField(
                 controller: controller.email,
                 validator: LValidator.validateEmail,
-                decoration: const InputDecoration(
-                    labelText: LTexts.email,
-                    prefixIcon: Icon(Iconsax.direct_right)),
+                decoration: InputDecoration(
+                    labelText: tr(LTexts.email),
+                    prefixIcon: const Icon(Iconsax.direct_right)),
               ),
             ),
             const SizedBox(height: LSizes.spaceBtwSections),
@@ -47,7 +48,7 @@ class ForgetPassword extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () => controller.sendPasswordResetEmail(),
-                    child: const Text(LTexts.submit)))
+                    child: Text(tr(LTexts.submit))))
           ],
         ),
       ),

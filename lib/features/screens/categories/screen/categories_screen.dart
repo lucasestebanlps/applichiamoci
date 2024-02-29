@@ -6,6 +6,7 @@ import 'package:applichiamoci/features/screens/categories/screen/widgets/categor
 import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart'; // Agrega la importación de PlacesController
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,7 @@ class CategoriesScreen extends StatelessWidget {
       appBar: LAppBar(
         showBackArrow: false,
         title: Column(children: [
-          Text(LTexts.servizi,
+          Text(tr(LTexts.servizi),
               style: Theme.of(context).textTheme.headlineSmall!)
         ]),
       ),

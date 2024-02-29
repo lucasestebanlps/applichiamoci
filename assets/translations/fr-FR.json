@@ -8,6 +8,7 @@
     "onBoardingSubTitle3": "Aidez quelqu'un avec votre don, nous sommes solidaires",
     "notizieTitle": "Actualités",
     "servizi": "Services",
+    "home": "Home",
     "dataNotSaved": "Données non enregistrées",
     "firstName": "Prénom",
     "lastName": "Nom de famille",
@@ -78,7 +79,7 @@
     "confirmEmailSubTitle": "Félicitations! Votre compte vous attend: vérifiez votre e-mail et confirmez votre compte pour finaliser l'inscription. N'oubliez pas de vérifier le dossier spam.",
     "emailNotReceivedMessage": "Vous n'avez pas reçu l'e-mail? Vérifiez votre dossier spam ou renvoyez-le.",
     "yourAccountCreatedTitle": "Votre compte a été créé avec succès!",
-    "yourAccountCreatedSubTitle": "Bienvenue sur Appliquez-nous! Il est temps de changer votre vie et celle des autres aussi.",
+    "yourAccountCreatedSubTitle": "Bienvenue sur Applichiamoci! Il est temps de changer votre vie et celle des autres aussi.",
     "continueButton": "Continuer",
     "noNews": "Il n'y a pas de nouvelles pour le moment..",
     "noLogoAvailable": "Aucun endroit disponible pour cette catégorie.",
@@ -101,7 +102,7 @@
     "noInternet": "Pas de connexion Internet. Vérifiez votre connexion.",
     "companyNumber": "Notre numéro:",
     "otherNumbers": "Autres numéros:",
-    "companyEmergency": "Urgence d'entreprise",
+    "companyEmergency": "Intervention Sociale d'Urgence",
     "medicalEmergency": "Urgence médicale",
     "securityEmergency1": "Urgence de sécurité 1",
     "securityEmergency2": "Urgence de sécurité 2",
@@ -111,6 +112,10 @@
     "accessToLocationRequiredMessage": "Accès à la localisation requis pour ouvrir les cartes.",
     "companyExplanation": "Il s'agit d'une brève explication sur le numéro d'entreprise et comment il peut aider les clients.",
     "goToWebsite": "Aller sur le site",
-    "openSettingsText": "Ouvrir les paramètres"
+    "openSettingsText": "Ouvrir les paramètres",
+    "select_language": "Choisir la langue",
+    "legal": "légale"
+
+
   }
   

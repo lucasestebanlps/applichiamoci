@@ -4,6 +4,7 @@ import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_bottom_sheet.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -52,12 +53,12 @@ class NavigationMenu extends StatelessWidget {
           indicatorColor: darkMode
               ? LColors.white.withOpacity(0.1)
               : LColors.black.withOpacity(0.1),
-          destinations: const [
+          destinations: [
             NavigationDestination(
-                icon: Icon(Iconsax.home), label: LTexts.servizi),
-            SizedBox(width: 40),
+                icon: const Icon(Iconsax.home), label: tr(LTexts.home)),
+            const SizedBox(width: 40),
             NavigationDestination(
-                icon: Icon(Iconsax.category), label: LTexts.servizi),
+                icon: const Icon(Iconsax.category), label: tr(LTexts.servizi)),
           ],
         ),
       ),

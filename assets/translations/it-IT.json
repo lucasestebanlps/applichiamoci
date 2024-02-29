@@ -8,6 +8,7 @@
     "onBoardingSubTitle3": "Aiuta qualcuno con la tua donazione, siamo solidali",
     "notizieTitle": "Notizie",
     "servizi": "Servizi",
+    "home": "Home",
     "dataNotSaved": "Dati non salvati",
     "firstName": "Nome",
     "lastName": "Cognome",
@@ -57,7 +58,7 @@
     "accept": "Accetta",
     "buttonCall": "Chiama",
     "buttonMap": "Mappa",
-    "warning": "Avvertimento",
+    "warning": "Atenzione",
     "savingInformationError": "Qualcosa è andato storto durante il salvataggio delle tue informazioni. Puoi ricontrollare e risalvare i tuoi dati nel tuo Profilo",
     "sitoFondazioneEmanuele": "Andrai al sito ufficiale della Fondazione Emmanuel",
     "chiudiSessione": "Chiudi sessione",
@@ -101,7 +102,7 @@
     "noInternet": "Nessuna connessione internet. Controlla la tua connessione.",
     "companyNumber": "Nostro numero:",
     "otherNumbers": "Altri numeri:",
-    "companyEmergency": "Emergenza aziendale",
+    "companyEmergency": "Pronto intervento sociale",
     "medicalEmergency": "Emergenza medica",
     "securityEmergency1": "Emergenza sicurezza 1",
     "securityEmergency2": "Emergenza sicurezza 2",
@@ -111,6 +112,9 @@
     "accessToLocationRequiredMessage": "Accesso alla posizione richiesto per aprire le mappe.",
     "companyExplanation": "Questa è una breve spiegazione sul numero dell'azienda e su come può aiutare i clienti.",
     "goToWebsite": "Vai al sito",
-    "openSettingsText": "Apri Impostazioni"
+    "openSettingsText": "Apri Impostazioni",
+    "select_language": "Seleziona la lingua",
+    "legal": "legale"
+
   }
   

@@ -4,6 +4,7 @@ import 'package:applichiamoci/common/widgets/text/error_text_icon.dart';
 import 'package:applichiamoci/features/screens/home/controllers/news_controller.dart';
 import 'package:applichiamoci/features/screens/home/screen/widgets/news_card.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,7 @@ class NewsScreen extends StatelessWidget {
       appBar: LAppBar(
         showBackArrow: false,
         title: Column(children: [
-          Text(LTexts.notizieTitle,
+          Text(tr(LTexts.notizieTitle),
               style: Theme.of(context).textTheme.headlineSmall!)
         ]),
       ),
@@ -27,9 +28,9 @@ class NewsScreen extends StatelessWidget {
         if (homeController.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         } else if (homeController.allNews.isEmpty) {
-          return const LErrorCenteredText(
+          return LErrorCenteredText(
             icon: Icons.warning,
-            text: LTexts.noNews,
+            text: tr(LTexts.noNews),
           );
         } else {
           return ListView.builder(

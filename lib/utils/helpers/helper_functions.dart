@@ -1,5 +1,6 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -126,14 +127,14 @@ class LHelperFunctions {
         await launchUrl(phoneNumber);
       } else {
         LLoaders.errorSnackBar(
-            title: LTexts.error,
+            title: tr(LTexts.error),
             message: 'Il numero $callActionParameter non é disponibile',
             mainButton: true);
       }
     } else {
       LLoaders.errorSnackBar(
-          title: LTexts.permissionDenied,
-          message: LTexts.accessToPhoneRequiredMessage,
+          title: tr(LTexts.permissionDenied),
+          message: tr(LTexts.accessToPhoneRequiredMessage),
           mainButton: true);
     }
   }
@@ -148,7 +149,7 @@ class LHelperFunctions {
       await launchUrl(email);
     } else {
       LLoaders.errorSnackBar(
-          title: LTexts.error,
+          title: tr(LTexts.error),
           message: 'Il mail $emailActionParameter non é disponibile',
           mainButton: false);
     }
@@ -161,14 +162,14 @@ class LHelperFunctions {
         MapsLauncher.launchQuery(mapActionParameter);
       } else {
         LLoaders.errorSnackBar(
-          title: LTexts.error,
+          title: tr(LTexts.error),
           message: 'Il mapa non é disponibile',
         );
       }
     } else {
       LLoaders.errorSnackBar(
-        title: LTexts.permissionDenied,
-        message: LTexts.accessToLocationRequiredMessage,
+        title: tr(LTexts.permissionDenied),
+        message: tr(LTexts.accessToLocationRequiredMessage),
         mainButton: true,
       );
     }
@@ -188,14 +189,14 @@ class LHelperFunctions {
           content: Text(content),
           actions: <Widget>[
             TextButton(
-              child: const Text(LTexts.accept),
+              child: Text(tr(LTexts.accept)),
               onPressed: () {
                 Navigator.of(context)
                     .pop(true); // Indicar que se canceló la acción
               },
             ),
             TextButton(
-              child: const Text(LTexts.cancel),
+              child: Text(tr(LTexts.cancel)),
               onPressed: () {
                 Navigator.of(context)
                     .pop(false); // Indicar que se confirmó la acción

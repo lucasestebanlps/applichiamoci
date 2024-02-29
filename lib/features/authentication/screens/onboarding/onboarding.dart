@@ -5,6 +5,7 @@ import 'package:applichiamoci/features/authentication/screens/onboarding/widgets
 import 'package:applichiamoci/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -20,25 +21,25 @@ class OnBoardingScreen extends StatelessWidget {
       children: [
         // Horizontal scrollable pages
         PageView(
-          controller: controller.pageController,
-          onPageChanged: controller.updatePageIndicator, 
-          children: const [
-          OnBoardingPage(
-            image: LImages.onBoardingImage1,
-            title: LTexts.onBoardingTitle1,
-            subTitle: LTexts.onBoardingSubTitle1,
-          ),
-          OnBoardingPage(
-            image: LImages.onBoardingImage2,
-            title: LTexts.onBoardingTitle2,
-            subTitle: LTexts.onBoardingSubTitle2,
-          ),
-          OnBoardingPage(
-            image: LImages.onBoardingImage3,
-            title: LTexts.onBoardingTitle3,
-            subTitle: LTexts.onBoardingSubTitle3,
-          ),
-        ]),
+            controller: controller.pageController,
+            onPageChanged: controller.updatePageIndicator,
+            children: [
+              OnBoardingPage(
+                image: LImages.onBoardingImage1,
+                title: tr(LTexts.onBoardingTitle1),
+                subTitle: tr(LTexts.onBoardingSubTitle1),
+              ),
+              OnBoardingPage(
+                image: LImages.onBoardingImage2,
+                title: tr(LTexts.onBoardingTitle2),
+                subTitle: tr(LTexts.onBoardingSubTitle2),
+              ),
+              OnBoardingPage(
+                image: LImages.onBoardingImage3,
+                title: tr(LTexts.onBoardingTitle3),
+                subTitle: tr(LTexts.onBoardingSubTitle3),
+              ),
+            ]),
 
         //  Skip Button
         const OnBoardingSkip(),

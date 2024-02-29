@@ -8,6 +8,7 @@
     "onBoardingSubTitle3": "Help someone with your donation, we stand in solidarity",
     "notizieTitle": "News",
     "servizi": "Services",
+    "home": "Home",
     "dataNotSaved": "Data not saved",
     "firstName": "First Name",
     "lastName": "Last Name",
@@ -78,7 +79,7 @@
     "confirmEmailSubTitle": "Congratulations! Your account is waiting for you: check your email and confirm your account to complete the registration. Don't forget to check the spam folder.",
     "emailNotReceivedMessage": "Didn't receive the email? Check your spam folder or resend it.",
     "yourAccountCreatedTitle": "Your account has been created successfully!",
-    "yourAccountCreatedSubTitle": "Welcome to Let's Apply! It's time to change your life and others too.",
+    "yourAccountCreatedSubTitle": "Welcome to Applichiamoci! It's time to change your life and others too.",
     "continueButton": "Continue",
     "noNews": "There are no news at the moment..",
     "noLogoAvailable": "No places available for this category.",
@@ -101,7 +102,7 @@
     "noInternet": "No internet connection. Check your connection.",
     "companyNumber": "Our number:",
     "otherNumbers": "Other numbers:",
-    "companyEmergency": "Company Emergency",
+    "companyEmergency": "Social Emergency Response",
     "medicalEmergency": "Medical Emergency",
     "securityEmergency1": "Security Emergency 1",
     "securityEmergency2": "Security Emergency 2",
@@ -111,6 +112,9 @@
     "accessToLocationRequiredMessage": "Location access required to open maps.",
     "companyExplanation": "This is a brief explanation about the company number and how it can help customers.",
     "goToWebsite": "Go to website",
-    "openSettingsText": "Open Settings"
+    "openSettingsText": "Open Settings",
+    "select_language": "Select Language",
+    "language_selector": "Select Language",
+    "legal": "legal"
   }
   

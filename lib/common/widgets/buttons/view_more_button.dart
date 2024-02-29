@@ -1,4 +1,5 @@
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class ViewMoreButton extends StatelessWidget {
@@ -19,7 +20,7 @@ class ViewMoreButton extends StatelessWidget {
           style: TextButton.styleFrom(
             backgroundColor: Colors.blue,
           ),
-          child: Text(LTexts.viewMore,
+          child: Text(tr(LTexts.viewMore),
               style: Theme.of(context)
                   .textTheme
                   .labelLarge

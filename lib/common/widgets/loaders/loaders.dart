@@ -1,5 +1,6 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -150,8 +151,8 @@ class LLoaders {
                   onPressed: () async {
                     await openAppSettings();
                   },
-                  child: const Text(LTexts.openSettingsText,
-                      style: TextStyle(color: Colors.white)),
+                  child: Text(tr(LTexts.openSettingsText),
+                      style: const TextStyle(color: Colors.white)),
                 ),
               ],
             ),

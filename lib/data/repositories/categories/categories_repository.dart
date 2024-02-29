@@ -3,6 +3,7 @@ import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +26,7 @@ class CategoryRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LTexts.somethingWentWrong);
     }
   }
 }

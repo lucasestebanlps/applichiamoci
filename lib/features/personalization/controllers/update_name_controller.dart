@@ -6,6 +6,7 @@ import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +37,7 @@ class UpdateNameController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          LTexts.updatingInformation, LImages.checkInformation);
+          tr(LTexts.updatingInformation), LImages.checkInformation);
 
       // Check internet conectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -64,13 +65,13 @@ class UpdateNameController extends GetxController {
 
       // Show succsess Message
       LLoaders.successSnackBar(
-          title: LTexts.congratulations, message: LTexts.nameUpdated);
+          title: tr(LTexts.congratulations), message: tr(LTexts.nameUpdated));
 
       // Move to prevous screen
       Get.off(() => const ProfileScreen());
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
     }
   }
 }
