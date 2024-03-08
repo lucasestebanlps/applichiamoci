@@ -67,9 +67,9 @@ class LLoginForm extends StatelessWidget {
                         value: controller.rememberMe.value,
                         onChanged: (value) => controller.rememberMe.value =
                             !controller.rememberMe.value,
-                        visualDensity: VisualDensity(
+                        visualDensity: const VisualDensity(
                             horizontal: -4,
-                            vertical: -4), // Ajusta el margen izquierdo aquí
+                            vertical: -4), // Ajustar el margen izquierdo
                       ),
                     ),
                     Text(

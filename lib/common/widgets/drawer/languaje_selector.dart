@@ -1,4 +1,4 @@
-import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
+import 'package:applichiamoci/features/screens/categories/controllers/categories_controller.dart';
 import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -23,7 +23,7 @@ class LanguageSelector extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(LocaleKeys.selectLanguage).tr(),
+          title: Text(LocaleKeys.selectLanguage.tr()),
           content: SingleChildScrollView(
             child: Column(
               children: EasyLocalization.of(context)!
@@ -33,18 +33,18 @@ class LanguageSelector extends StatelessWidget {
                           EasyLocalization.of(context)!.setLocale(locale);
                           await Get.updateLocale(locale);
 
-                          Get.back(); // Close the dialog
-                          LLoaders.successSnackBar(
-                              title: LocaleKeys.updateLanguajeTitle.tr(),
-                              message: LocaleKeys.updateLanguajeMsj.tr());
+                          // Cerrar el diálogo
+                          Get.back();
+
+                          // Actualizar las categorías después de cambiar el idioma
+                          CategoryController.instance.fetchCategories();
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: Row(
                             children: [
                               Text(
-                                getLocaleName(
-                                    locale), // Nombre completo del idioma
+                                getLocaleName(locale),
                               ),
                               const Spacer(),
                               if (EasyLocalization.of(context)!.locale ==
@@ -70,7 +70,7 @@ class LanguageSelector extends StatelessWidget {
     );
   }
 
-// Función para obtener el nombre completo del idioma
+  // Función para obtener el nombre completo del idioma
   String getLocaleName(Locale locale) {
     switch (locale.languageCode) {
       case 'en':
