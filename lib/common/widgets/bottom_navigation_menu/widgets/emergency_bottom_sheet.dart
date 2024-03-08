@@ -20,26 +20,26 @@ class EmergencyCallBottomSheet extends StatelessWidget {
           children: [
             // Text and icon for company button
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(LTexts.companyNumber.tr(),
+              Text(LocaleKeys.companyNumber.tr(),
                   style: Theme.of(context).textTheme.headlineSmall),
               const ModalCompany()
             ]),
             // Company number
             EmergencyServiceButton(
               iconData: Icons.business,
-              label: LTexts.companyEmergency.tr(),
+              label: LocaleKeys.companyEmergency.tr(),
               phoneNumber: '123456789', // Número de emergencia de la empresa
               highlightColor: Colors.green, // Color para resaltar el botón
             ),
             const SizedBox(height: LSizes.defaultSpace),
 
             // Text for other numbers
-            Text(LTexts.otherNumbers.tr(),
+            Text(LocaleKeys.otherNumbers.tr(),
                 style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 12),
             EmergencyServiceButton(
               iconData: Icons.local_hospital,
-              label: tr(LTexts.medicalEmergency),
+              label: tr(LocaleKeys.medicalEmergency),
               phoneNumber: '118',
             ),
             const SizedBox(height: LSizes.spaceBtwItems),
@@ -47,24 +47,24 @@ class EmergencyCallBottomSheet extends StatelessWidget {
             // -- OTHER NUMBERS ---
             EmergencyServiceButton(
               iconData: Icons.security,
-              label: tr(LTexts.securityEmergency1),
+              label: tr(LocaleKeys.securityEmergency1),
               phoneNumber: '112',
             ),
             const SizedBox(height: LSizes.spaceBtwItems),
             EmergencyServiceButton(
               iconData: Icons.security,
-              label: tr(LTexts.securityEmergency2),
+              label: tr(LocaleKeys.securityEmergency2),
               phoneNumber: '113',
             ),
             const SizedBox(height: LSizes.spaceBtwItems),
             EmergencyServiceButton(
               iconData: Icons.fire_extinguisher,
-              label: tr(LTexts.fireEmergency),
+              label: tr(LocaleKeys.fireEmergency),
               phoneNumber: '115',
             ),
             const SizedBox(height: LSizes.spaceBtwInputFields),
             EmergencyServiceButton(
-              label: tr(LTexts.antiViolenceEmergency),
+              label: tr(LocaleKeys.antiViolenceEmergency),
               phoneNumber: '1522',
               iconData: Icons.heart_broken_outlined,
             ),

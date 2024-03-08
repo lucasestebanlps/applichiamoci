@@ -80,8 +80,8 @@ class UserController extends GetxController {
       }
     } catch (e) {
       LLoaders.warningSnackBar(
-          title: tr(LTexts.dataNotSaved),
-          message: tr(LTexts.savingInformationError));
+          title: tr(LocaleKeys.dataNotSaved),
+          message: tr(LocaleKeys.savingInformationError));
     }
   }
 
@@ -89,8 +89,8 @@ class UserController extends GetxController {
   void deleteAccountWarningPopup() {
     Get.defaultDialog(
         contentPadding: const EdgeInsets.all(LSizes.md),
-        title: tr(LTexts.deleteAccount),
-        middleText: tr(LTexts.sureToDelete),
+        title: tr(LocaleKeys.deleteAccount),
+        middleText: tr(LocaleKeys.sureToDelete),
         confirm: ElevatedButton(
             onPressed: () async => deleteUserAccount(),
             style: ElevatedButton.styleFrom(
@@ -98,18 +98,18 @@ class UserController extends GetxController {
                 side: const BorderSide(color: Colors.red)),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: LSizes.lg),
-              child: Text(tr(LTexts.delete)),
+              child: Text(tr(LocaleKeys.delete)),
             )),
         cancel: OutlinedButton(
             onPressed: () => Navigator.of(Get.overlayContext!).pop(),
-            child: Text(tr(LTexts.cancel))));
+            child: Text(tr(LocaleKeys.cancel))));
   }
 
   // Delete User Account
   void deleteUserAccount() async {
     try {
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.processing), LImages.checkInformation);
+          tr(LocaleKeys.processing), LImages.checkInformation);
 
       // Firstr re-authenticate user
       final auth = AuthenticationRepository.instance;
@@ -129,7 +129,8 @@ class UserController extends GetxController {
       }
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.warningSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.warningSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 
@@ -137,7 +138,7 @@ class UserController extends GetxController {
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.processing), LImages.checkInformation);
+          tr(LocaleKeys.processing), LImages.checkInformation);
 
       // Check internet conectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -160,7 +161,8 @@ class UserController extends GetxController {
       Get.offAll(() => const LoginScreen());
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.warningSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.warningSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 
@@ -172,8 +174,8 @@ class UserController extends GetxController {
       if (status != PermissionStatus.granted) {
         // Si el permiso no se concede, muestra un mensaje al usuario y proporciona un botón para que lo active
         LLoaders.errorSnackBar(
-            title: tr(LTexts.permissionDenied),
-            message: tr(LTexts.accessRequired),
+            title: tr(LocaleKeys.permissionDenied),
+            message: tr(LocaleKeys.accessRequired),
             mainButton: true);
         return;
       }
@@ -206,13 +208,13 @@ class UserController extends GetxController {
 
         user.refresh();
         LLoaders.successSnackBar(
-          title: tr(LTexts.congratulations),
-          message: tr(LTexts.profileImageUpdated),
+          title: tr(LocaleKeys.congratulations),
+          message: tr(LocaleKeys.profileImageUpdated),
         );
       }
     } catch (e) {
       LLoaders.errorSnackBar(
-        title: tr(LTexts.error),
+        title: tr(LocaleKeys.error),
         message: '$e',
       );
     } finally {

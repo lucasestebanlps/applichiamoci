@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
             const LLoginForm(),
 
             // Divider
-            LFormDivider(dividerText: tr(LTexts.orSignInWith)),
+            LFormDivider(dividerText: tr(LocaleKeys.orSignInWith)),
 
             const SizedBox(height: LSizes.spaceBtwSections),
             // Footer

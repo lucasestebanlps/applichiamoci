@@ -1,13 +1,12 @@
 import 'package:applichiamoci/common/widgets/drawer/languaje_selector.dart';
-import 'package:applichiamoci/common/widgets/drawer/prueba.dart';
 import 'package:applichiamoci/common/widgets/l_circular_image.dart';
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/personalization/controllers/user_controller.dart';
 import 'package:applichiamoci/features/screens/profile/profile_screen.dart';
+import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
-import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -64,20 +63,20 @@ class CustomDrawer extends StatelessWidget {
             );
           }
         }),
-        const LanguageSelectorPrueba(),
+        const LanguageSelector(),
         ListTile(
           leading: const Icon(Iconsax.edit),
-          title: Text(tr(LTexts.editProfile)),
+          title: const Text(LocaleKeys.editProfile).tr(),
           onTap: () => Get.to(() => const ProfileScreen()),
         ),
         ListTile(
           leading: const Icon(Iconsax.heart),
-          title: Text(tr(LTexts.donaOra)),
+          title: Text(tr(LocaleKeys.donaOra)),
           onTap: () async {
             bool confirm = await LHelperFunctions().showConfirmationDialog(
               context,
-              tr(LTexts.warning),
-              tr(LTexts.sitoFondazioneEmanuele),
+              tr(LocaleKeys.warning),
+              tr(LocaleKeys.sitoFondazioneEmanuele),
             );
 
             if (confirm) {
@@ -86,8 +85,8 @@ class CustomDrawer extends StatelessWidget {
                 await launchUrl(url);
               } else {
                 LLoaders.errorSnackBar(
-                  title: tr(LTexts.error),
-                  message: tr(LTexts.errorNonEpossibile),
+                  title: tr(LocaleKeys.error),
+                  message: tr(LocaleKeys.errorNonEpossibile),
                 );
               }
             }
@@ -95,22 +94,22 @@ class CustomDrawer extends StatelessWidget {
         ),
         ListTile(
           leading: const Icon(Iconsax.message_question),
-          title: Text('FAQ ${tr(LTexts.legal)}'),
+          title: Text('FAQ ${tr(LocaleKeys.legal)}'),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(Iconsax.people),
-          title: Text(tr(LTexts.sopraNoi)),
+          title: Text(tr(LocaleKeys.sopraNoi)),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(Iconsax.document),
-          title: Text(tr(LTexts.termsOfUse)),
+          title: Text(tr(LocaleKeys.termsOfUse)),
           onTap: () {},
         ),
         ListTile(
           leading: const Icon(Iconsax.logout),
-          title: Text(tr(LTexts.chiudiSessione)),
+          title: Text(tr(LocaleKeys.chiudiSessione)),
           onTap: () => AuthenticationRepository.instance.logout(),
         ),
       ]),

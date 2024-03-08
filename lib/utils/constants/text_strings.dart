@@ -1,4 +1,4 @@
-class LTexts {
+class LocaleKeys {
   // Global texts
   static const String emergencyNumber = "emergencyNumber";
 

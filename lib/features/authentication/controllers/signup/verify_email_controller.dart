@@ -25,9 +25,11 @@ class VerifyEmailController extends GetxController {
     try {
       await AuthenticationRepository.instance.sendEmailVerification();
       LLoaders.warningSnackBar(
-          title: tr(LTexts.emailSentTitle), message: tr(LTexts.verifyEmail));
+          title: tr(LocaleKeys.emailSentTitle),
+          message: tr(LocaleKeys.verifyEmail));
     } catch (e) {
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 
@@ -41,8 +43,8 @@ class VerifyEmailController extends GetxController {
         Get.off(
           () => SuccessScreen(
             image: LImages.succsesfullyRegisterAnimation,
-            title: tr(LTexts.yourAccountCreatedTitle),
-            subTitle: tr(LTexts.yourAccountCreatedSubTitle),
+            title: tr(LocaleKeys.yourAccountCreatedTitle),
+            subTitle: tr(LocaleKeys.yourAccountCreatedSubTitle),
             onPressed: () => AuthenticationRepository.instance.screenRedirect(),
           ),
         );
@@ -56,8 +58,8 @@ class VerifyEmailController extends GetxController {
     if (currentUser != null && currentUser.emailVerified) {
       Get.off(() => SuccessScreen(
           image: LImages.succsesfullyRegisterAnimation,
-          title: tr(LTexts.yourAccountCreatedTitle),
-          subTitle: tr(LTexts.yourAccountCreatedSubTitle),
+          title: tr(LocaleKeys.yourAccountCreatedTitle),
+          subTitle: tr(LocaleKeys.yourAccountCreatedSubTitle),
           onPressed: () => AuthenticationRepository.instance.screenRedirect()));
     }
   }

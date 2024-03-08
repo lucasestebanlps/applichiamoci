@@ -21,7 +21,7 @@ class ForgetPasswordController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.loginLoading), LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -45,14 +45,15 @@ class ForgetPasswordController extends GetxController {
 
       // Show success message
       LLoaders.successSnackBar(
-          title: tr(LTexts.emailSentTitle),
-          message: tr(LTexts.emailSentMessage));
+          title: tr(LocaleKeys.emailSentTitle),
+          message: tr(LocaleKeys.emailSentMessage));
 
       // Redirect
       Get.to(() => ResetPasswordScreen(email: email.text.trim()));
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 
@@ -60,7 +61,7 @@ class ForgetPasswordController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.loginLoading), LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -77,11 +78,12 @@ class ForgetPasswordController extends GetxController {
 
       // Show success message
       LLoaders.successSnackBar(
-          title: tr(LTexts.emailSentTitle),
-          message: tr(LTexts.emailSentMessage));
+          title: tr(LocaleKeys.emailSentTitle),
+          message: tr(LocaleKeys.emailSentMessage));
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 }

@@ -113,8 +113,9 @@
     "companyExplanation": "This is a brief explanation about the company number and how it can help customers.",
     "goToWebsite": "Go to website",
     "openSettingsText": "Open Settings",
-    "select_language": "Select Language",
-    "language_selector": "Select Language",
-    "legal": "legal"
+    "selectLanguage": "Select Language",
+    "legal": "legal",
+    "updateLanguajeTitle": "Updated languaje",
+    "updateLanguajeMsj": "The app language has been successfully updated."
   }
   

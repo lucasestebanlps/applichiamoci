@@ -39,7 +39,7 @@ class ResetPasswordScreen extends StatelessWidget {
               const SizedBox(height: LSizes.spaceBtwItems),
 
               Text(
-                tr(LTexts.changeYourPasswordSubTitle),
+                tr(LocaleKeys.changeYourPasswordSubTitle),
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -50,7 +50,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => Get.offAll(() => const LoginScreen()),
-                  child: Text(tr(LTexts.done)),
+                  child: Text(tr(LocaleKeys.done)),
                 ),
               ),
               const SizedBox(height: LSizes.spaceBtwItems),
@@ -59,7 +59,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => ForgetPasswordController.insstance
                       .resendPasswordResetEmail(email),
-                  child: Text(tr(LTexts.resendEmail)),
+                  child: Text(tr(LocaleKeys.resendEmail)),
                 ),
               ),
             ],

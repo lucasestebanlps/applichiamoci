@@ -113,9 +113,9 @@
     "companyExplanation": "Il s'agit d'une brève explication sur le numéro d'entreprise et comment il peut aider les clients.",
     "goToWebsite": "Aller sur le site",
     "openSettingsText": "Ouvrir les paramètres",
-    "select_language": "Choisir la langue",
-    "legal": "légale"
-
-
+    "selectLanguage": "Choisir la langue",
+    "legal": "légale",
+    "updateLanguajeTitle": "Langue mise à jour",
+    "updateLanguajeMsj": "La langue de l'application a été mise à jour avec succès."
   }
   

@@ -14,14 +14,15 @@ class LCategoryShimmer extends StatelessWidget {
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
       ),
-      itemCount: itemCount, // Para mostrar la cantidad de elementos que queremos
+      itemCount:
+          itemCount, // Para mostrar la cantidad de elementos que queremos
       itemBuilder: (_, index) {
         return LShimerEffect(
           key:
               UniqueKey(), // Asegurarse de proporcionar claves únicas para cada shimmer
           width: double.infinity,
-          height: 200.0, // Ajusta la altura 
-          radius: 15.0,
+          height: 200.0, // Ajusta la altura
+          radius: 10.0,
         );
       },
     );

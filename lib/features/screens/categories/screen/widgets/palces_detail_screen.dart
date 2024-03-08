@@ -86,6 +86,8 @@ class PlaceDetailScreen extends StatelessWidget {
                                   const Icon(Icons.location_on),
                                   const SizedBox(width: LSizes.spaceBtwItems),
                                   Text(
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     place.direction!,
                                     style:
                                         Theme.of(context).textTheme.bodyLarge,
@@ -106,9 +108,13 @@ class PlaceDetailScreen extends StatelessWidget {
                       children: [
                         const Icon(Icons.person),
                         const SizedBox(width: LSizes.spaceBtwItems),
-                        Text(
-                          place.ownerName!,
-                          style: Theme.of(context).textTheme.bodyLarge,
+                        Expanded(
+                          child: Text(
+                            place.ownerName!,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
                         ),
                       ],
                     ),
@@ -134,6 +140,8 @@ class PlaceDetailScreen extends StatelessWidget {
                               ),
                               const SizedBox(width: LSizes.spaceBtwItems),
                               Text(
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                                 place.email!,
                                 style: Theme.of(context)
                                     .textTheme
@@ -148,21 +156,17 @@ class PlaceDetailScreen extends StatelessWidget {
 
                   // ---- CATEGORY ----
                   if (place.category != null && place.category!.isNotEmpty)
-                    Column(
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            const Icon(Icons.people),
-                            const SizedBox(width: LSizes.spaceBtwItems),
-                            Text(
-                              place.category!,
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                          ],
+                        const Icon(Icons.people),
+                        const SizedBox(width: LSizes.spaceBtwItems),
+                        Text(
+                          place.category!,
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
-                        const SizedBox(height: LSizes.sm),
                       ],
                     ),
+                  const SizedBox(height: LSizes.sm),
 
                   const Divider(),
 
@@ -170,6 +174,7 @@ class PlaceDetailScreen extends StatelessWidget {
 
                   // Description
                   Text(
+                    softWrap: true,
                     place.description.replaceAll(r'\n', '\n'),
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),

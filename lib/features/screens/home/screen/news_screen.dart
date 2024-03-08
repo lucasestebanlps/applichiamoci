@@ -19,7 +19,7 @@ class NewsScreen extends StatelessWidget {
       appBar: LAppBar(
         showBackArrow: false,
         title: Column(children: [
-          Text(tr(LTexts.notizieTitle),
+          Text(tr(LocaleKeys.notizieTitle),
               style: Theme.of(context).textTheme.headlineSmall!)
         ]),
       ),
@@ -30,7 +30,7 @@ class NewsScreen extends StatelessWidget {
         } else if (homeController.allNews.isEmpty) {
           return LErrorCenteredText(
             icon: Icons.warning,
-            text: tr(LTexts.noNews),
+            text: tr(LocaleKeys.noNews),
           );
         } else {
           return ListView.builder(

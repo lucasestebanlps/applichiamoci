@@ -21,7 +21,7 @@ class SignupScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Title
-            Text(tr(LTexts.signupTitle),
+            Text(tr(LocaleKeys.signupTitle),
                 style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: LSizes.spaceBtwSections),
 
@@ -30,7 +30,7 @@ class SignupScreen extends StatelessWidget {
             const SizedBox(height: LSizes.spaceBtwSections),
 
             // Divider
-            LFormDivider(dividerText: tr(LTexts.orSignInWith)),
+            LFormDivider(dividerText: tr(LocaleKeys.orSignInWith)),
             const SizedBox(height: LSizes.spaceBtwSections),
 
             // Social Buttoms

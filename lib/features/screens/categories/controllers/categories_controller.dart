@@ -32,7 +32,8 @@ class CategoryController extends GetxController {
       // Update the categories list
       allCategories.assignAll(categories);
     } catch (e) {
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     } finally {
       isLoading.value = false;
     }

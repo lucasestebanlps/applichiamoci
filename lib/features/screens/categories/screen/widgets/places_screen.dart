@@ -49,14 +49,14 @@ class PlacesScreen extends StatelessWidget {
                     size: 50.0,
                   ),
                   const SizedBox(height: LSizes.spaceBtwItems),
-                  Text(tr(LTexts.loadingText))
+                  Text(tr(LocaleKeys.loadingText))
                 ],
               ),
             );
           } else if (placesController.placesForCategory.isEmpty) {
             return LErrorCenteredText(
               icon: Icons.warning,
-              text: tr(LTexts.noLogoAvailable),
+              text: tr(LocaleKeys.noLogoAvailable),
             );
           } else {
             List<PlaceModel> places = placesController.placesForCategory;
@@ -86,12 +86,30 @@ class PlacesScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         const SizedBox(height: LSizes.spaceBtwItems),
-                        ViewMoreButton(
-                          onPressed: () {
-                            Get.to(
-                                () => PlaceDetailScreen(place: places[index]));
-                          },
-                        ),
+                        if (places[index].category != null &&
+                            places[index].category!.isNotEmpty)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(Icons.people),
+                                  const SizedBox(width: LSizes.spaceBtwItems),
+                                  Text(
+                                    places[index].category!,
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                ],
+                              ),
+                              ViewMoreButton(
+                                onPressed: () {
+                                  Get.to(() =>
+                                      PlaceDetailScreen(place: places[index]));
+                                },
+                              ),
+                            ],
+                          )
                       ],
                     ),
                   ),

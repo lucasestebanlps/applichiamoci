@@ -37,7 +37,7 @@ class UpdateNameController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.updatingInformation), LImages.checkInformation);
+          tr(LocaleKeys.updatingInformation), LImages.checkInformation);
 
       // Check internet conectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -65,13 +65,15 @@ class UpdateNameController extends GetxController {
 
       // Show succsess Message
       LLoaders.successSnackBar(
-          title: tr(LTexts.congratulations), message: tr(LTexts.nameUpdated));
+          title: tr(LocaleKeys.congratulations),
+          message: tr(LocaleKeys.nameUpdated));
 
       // Move to prevous screen
       Get.off(() => const ProfileScreen());
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 }

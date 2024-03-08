@@ -24,7 +24,7 @@ class CategoriesScreen extends StatelessWidget {
       appBar: LAppBar(
         showBackArrow: false,
         title: Column(children: [
-          Text(tr(LTexts.servizi),
+          Text(tr(LocaleKeys.servizi),
               style: Theme.of(context).textTheme.headlineSmall!)
         ]),
       ),

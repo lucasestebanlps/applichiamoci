@@ -32,7 +32,7 @@ class LoginController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.loginLoading), LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -40,7 +40,7 @@ class LoginController extends GetxController {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
         LLoaders.errorSnackBar(
-            title: tr(LTexts.error), message: tr(LTexts.noInternet));
+            title: tr(LocaleKeys.error), message: tr(LocaleKeys.noInternet));
         return;
       }
 
@@ -68,7 +68,8 @@ class LoginController extends GetxController {
       // Remove loader
       LFullScreenLoader.stopLoading();
       // show some generic error to the user
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 
@@ -77,7 +78,7 @@ class LoginController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.loginLoading), LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -85,7 +86,7 @@ class LoginController extends GetxController {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
         LLoaders.errorSnackBar(
-            title: tr(LTexts.error), message: tr(LTexts.noInternet));
+            title: tr(LocaleKeys.error), message: tr(LocaleKeys.noInternet));
         return;
       }
 
@@ -103,7 +104,8 @@ class LoginController extends GetxController {
       AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 }

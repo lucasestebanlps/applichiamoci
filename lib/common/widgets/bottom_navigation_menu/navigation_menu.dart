@@ -1,12 +1,12 @@
 import 'package:applichiamoci/features/screens/categories/screen/categories_screen.dart';
 import 'package:applichiamoci/features/screens/home/screen/news_screen.dart';
+import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
-import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_bottom_sheet.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:iconsax/iconsax.dart';
 
 class NavigationMenu extends StatelessWidget {
@@ -55,10 +55,11 @@ class NavigationMenu extends StatelessWidget {
               : LColors.black.withOpacity(0.1),
           destinations: [
             NavigationDestination(
-                icon: const Icon(Iconsax.home), label: tr(LTexts.home)),
+                icon: const Icon(Iconsax.home), label: tr(LocaleKeys.home)),
             const SizedBox(width: 40),
             NavigationDestination(
-                icon: const Icon(Iconsax.category), label: tr(LTexts.servizi)),
+                icon: const Icon(Iconsax.category),
+                label: LocaleKeys.servizi.tr()),
           ],
         ),
       ),

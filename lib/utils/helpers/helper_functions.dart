@@ -127,14 +127,14 @@ class LHelperFunctions {
         await launchUrl(phoneNumber);
       } else {
         LLoaders.errorSnackBar(
-            title: tr(LTexts.error),
+            title: tr(LocaleKeys.error),
             message: 'Il numero $callActionParameter non é disponibile',
             mainButton: true);
       }
     } else {
       LLoaders.errorSnackBar(
-          title: tr(LTexts.permissionDenied),
-          message: tr(LTexts.accessToPhoneRequiredMessage),
+          title: tr(LocaleKeys.permissionDenied),
+          message: tr(LocaleKeys.accessToPhoneRequiredMessage),
           mainButton: true);
     }
   }
@@ -149,7 +149,7 @@ class LHelperFunctions {
       await launchUrl(email);
     } else {
       LLoaders.errorSnackBar(
-          title: tr(LTexts.error),
+          title: tr(LocaleKeys.error),
           message: 'Il mail $emailActionParameter non é disponibile',
           mainButton: false);
     }
@@ -162,14 +162,14 @@ class LHelperFunctions {
         MapsLauncher.launchQuery(mapActionParameter);
       } else {
         LLoaders.errorSnackBar(
-          title: tr(LTexts.error),
+          title: tr(LocaleKeys.error),
           message: 'Il mapa non é disponibile',
         );
       }
     } else {
       LLoaders.errorSnackBar(
-        title: tr(LTexts.permissionDenied),
-        message: tr(LTexts.accessToLocationRequiredMessage),
+        title: tr(LocaleKeys.permissionDenied),
+        message: tr(LocaleKeys.accessToLocationRequiredMessage),
         mainButton: true,
       );
     }
@@ -189,14 +189,14 @@ class LHelperFunctions {
           content: Text(content),
           actions: <Widget>[
             TextButton(
-              child: Text(tr(LTexts.accept)),
+              child: Text(tr(LocaleKeys.accept)),
               onPressed: () {
                 Navigator.of(context)
                     .pop(true); // Indicar que se canceló la acción
               },
             ),
             TextButton(
-              child: Text(tr(LTexts.cancel)),
+              child: Text(tr(LocaleKeys.cancel)),
               onPressed: () {
                 Navigator.of(context)
                     .pop(false); // Indicar que se confirmó la acción

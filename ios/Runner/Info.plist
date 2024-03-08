@@ -61,5 +61,10 @@
 		<array>
 			<string>tel</string>
 		</array>
+		<key>CFBundleLocalizations</key>
+		<array>
+			<string>en</string>
+			<string>nb</string>
+		</array>
 	</dict>
 </plist>

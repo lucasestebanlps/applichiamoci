@@ -20,7 +20,7 @@ class ViewMoreButton extends StatelessWidget {
           style: TextButton.styleFrom(
             backgroundColor: Colors.blue,
           ),
-          child: Text(tr(LTexts.viewMore),
+          child: Text(tr(LocaleKeys.viewMore),
               style: Theme.of(context)
                   .textTheme
                   .labelLarge

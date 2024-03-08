@@ -29,12 +29,12 @@ class LLoginHeader extends StatelessWidget {
           ),
           const SizedBox(height: LSizes.md),
           Text(
-            tr(LTexts.loginTitle),
+            tr(LocaleKeys.loginTitle),
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: LSizes.sm),
           Text(
-            tr(LTexts.loginSubTitle),
+            tr(LocaleKeys.loginSubTitle),
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ],

@@ -13,7 +13,7 @@ class SuDiNoi extends StatelessWidget {
     return Scaffold(
       appBar: LAppBar(
         showBackArrow: true,
-        title: Text(tr(LTexts.sopraNoi)),
+        title: Text(tr(LocaleKeys.sopraNoi)),
       ),
       body: Center(
         child: Column(

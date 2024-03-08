@@ -1,5 +1,6 @@
 import 'package:applichiamoci/app.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
+import 'package:applichiamoci/translations/codegen_loader.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,13 +34,15 @@ Future<void> main() async {
       left: false,
       child: EasyLocalization(
         supportedLocales: const [
-          Locale('it', 'IT'),
-          Locale('en', 'US'),
-          Locale('fr', 'FR')
+          Locale('it'),
+          Locale('en'),
+          Locale('fr'),
+          Locale('es')
         ],
         path:
             'assets/translations', // <-- change the path of the translation files
-        fallbackLocale: const Locale('it', 'IT'),
+        fallbackLocale: const Locale('it'),
+        assetLoader: const CodegenLoader(),
         child: const App(),
       ),
     ),

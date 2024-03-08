@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: LAppBar(
         showBackArrow: true,
-        title: Text(tr(LTexts.editProfile)),
+        title: Text(tr(LocaleKeys.editProfile)),
       ),
       endDrawer: const CustomDrawer(),
 
@@ -59,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
                     }),
                     TextButton(
                         onPressed: () => controller.uploadUserProfilePicture(),
-                        child: Text(tr(LTexts.changeProfilePicture))),
+                        child: Text(tr(LocaleKeys.changeProfilePicture))),
                   ],
                 ),
               ),
@@ -68,13 +68,13 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ PROFILE INFORMATION -------
               LSSectionHeading(
-                  title: tr(LTexts.profileInformation),
+                  title: tr(LocaleKeys.profileInformation),
                   showActionButton: false),
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ CHANGE NAME -------
               LProfileMenu(
                   onPressed: () => Get.to(() => const ChangeName()),
-                  title: tr(LTexts.name),
+                  title: tr(LocaleKeys.name),
                   value: controller.user.value.fullName),
               // ------ USERNAME -------
               LProfileMenu(
@@ -82,7 +82,7 @@ class ProfileScreen extends StatelessWidget {
                     _copyToClipboard(
                         context, controller.user.value.username, 'Username');
                   },
-                  title: tr(LTexts.userName),
+                  title: tr(LocaleKeys.userName),
                   value: controller.user.value.username,
                   icon: Iconsax.copy),
 
@@ -92,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
               // ------ PERSONAL INFORMATION -------
 
               LSSectionHeading(
-                  title: tr(LTexts.personalInformation),
+                  title: tr(LocaleKeys.personalInformation),
                   showActionButton: false),
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ EMAIL -------
@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                   _copyToClipboard(
                       context, controller.user.value.email, 'Email');
                 },
-                title: tr(LTexts.email),
+                title: tr(LocaleKeys.email),
                 value: controller.user.value.email,
                 icon: Iconsax.copy,
               ),
@@ -111,7 +111,7 @@ class ProfileScreen extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => controller.deleteAccountWarningPopup(),
                   child: Text(
-                    tr(LTexts.deleteAccount),
+                    tr(LocaleKeys.deleteAccount),
                     style: const TextStyle(color: Colors.red),
                   ),
                 ),
@@ -129,7 +129,7 @@ void _copyToClipboard(
     BuildContext context, String textToCopy, String fieldName) {
   FlutterClipboard.copy(textToCopy).then((_) {
     LLoaders.successSnackBar(
-        title: tr(LTexts.copied),
-        message: '$fieldName ${tr(LTexts.copiedToClipboard)}');
+        title: tr(LocaleKeys.copied),
+        message: '$fieldName ${tr(LocaleKeys.copiedToClipboard)}');
   });
 }

@@ -62,11 +62,13 @@ class NewsDetailScreen extends StatelessWidget {
                     home.title.replaceAll(r'\n', '\n'),
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
+                  const SizedBox(height: LSizes.sm),
 
                   // Subtitle
                   Text(
                     home.subtitle.replaceAll(r'\n', '\n'),
                     style: Theme.of(context).textTheme.bodyMedium,
+                    softWrap: true,
                   ),
                   const SizedBox(height: LSizes.sm),
 
@@ -76,6 +78,7 @@ class NewsDetailScreen extends StatelessWidget {
 
                   // Description
                   Text(
+                    softWrap: true,
                     home.description.replaceAll(r'\n', '\n'),
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),

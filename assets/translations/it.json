@@ -113,8 +113,9 @@
     "companyExplanation": "Questa è una breve spiegazione sul numero dell'azienda e su come può aiutare i clienti.",
     "goToWebsite": "Vai al sito",
     "openSettingsText": "Apri Impostazioni",
-    "select_language": "Seleziona la lingua",
-    "legal": "legale"
-
+    "selectLanguage": "Seleziona la lingua",
+    "legal": "legale",
+    "updateLanguajeTitle": "Lingua aggiornata",
+    "updateLanguajeMsj": "La lingua dell'app è stata aggiornata con successo."
   }
   

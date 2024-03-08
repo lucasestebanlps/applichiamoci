@@ -31,7 +31,7 @@ class SignUpController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          tr(LTexts.processingInformation), LImages.checkInformation);
+          tr(LocaleKeys.processingInformation), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -39,7 +39,7 @@ class SignUpController extends GetxController {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
         LLoaders.errorSnackBar(
-            title: tr(LTexts.error), message: tr(LTexts.noInternet));
+            title: tr(LocaleKeys.error), message: tr(LocaleKeys.noInternet));
         return;
       }
 
@@ -52,8 +52,8 @@ class SignUpController extends GetxController {
       // Privacy Policy Check
       if (privacyPolicy.value) {
         LLoaders.warningSnackBar(
-          title: tr(LTexts.acceptPrivacyPolicy),
-          message: tr(LTexts.messagePrivacyPolicy),
+          title: tr(LocaleKeys.acceptPrivacyPolicy),
+          message: tr(LocaleKeys.messagePrivacyPolicy),
         );
         LFullScreenLoader.stopLoading();
         return;
@@ -82,8 +82,8 @@ class SignUpController extends GetxController {
 
       // Show success message
       LLoaders.successSnackBar(
-          title: tr(LTexts.congratulations),
-          message: tr(LTexts.accountCreatedSuccessfully));
+          title: tr(LocaleKeys.congratulations),
+          message: tr(LocaleKeys.accountCreatedSuccessfully));
 
       // Move to verify email screen
       Get.to(() => VerifyEmailScreen(email: email.text.trim()));
@@ -92,7 +92,8 @@ class SignUpController extends GetxController {
       LFullScreenLoader.stopLoading();
 
       // show some generic error to the user
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 }

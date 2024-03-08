@@ -82,7 +82,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw tr(LTexts.somethingWentWrong);
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -101,7 +101,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw tr(LTexts.somethingWentWrong);
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -118,7 +118,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw tr(LTexts.somethingWentWrong);
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -135,7 +135,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw tr(LTexts.somethingWentWrong);
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -157,7 +157,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw tr(LTexts.somethingWentWrong);
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -209,7 +209,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw tr(LTexts.somethingWentWrong);
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -227,7 +227,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw tr(LTexts.somethingWentWrong);
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 }

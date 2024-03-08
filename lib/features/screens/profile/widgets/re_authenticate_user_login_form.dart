@@ -16,7 +16,7 @@ class ReAuthLoginForm extends StatelessWidget {
     final controller = UserController.instance;
     return Scaffold(
         appBar: LAppBar(
-            title: Text(tr(LTexts.reAuthUser)),
+            title: Text(tr(LocaleKeys.reAuthUser)),
             showBackArrow: true,
             actions: false),
         body: SingleChildScrollView(
@@ -32,7 +32,7 @@ class ReAuthLoginForm extends StatelessWidget {
                             controller: controller.verifyEmail,
                             validator: LValidator.validateEmail,
                             decoration: InputDecoration(
-                                labelText: tr(LTexts.email),
+                                labelText: tr(LocaleKeys.email),
                                 prefixIcon: const Icon(Iconsax.direct_right)),
                           ),
                           const SizedBox(height: LSizes.spaceBtwInputFields),
@@ -46,7 +46,7 @@ class ReAuthLoginForm extends StatelessWidget {
                                   LValidator.validateEmptyText(
                                       value, 'Password'),
                               decoration: InputDecoration(
-                                  labelText: tr(LTexts.password),
+                                  labelText: tr(LocaleKeys.password),
                                   prefixIcon:
                                       const Icon(Iconsax.password_check),
                                   suffixIcon: IconButton(
@@ -63,7 +63,7 @@ class ReAuthLoginForm extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () => controller
                                   .reAuthenticateEmailAndPasswordUser(),
-                              child: Text(tr(LTexts.verify)),
+                              child: Text(tr(LocaleKeys.verify)),
                             ),
                           )
                         ])))));

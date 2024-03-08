@@ -33,7 +33,7 @@ class LSignupForm extends StatelessWidget {
                       validator: (value) =>
                           LValidator.validateEmptyText(value, 'First Name'),
                       isRequired: true,
-                      labelText: tr(LTexts.firstName),
+                      labelText: tr(LocaleKeys.firstName),
                       prefixIcon: const Icon(Iconsax.user)),
                 ),
                 const SizedBox(
@@ -47,7 +47,7 @@ class LSignupForm extends StatelessWidget {
                       validator: (value) =>
                           LValidator.validateEmptyText(value, 'Last Name'),
                       isRequired: true,
-                      labelText: tr(LTexts.lastName),
+                      labelText: tr(LocaleKeys.lastName),
                       prefixIcon: const Icon(Iconsax.user)),
                 ),
               ],
@@ -63,7 +63,7 @@ class LSignupForm extends StatelessWidget {
               controller: controller.userName,
               validator: (value) =>
                   LValidator.validateEmptyText(value, 'Username'),
-              labelText: tr(LTexts.username),
+              labelText: tr(LocaleKeys.username),
               prefixIcon: const Icon(Iconsax.user_edit),
             ),
             const SizedBox(
@@ -73,7 +73,7 @@ class LSignupForm extends StatelessWidget {
             // ----- EMAIL -----
             LabeledTextField(
                 controller: controller.email,
-                labelText: tr(LTexts.email),
+                labelText: tr(LocaleKeys.email),
                 prefixIcon: const Icon(Iconsax.direct),
                 isRequired: true,
                 validator: (value) => LValidator.validateEmail(value)),
@@ -84,7 +84,7 @@ class LSignupForm extends StatelessWidget {
             // ----- PHONENUMBER -----
             LabeledTextField(
                 controller: controller.phoneNumber,
-                labelText: tr(LTexts.phoneNo),
+                labelText: tr(LocaleKeys.phoneNo),
                 prefixIcon: const Icon(Iconsax.call)),
 
             const SizedBox(
@@ -98,7 +98,7 @@ class LSignupForm extends StatelessWidget {
                 validator: (value) => LValidator.validatePassword(value),
                 obscureText: controller.hidePassword.value,
                 decoration: InputDecoration(
-                    labelText: tr(LTexts.password),
+                    labelText: tr(LocaleKeys.password),
                     prefixIcon: const Icon(Iconsax.password_check),
                     suffixIcon: IconButton(
                         onPressed: () => controller.hidePassword.value =
@@ -121,7 +121,7 @@ class LSignupForm extends StatelessWidget {
                 width: double.infinity,
                 child: OutlinedButton(
                     onPressed: () => controller.signup(),
-                    child: Text(tr(LTexts.createAccount))))
+                    child: Text(tr(LocaleKeys.createAccount))))
           ],
         ));
   }

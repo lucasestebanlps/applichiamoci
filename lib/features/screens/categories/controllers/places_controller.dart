@@ -21,7 +21,8 @@ class PlacesController extends GetxController {
       // si no hay categorias
       if (categoria == null) {
         LLoaders.errorSnackBar(
-            title: tr(LTexts.error), message: tr(LTexts.noCategoriesError));
+            title: tr(LocaleKeys.error),
+            message: tr(LocaleKeys.noCategoriesError));
         return;
       }
 
@@ -46,7 +47,8 @@ class PlacesController extends GetxController {
             false; // Desactivar el loader después de cargar los lugares
       }
     } catch (e) {
-      LLoaders.errorSnackBar(title: tr(LTexts.error), message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 }

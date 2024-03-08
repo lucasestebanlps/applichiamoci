@@ -20,7 +20,7 @@ class ModalCompany extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text(LTexts.companyNumber.tr()),
+              title: Text(LocaleKeys.companyNumber.tr()),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(LSizes
                     .cardRadiusSm), // Cambia el radio de borde según lo necesites
@@ -30,7 +30,7 @@ class ModalCompany extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    LTexts.companyExplanation.tr(),
+                    LocaleKeys.companyExplanation.tr(),
                   ),
                 ],
               ),
@@ -39,13 +39,13 @@ class ModalCompany extends StatelessWidget {
                   onPressed: () {
                     // Agrega aquí la lógica para ir al sitio web de la empresa
                   },
-                  child: Text(tr(LTexts.goToWebsite)),
+                  child: Text(tr(LocaleKeys.goToWebsite)),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop(); // Cierra el AlertDialog
                   },
-                  child: Text(tr(LTexts.cancel)),
+                  child: Text(tr(LocaleKeys.cancel)),
                 ),
               ],
             );

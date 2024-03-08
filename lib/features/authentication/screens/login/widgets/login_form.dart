@@ -29,7 +29,7 @@ class LLoginForm extends StatelessWidget {
               validator: (value) => LValidator.validateEmail(value),
               decoration: InputDecoration(
                   prefixIcon: const Icon(Iconsax.direct_right),
-                  labelText: tr(LTexts.email)),
+                  labelText: tr(LocaleKeys.email)),
             ),
 
             const SizedBox(height: LSizes.spaceBtwInputFields),
@@ -38,11 +38,11 @@ class LLoginForm extends StatelessWidget {
             Obx(
               () => TextFormField(
                 controller: controller.password,
-                validator: (value) =>
-                    LValidator.validateEmptyText(value, tr(LTexts.password)),
+                validator: (value) => LValidator.validateEmptyText(
+                    value, tr(LocaleKeys.password)),
                 obscureText: controller.hidePassword.value,
                 decoration: InputDecoration(
-                    labelText: tr(LTexts.password),
+                    labelText: tr(LocaleKeys.password),
                     prefixIcon: const Icon(Iconsax.password_check),
                     suffixIcon: IconButton(
                         onPressed: () => controller.hidePassword.value =
@@ -73,7 +73,7 @@ class LLoginForm extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      tr(LTexts.rememberMe),
+                      tr(LocaleKeys.rememberMe),
                       overflow: TextOverflow.ellipsis,
                     )
                   ],
@@ -82,7 +82,7 @@ class LLoginForm extends StatelessWidget {
                 // Forget password
                 TextButton(
                     onPressed: () => Get.to(() => const ForgetPassword()),
-                    child: Text(tr(LTexts.forgetPassword)))
+                    child: Text(tr(LocaleKeys.forgetPassword)))
               ],
             ),
 
@@ -93,7 +93,7 @@ class LLoginForm extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () => controller.emailAndPasswordSignIn(),
-                    child: Text(tr(LTexts.signIn)))),
+                    child: Text(tr(LocaleKeys.signIn)))),
 
             const SizedBox(height: LSizes.spaceBtwItems),
 
@@ -102,7 +102,7 @@ class LLoginForm extends StatelessWidget {
                 width: double.infinity,
                 child: OutlinedButton(
                     onPressed: () => Get.to(() => const SignupScreen()),
-                    child: Text(tr(LTexts.createAccount))))
+                    child: Text(tr(LocaleKeys.createAccount))))
           ],
         ),
       ),

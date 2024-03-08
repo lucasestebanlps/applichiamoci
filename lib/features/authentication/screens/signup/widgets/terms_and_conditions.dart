@@ -32,10 +32,10 @@ class TermsAndConditions extends StatelessWidget {
           // or Expanded
           child: Text.rich(TextSpan(children: [
             TextSpan(
-                text: '${tr(LTexts.iAgreeTo)} ',
+                text: '${tr(LocaleKeys.iAgreeTo)} ',
                 style: Theme.of(context).textTheme.bodySmall),
             TextSpan(
-                text: tr(LTexts.privacyPolicy),
+                text: tr(LocaleKeys.privacyPolicy),
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                       color: dark ? LColors.white : LColors.primary,
                       decoration: TextDecoration.underline,
@@ -44,7 +44,7 @@ class TermsAndConditions extends StatelessWidget {
             TextSpan(
                 text: ' and ', style: Theme.of(context).textTheme.bodySmall),
             TextSpan(
-                text: tr(LTexts.termsOfUse),
+                text: tr(LocaleKeys.termsOfUse),
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                       color: dark ? LColors.white : LColors.primary,
                       decoration: TextDecoration.underline,

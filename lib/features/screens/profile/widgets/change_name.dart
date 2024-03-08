@@ -16,7 +16,7 @@ class ChangeName extends StatelessWidget {
     final controller = Get.put(UpdateNameController());
     return Scaffold(
       appBar: LAppBar(
-          title: Text(tr(LTexts.changeName)),
+          title: Text(tr(LocaleKeys.changeName)),
           showBackArrow: true,
           actions: false),
       body: Padding(
@@ -26,7 +26,7 @@ class ChangeName extends StatelessWidget {
           children: [
             // Headings
             Text(
-              tr(LTexts.insertNewName),
+              tr(LocaleKeys.insertNewName),
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: LSizes.spaceBtwSections),
@@ -43,7 +43,7 @@ class ChangeName extends StatelessWidget {
                       LValidator.validateEmptyText(value, 'First Name'),
                   expands: false,
                   decoration: InputDecoration(
-                      labelText: tr(LTexts.firstName),
+                      labelText: tr(LocaleKeys.firstName),
                       prefixIcon: const Icon(Iconsax.user)),
                 ),
                 const SizedBox(height: LSizes.spaceBtwInputFields),
@@ -55,7 +55,7 @@ class ChangeName extends StatelessWidget {
                       LValidator.validateEmptyText(value, 'Last Name'),
                   expands: false,
                   decoration: InputDecoration(
-                      labelText: tr(LTexts.firstName),
+                      labelText: tr(LocaleKeys.firstName),
                       prefixIcon: const Icon(Iconsax.user)),
                 ),
               ]),
@@ -67,7 +67,7 @@ class ChangeName extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.updateUserName(),
-                child: Text(tr(LTexts.changeName)),
+                child: Text(tr(LocaleKeys.changeName)),
               ),
             )
           ],
