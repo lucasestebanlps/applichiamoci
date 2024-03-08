@@ -1,4 +1,7 @@
+import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/features/screens/categories/controllers/categories_controller.dart';
+import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
+import 'package:applichiamoci/features/screens/home/controllers/news_controller.dart';
 import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -30,14 +33,28 @@ class LanguageSelector extends StatelessWidget {
                   .supportedLocales
                   .map((locale) => InkWell(
                         onTap: () async {
+                          // Actualizar el idioma
                           EasyLocalization.of(context)!.setLocale(locale);
                           await Get.updateLocale(locale);
 
-                          // Cerrar el diálogo
-                          Get.back();
+                          // Actualizar las noticias después de cambiar el idioma
+                          await NewsController.instance.fetchNews();
 
                           // Actualizar las categorías después de cambiar el idioma
-                          CategoryController.instance.fetchCategories();
+                          await CategoryController.instance.fetchCategories();
+
+                          // Actualizar los lugares después de cambiar el idioma
+                          await PlacesController.instance
+                              .fetchPlacesForCategory(
+                                  PlacesController.instance.currentCategory);
+
+                          // Mostrar mensaje con información sobre el cambio de idioma
+                          LLoaders.successSnackBar(
+                              title: LocaleKeys.updateLanguajeTitle.tr(),
+                              message: LocaleKeys.updateLanguajeMsj.tr());
+
+                          // Cerrar el diálogo después de completar todas las operaciones
+                          Get.back();
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -62,7 +79,7 @@ class LanguageSelector extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(tr('cancel')),
+              child: Text(tr('done')),
             ),
           ],
         );

@@ -1,4 +1,5 @@
 import 'package:applichiamoci/features/screens/categories/models/category_model.dart';
+import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
@@ -18,7 +19,7 @@ class CategoryRepository extends GetxController {
       final snapshot = await _db.collection('Categories').get();
       final list = snapshot.docs.map((document) {
         final data = document.data();
-        final name = _getTranslatedName(data);
+        final name = LHelperFunctions.getTranslatedField(data, 'name');
         return CategoryModel(
           id: document.id,
           name: name,
@@ -34,20 +35,5 @@ class CategoryRepository extends GetxController {
     } catch (e) {
       throw tr(LocaleKeys.somethingWentWrong);
     }
-  }
-
-  String _getTranslatedName(Map<String, dynamic>? data) {
-    // Obtén el idioma actual de la aplicación
-    var currentLocale = EasyLocalization.of(Get.context!)!.locale.toString();
-
-    // Consulta el campo de nombre según el idioma actual
-    var translatedName = data?['name_$currentLocale'];
-
-    // Si no hay una traducción para el idioma actual, usa el nombre predeterminado
-    if (translatedName == null || translatedName.isEmpty) {
-      translatedName = data?['name'];
-    }
-
-    return translatedName ?? '';
   }
 }

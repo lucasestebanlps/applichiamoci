@@ -1,5 +1,5 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
-import 'package:applichiamoci/data/repositories/home/home_repository.dart';
+import 'package:applichiamoci/data/repositories/news/news_repository.dart';
 import 'package:applichiamoci/features/screens/home/models/news_model.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -9,7 +9,7 @@ class NewsController extends GetxController {
   static NewsController get instance => Get.find();
 
   final isLoading = false.obs;
-  final _homeRepository = Get.put(HomeRepository());
+  final _newsRepository = Get.put(NewsRepository());
   RxList<NewsModel> allNews = <NewsModel>[].obs;
 
   @override
@@ -25,7 +25,7 @@ class NewsController extends GetxController {
       isLoading.value = true;
 
       // Fetch categories using _categoryRepository
-      final news = await _homeRepository.getAllNews();
+      final news = await _newsRepository.getAllNews();
 
       // Update the categories list
       allNews.assignAll(news);

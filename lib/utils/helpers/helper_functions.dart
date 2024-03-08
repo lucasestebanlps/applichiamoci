@@ -208,4 +208,21 @@ class LHelperFunctions {
     return confirmed ??
         false; // Si el usuario cierra el diálogo sin seleccionar ninguna opción, se considera como cancelado
   }
+
+  // Function to get translated field
+  static String getTranslatedField(
+      Map<String, dynamic> data, String fieldName) {
+    // Get the current locale of the application
+    var currentLocale = EasyLocalization.of(Get.context!)!.locale.languageCode;
+
+    // Consult the field according to the current locale
+    var translatedField = data['${fieldName}_$currentLocale'];
+
+    // If there is no translation for the current locale, use the default field
+    if (translatedField == null || translatedField.isEmpty) {
+      translatedField = data[fieldName];
+    }
+
+    return translatedField ?? '';
+  }
 }

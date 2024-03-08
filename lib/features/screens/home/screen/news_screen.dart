@@ -1,6 +1,8 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/common/widgets/text/error_text_icon.dart';
+import 'package:applichiamoci/features/screens/categories/controllers/categories_controller.dart';
+import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
 import 'package:applichiamoci/features/screens/home/controllers/news_controller.dart';
 import 'package:applichiamoci/features/screens/home/screen/widgets/news_card.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
@@ -13,7 +15,9 @@ class NewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeController = Get.put<NewsController>(NewsController());
+    final newsController = Get.put<NewsController>(NewsController());
+    Get.put<CategoryController>(CategoryController());
+    Get.put<PlacesController>(PlacesController());
 
     return Scaffold(
       appBar: LAppBar(
@@ -25,19 +29,19 @@ class NewsScreen extends StatelessWidget {
       ),
       endDrawer: const CustomDrawer(),
       body: Obx(() {
-        if (homeController.isLoading.value) {
+        if (newsController.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
-        } else if (homeController.allNews.isEmpty) {
+        } else if (newsController.allNews.isEmpty) {
           return LErrorCenteredText(
             icon: Icons.warning,
             text: tr(LocaleKeys.noNews),
           );
         } else {
           return ListView.builder(
-            itemCount: homeController.allNews.length,
+            itemCount: newsController.allNews.length,
             itemBuilder: (BuildContext context, int index) {
               return NewsCard(
-                home: homeController.allNews[index],
+                home: newsController.allNews[index],
               );
             },
           );

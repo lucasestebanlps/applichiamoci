@@ -26,26 +26,20 @@ class PlacesController extends GetxController {
         return;
       }
 
-      // Verificar si la categoría actual es diferente a la nueva categoría
-      if (currentCategory != categoria) {
-        // Show loader while loading places
-        isLoading.value = true;
+      // Show loader while loading places
+      isLoading.value = true;
 
-        // Limpiar la lista de lugares al cambiar de categoría
-        placesForCategory.clear();
+      // Limpiar la lista de lugares al cambiar de categoría
+      placesForCategory.clear();
 
-        // Fetch places for the specific category using PlacesRepository
-        final places = await _placesRepository.getPlacesForCategory(categoria);
+      // Fetch places for the specific category using PlacesRepository
+      final places = await _placesRepository.getPlacesForCategory(categoria);
 
-        // Update the places list
-        placesForCategory.assignAll(places);
+      // Update the places list
+      placesForCategory.assignAll(places);
 
-        // Actualizar la categoría actual
-        currentCategory = categoria;
-
-        isLoading.value =
-            false; // Desactivar el loader después de cargar los lugares
-      }
+      isLoading.value =
+          false; // Desactivar el loader después de cargar los lugares
     } catch (e) {
       LLoaders.errorSnackBar(
           title: tr(LocaleKeys.error), message: e.toString());

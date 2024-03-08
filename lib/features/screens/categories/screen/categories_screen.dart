@@ -3,7 +3,6 @@ import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/common/widgets/shimmer/category_shimmer.dart';
 import 'package:applichiamoci/features/screens/categories/controllers/categories_controller.dart';
 import 'package:applichiamoci/features/screens/categories/screen/widgets/category_card.dart';
-import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart'; // Agrega la importación de PlacesController
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,10 +14,7 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryController =
-        Get.put<CategoryController>(CategoryController());
-    final placesController = Get.put<PlacesController>(
-        PlacesController()); // Crea la instancia de PlacesController aquí
+    final categoryController = Get.find<CategoryController>();
 
     return Scaffold(
       appBar: LAppBar(

@@ -1,11 +1,10 @@
-// places_repository.dart
-
 import 'package:applichiamoci/features/screens/categories/models/place_model.dart';
+import 'package:applichiamoci/utils/helpers/helper_functions.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -14,18 +13,36 @@ class PlacesRepository extends GetxController {
 
   final _db = FirebaseFirestore.instance;
 
-  // Obtener lugares para una categoría específica
-  Future<List<PlaceModel>> getPlacesForCategory(String caregory) async {
+  // Get places for a specific category
+  Future<List<PlaceModel>> getPlacesForCategory(String category) async {
     try {
       final snapshot = await _db
           .collection('Categories')
-          .doc(caregory)
+          .doc(category)
           .collection('Places')
           .get();
 
-      final list = snapshot.docs
-          .map((document) => PlaceModel.fromSnapshot(document))
-          .toList();
+      final list = snapshot.docs.map((document) {
+        final data = document.data();
+        final description =
+            LHelperFunctions.getTranslatedField(data, 'description');
+        final ownerName =
+            LHelperFunctions.getTranslatedField(data, 'ownerName');
+        final category = LHelperFunctions.getTranslatedField(data, 'category');
+        return PlaceModel(
+          id: document.id,
+          title: data['title'],
+          description: description,
+          direction: data['direction'],
+          phoneNumber: data['phoneNumber'],
+          mapCoordinates: data['mapCoordinates'],
+          image: data['image'],
+          ownerName: ownerName,
+          email: data['email'],
+          category: category,
+          categoryId: category,
+        );
+      }).toList();
 
       return list;
     } on FirebaseException catch (e) {
