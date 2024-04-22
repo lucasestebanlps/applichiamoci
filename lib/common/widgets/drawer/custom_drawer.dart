@@ -2,6 +2,7 @@ import 'package:applichiamoci/common/widgets/l_circular_image.dart';
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/personalization/controllers/user_controller.dart';
+import 'package:applichiamoci/features/screens/chi_siamo/chi_siamo.dart';
 import 'package:applichiamoci/features/screens/profile/profile_screen.dart';
 import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
@@ -28,7 +29,7 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(padding: EdgeInsets.zero, children: [
         Obx(() {
           if (controller.profileLoading.value) {
-            return const LShimerEffect(width: 80, height: 200);
+            return const LShimerEffect(width: 80, height: 150);
           } else {
             return UserAccountsDrawerHeader(
               // Name
@@ -105,7 +106,7 @@ class CustomDrawer extends StatelessWidget {
         ListTile(
           leading: const Icon(Iconsax.people),
           title: Text(tr(LocaleKeys.sopraNoi)),
-          onTap: () {},
+          onTap: () => Get.to(() => const ChiSiamo()),
         ),
         ListTile(
           leading: const Icon(Iconsax.document),

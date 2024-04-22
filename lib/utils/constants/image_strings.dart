@@ -38,4 +38,11 @@ class LImages {
       "assets/images/animations/141594-animation-of-docer.json";
   static const String succsesfullyRegisterAnimation =
       "assets/images/animations/72462-check-register.json";
+
+  // Chi siamo images y partners
+  static const String logoEmmanuel = "assets/logo/partners/logo_emmanuel.png";
+  static const String logoApplichiamociChiSiamo =
+      "assets/logo/partners/logopplichiamoci_chiSiamo.png";
+  static const String chiSiamoImg1 = "assets/images/chiSiamo2.jpg";
+  static const String chiSiamoImg2 = "assets/images/chiSiamo1.jpg";
 }
