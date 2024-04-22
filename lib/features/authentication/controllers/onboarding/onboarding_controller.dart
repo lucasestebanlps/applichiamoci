@@ -22,15 +22,15 @@ class OnBoardingController extends GetxController {
 
   // Update current index & animate to next page
   void nextPage() {
-    if (currentPageIndex.value == 2) {
+    if (currentPageIndex.value == 3) {
       // check if is the first time to show onboarding screen or not
       final storage = GetStorage();
 
       if (kDebugMode) {
         print('=========== GET STORAGE Next button ============');
         print(storage.read('ISFirstTime'));
-    }
-    
+      }
+
       storage.write('IsFirstTime', false);
 
       Get.offAll(const LoginScreen());

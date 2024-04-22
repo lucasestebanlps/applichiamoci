@@ -3,9 +3,9 @@
     "onBoardingTitle1": "Vedi le notizie",
     "onBoardingTitle2": "Trova tutto ciò di cui hai bisogno",
     "onBoardingTitle3": "Aiuta qualcuno",
-    "onBoardingSubTitle1": "Guarda cosa sta succedendo intorno a te",
-    "onBoardingSubTitle2": "Esplora le varie categorie che possono aiutarti nella tua vita quotidiana",
-    "onBoardingSubTitle3": "Aiuta qualcuno con la tua donazione, siamo solidali",
+    "onBoardingSubTitle1": "Guarda cosa sta succedendo intorno a te.",
+    "onBoardingSubTitle2": "Esplora le varie categorie che possono aiutarti nella tua vita quotidiana.",
+    "onBoardingSubTitle3": "Aiuta qualcuno con la tua donazione, siamo solidali.",
     "notizieTitle": "Notizie",
     "servizi": "Servizi",
     "home": "Home",
@@ -69,7 +69,7 @@
     "error": "Errore",
     "congratulations": "Auguri!",
     "loginTitle": "Benvenuti!",
-    "loginSubTitle": "Trova il luogo o il servizio di cui hai bisogno con pochi clic",
+    "loginSubTitle": "Trova il luogo o il servizio di cui hai bisogno con pochi clic.",
     "signupTitle": "Creiamo il tuo account",
     "forgetPasswordtitle": "Dimenticato la password",
     "forgetPasswordsubTitle": "Non preoccuparti, a volte le persone possono dimenticare anche loro, inserisci la tua email e ti invieremo un link per reimpostare la password.",
@@ -116,6 +116,8 @@
     "selectLanguage": "Seleziona la lingua",
     "legal": "legale",
     "updateLanguajeTitle": "Lingua aggiornata",
-    "updateLanguajeMsj": "La lingua dell'app è stata aggiornata con successo."
+    "updateLanguajeMsj": "La lingua dell'app è stata aggiornata con successo.",
+    "selectPreferredLanguage": "Seleziona la tua lingua preferita per iniziare"
+
   }
   

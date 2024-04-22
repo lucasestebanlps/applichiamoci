@@ -70,13 +70,10 @@ flutter:
   #--------------- LOCAL ASSETS ------------------#
   assets:
     - assets/logo/
-    - assets/icons/
     - assets/images/on_boarding_images/
     - assets/images/animations/
-    - assets/images/content/user.png
     - assets/images/home/
     - assets/images/
-    - assets/splash/
     - assets/translations/
 
   #--------------- LOCAL FONTS ------------------#

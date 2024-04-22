@@ -19,7 +19,7 @@ class OnBoardingDotNavigation extends StatelessWidget {
       bottom: LDeviceUtils.getBottomNavigationBarHeight() + 25,
       left: LSizes.defaultSpace,
       child: SmoothPageIndicator(
-          count: 3,
+          count: 4,
           controller: controller.pageController,
           onDotClicked: controller.dotNavigationClick,
           effect: ExpandingDotsEffect(

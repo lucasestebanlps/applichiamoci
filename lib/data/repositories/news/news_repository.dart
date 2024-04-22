@@ -1,4 +1,4 @@
-import 'package:applichiamoci/features/screens/home/models/news_model.dart';
+import 'package:applichiamoci/features/screens/news/models/news_model.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';

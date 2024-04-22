@@ -20,9 +20,6 @@ class PlacesController extends GetxController {
     try {
       // si no hay categorias
       if (categoria == null) {
-        LLoaders.errorSnackBar(
-            title: tr(LocaleKeys.error),
-            message: tr(LocaleKeys.noCategoriesError));
         return;
       }
 

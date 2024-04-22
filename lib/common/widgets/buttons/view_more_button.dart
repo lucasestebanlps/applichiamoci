@@ -18,7 +18,7 @@ class ViewMoreButton extends StatelessWidget {
         TextButton(
           onPressed: onPressed, // Usa la función onPressed directamente aquí
           style: TextButton.styleFrom(
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.green,
           ),
           child: Text(tr(LocaleKeys.viewMore),
               style: Theme.of(context)

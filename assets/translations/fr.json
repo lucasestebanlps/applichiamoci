@@ -3,9 +3,9 @@
     "onBoardingTitle1": "Voir les actualités",
     "onBoardingTitle2": "Trouvez tout ce dont vous avez besoin",
     "onBoardingTitle3": "Aider quelqu'un",
-    "onBoardingSubTitle1": "Voyez ce qui se passe autour de vous",
-    "onBoardingSubTitle2": "Explorez les différentes catégories qui peuvent vous aider dans votre vie quotidienne",
-    "onBoardingSubTitle3": "Aidez quelqu'un avec votre don, nous sommes solidaires",
+    "onBoardingSubTitle1": "Voyez ce qui se passe autour de vous.",
+    "onBoardingSubTitle2": "Explorez les différentes catégories qui peuvent vous aider dans votre vie quotidienne.",
+    "onBoardingSubTitle3": "Aidez quelqu'un avec votre don, nous sommes solidaires.",
     "notizieTitle": "Actualités",
     "servizi": "Services",
     "home": "Home",
@@ -69,7 +69,7 @@
     "error": "Erreur",
     "congratulations": "Félicitations!",
     "loginTitle": "Bienvenue!",
-    "loginSubTitle": "Trouvez l'endroit ou le service dont vous avez besoin en quelques clics",
+    "loginSubTitle": "Trouvez l'endroit ou le service dont vous avez besoin en quelques clics.",
     "signupTitle": "Créons votre compte",
     "forgetPasswordtitle": "Mot de passe oublié",
     "forgetPasswordsubTitle": "Pas de soucis, parfois les gens peuvent aussi oublier, saisissez votre e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
@@ -116,6 +116,8 @@
     "selectLanguage": "Choisir la langue",
     "legal": "légale",
     "updateLanguajeTitle": "Langue mise à jour",
-    "updateLanguajeMsj": "La langue de l'application a été mise à jour avec succès."
+    "updateLanguajeMsj": "La langue de l'application a été mise à jour avec succès.",
+    "selectPreferredLanguage": "Sélectionnez votre langue préférée pour commencer"
+
   }
   

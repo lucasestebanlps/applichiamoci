@@ -1,5 +1,5 @@
 import 'package:applichiamoci/features/screens/categories/screen/categories_screen.dart';
-import 'package:applichiamoci/features/screens/home/screen/news_screen.dart';
+import 'package:applichiamoci/features/screens/news/screen/news_screen.dart';
 import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';

@@ -1,4 +1,3 @@
-import 'package:applichiamoci/common/widgets/drawer/languaje_selector.dart';
 import 'package:applichiamoci/common/widgets/l_circular_image.dart';
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
@@ -11,7 +10,7 @@ import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:iconsax/iconsax.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -63,7 +62,13 @@ class CustomDrawer extends StatelessWidget {
             );
           }
         }),
-        const LanguageSelector(),
+        ListTile(
+          leading: const Icon(Icons.language),
+          title: Text(LocaleKeys.selectLanguage.tr()),
+          onTap: () {
+            LHelperFunctions().showLanguageDialog(context);
+          },
+        ),
         ListTile(
           leading: const Icon(Iconsax.edit),
           title: const Text(LocaleKeys.editProfile).tr(),

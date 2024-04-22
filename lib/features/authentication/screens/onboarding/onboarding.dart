@@ -1,5 +1,6 @@
 import 'package:applichiamoci/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/widgets/onboarding_dot_navigation.dart';
+import 'package:applichiamoci/features/authentication/screens/onboarding/widgets/onboarding_languaje_page.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/widgets/onboarding_next_button.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/widgets/onboarding_skip.dart';
@@ -24,6 +25,7 @@ class OnBoardingScreen extends StatelessWidget {
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
             children: [
+              const LanguajePage(),
               OnBoardingPage(
                 image: LImages.onBoardingImage1,
                 title: tr(LocaleKeys.onBoardingTitle1),

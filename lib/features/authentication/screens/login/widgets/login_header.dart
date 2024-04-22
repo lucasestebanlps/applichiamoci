@@ -19,11 +19,13 @@ class LLoginHeader extends StatelessWidget {
           .size
           .width, // Ancho igual al ancho de la pantalla
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start, // Alineación a la izquierda
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment:
+            MainAxisAlignment.center, // Alineación a la izquierda
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          const SizedBox(height: LSizes.md),
           Image(
-            height: 100,
+            height: 150,
             image:
                 AssetImage(dark ? LImages.lightApplogo : LImages.darkApplogo),
           ),
@@ -35,6 +37,7 @@ class LLoginHeader extends StatelessWidget {
           const SizedBox(height: LSizes.sm),
           Text(
             tr(LocaleKeys.loginSubTitle),
+            textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ],
