@@ -14,7 +14,7 @@ class NewsRepository extends GetxController {
   // variables
   final _db = FirebaseFirestore.instance;
 
-  // Get all categories
+  // Get all services
   Future<List<NewsModel>> getAllNews() async {
     try {
       final snapshot = await _db.collection('News').get();

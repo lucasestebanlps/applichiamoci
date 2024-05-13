@@ -3,8 +3,8 @@ import 'package:applichiamoci/data/repositories/user/user_repository.dart';
 import 'package:applichiamoci/features/authentication/screens/login/login.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/verify_email.dart';
-import 'package:applichiamoci/features/screens/categories/controllers/categories_controller.dart';
-import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
+import 'package:applichiamoci/features/screens/services/controllers/services_controller.dart';
+import 'package:applichiamoci/features/screens/services/controllers/places_controller.dart';
 import 'package:applichiamoci/features/screens/news/controllers/news_controller.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_auth_exceptions.dart';
@@ -36,7 +36,7 @@ class AuthenticationRepository extends GetxController {
   void onReady() {
     // I'm loading the controllers here so I can change the language from the entire app
     Get.put<NewsController>(NewsController());
-    Get.put<CategoryController>(CategoryController());
+    Get.put<ServiceController>(ServiceController());
     Get.put<PlacesController>(PlacesController());
     // Remove the native splash screen
     FlutterNativeSplash.remove();

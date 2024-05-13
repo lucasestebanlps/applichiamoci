@@ -1,4 +1,4 @@
-import 'package:applichiamoci/features/screens/categories/models/place_model.dart';
+import 'package:applichiamoci/features/screens/services/models/place_model.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -13,12 +13,12 @@ class PlacesRepository extends GetxController {
 
   final _db = FirebaseFirestore.instance;
 
-  // Get places for a specific category
-  Future<List<PlaceModel>> getPlacesForCategory(String category) async {
+  // Get places for a specific service
+  Future<List<PlaceModel>> getPlacesForService(String service) async {
     try {
       final snapshot = await _db
           .collection('Categories')
-          .doc(category)
+          .doc(service)
           .collection('Places')
           .get();
 
@@ -40,7 +40,7 @@ class PlacesRepository extends GetxController {
           ownerName: ownerName,
           email: data['email'],
           category: category,
-          categoryId: category,
+          serviceId: service,
         );
       }).toList();
 

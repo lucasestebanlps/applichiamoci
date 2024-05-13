@@ -6,7 +6,7 @@ import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:applichiamoci/features/screens/categories/models/place_model.dart';
+import 'package:applichiamoci/features/screens/services/models/place_model.dart';
 
 class PlaceDetailScreen extends StatelessWidget {
   final PlaceModel place;

@@ -1,4 +1,4 @@
-import 'package:applichiamoci/features/screens/categories/screen/categories_screen.dart';
+import 'package:applichiamoci/features/screens/services/screen/services_screen.dart';
 import 'package:applichiamoci/features/screens/news/screen/news_screen.dart';
 import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
@@ -71,5 +71,5 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [const NewsScreen(), Container(), const CategoriesScreen()];
+  final screens = [const NewsScreen(), Container(), const ServicesScreen()];
 }

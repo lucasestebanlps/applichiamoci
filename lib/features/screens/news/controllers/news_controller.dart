@@ -18,16 +18,16 @@ class NewsController extends GetxController {
     fetchNews();
   }
 
-  // Load categories data
+  // Load news data
   Future<void> fetchNews() async {
     try {
-      // Show loader while loading categories
+      // Show loader while loading news
       isLoading.value = true;
 
-      // Fetch categories using _categoryRepository
+      // Fetch news using _newsRepository
       final news = await _newsRepository.getAllNews();
 
-      // Update the categories list
+      // Update the news list
       allNews.assignAll(news);
     } catch (e) {
       LLoaders.errorSnackBar(

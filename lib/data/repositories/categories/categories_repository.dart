@@ -1,4 +1,4 @@
-import 'package:applichiamoci/features/screens/categories/models/category_model.dart';
+import 'package:applichiamoci/features/screens/services/models/service_model.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -8,19 +8,19 @@ import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class CategoryRepository extends GetxController {
-  static CategoryRepository get instance => Get.find();
+class ServiceRepository extends GetxController {
+  static ServiceRepository get instance => Get.find();
 
   final _db = FirebaseFirestore.instance;
 
-  // Get all categories
-  Future<List<CategoryModel>> getAllCategories() async {
+  // Get all services
+  Future<List<ServiceModel>> getAllServices() async {
     try {
       final snapshot = await _db.collection('Categories').get();
       final list = snapshot.docs.map((document) {
         final data = document.data();
         final name = LHelperFunctions.getTranslatedField(data, 'name');
-        return CategoryModel(
+        return ServiceModel(
           id: document.id,
           name: name,
           icon: data['icon'],

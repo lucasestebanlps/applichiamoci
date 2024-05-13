@@ -1,38 +1,38 @@
-import 'package:applichiamoci/features/screens/categories/models/category_model.dart';
-import 'package:applichiamoci/features/screens/categories/screen/widgets/places_screen.dart';
+import 'package:applichiamoci/features/screens/services/models/service_model.dart';
+import 'package:applichiamoci/features/screens/services/screen/widgets/places_screen.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class LCategoryCard extends StatelessWidget {
-  const LCategoryCard({
+class LServicesCard extends StatelessWidget {
+  const LServicesCard({
     super.key,
-    required this.category,
+    required this.service,
   });
 
-  final CategoryModel category;
+  final ServiceModel service;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Get.to(() => PlacesScreen(
-              category: category.id,
-              nameCategory: category.name,
+              service: service.id,
+              nameService: service.name,
             ));
       },
       child: Card(
         elevation: 3.0,
         color: Color(int.parse(
-            '0xFF${category.backgroundColor}')), // Color de fondo personalizado
+            '0xFF${service.backgroundColor}')), // Color de fondo personalizado
         child: Padding(
           padding: const EdgeInsets.all(LSizes.sm),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                MdiIcons.fromString(category
+                MdiIcons.fromString(service
                     .icon), // use estos iconos para poder almacenarlos como string en firebase
                 size: 48.0,
                 color: Colors.white, // Color del icono
@@ -48,7 +48,7 @@ class LCategoryCard extends StatelessWidget {
               ),
               const SizedBox(height: LSizes.spaceBtwItems),
               Text(
-                category.name,
+                service.name,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   color: Colors.white, // Forzar el color del texto a blanco

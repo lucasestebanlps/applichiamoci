@@ -1,37 +1,37 @@
 import 'package:applichiamoci/common/widgets/buttons/view_more_button.dart';
-import 'package:applichiamoci/features/screens/categories/screen/widgets/palces_detail_screen.dart';
+import 'package:applichiamoci/features/screens/services/screen/widgets/palces_detail_screen.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
-import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
-import 'package:applichiamoci/features/screens/categories/models/place_model.dart';
+import 'package:applichiamoci/features/screens/services/controllers/places_controller.dart';
+import 'package:applichiamoci/features/screens/services/models/place_model.dart';
 import 'package:applichiamoci/common/widgets/text/error_text_icon.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class PlacesScreen extends StatelessWidget {
-  final String category;
-  final String nameCategory;
+  final String service;
+  final String nameService;
 
   const PlacesScreen(
-      {super.key, required this.category, required this.nameCategory});
+      {super.key, required this.service, required this.nameService});
 
   @override
   Widget build(BuildContext context) {
     final PlacesController placesController = Get.find<PlacesController>();
 
-    if (placesController.placesForCategory.isEmpty ||
-        placesController.currentCategory != category) {
-      placesController.fetchPlacesForCategory(category);
+    if (placesController.placesForServices.isEmpty ||
+        placesController.currentService != service) {
+      placesController.fetchPlacesForService(service);
     }
 
     return Scaffold(
       appBar: LAppBar(
         showBackArrow: true,
-        title: Text(nameCategory,
+        title: Text(nameService,
             style: Theme.of(context).textTheme.headlineSmall!),
       ),
       endDrawer: const CustomDrawer(),
@@ -53,13 +53,13 @@ class PlacesScreen extends StatelessWidget {
                 ],
               ),
             );
-          } else if (placesController.placesForCategory.isEmpty) {
+          } else if (placesController.placesForServices.isEmpty) {
             return LErrorCenteredText(
               icon: Icons.warning,
               text: tr(LocaleKeys.noLogoAvailable),
             );
           } else {
-            List<PlaceModel> places = placesController.placesForCategory;
+            List<PlaceModel> places = placesController.placesForServices;
             return ListView.builder(
               itemCount: places.length,
               itemBuilder: (BuildContext context, int index) {
