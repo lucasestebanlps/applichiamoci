@@ -11,7 +11,7 @@ class PlaceModel {
   String? ownerName;
   String? email;
   String? category;
-  String categoryId; // Nuevo campo para la relación con la categoría
+  String serviceID; // Nuevo campo para la relación con el servicio
 
   PlaceModel({
     required this.id,
@@ -24,7 +24,7 @@ class PlaceModel {
     this.ownerName,
     this.email,
     this.category,
-    required this.categoryId, // Asegúrarse de pasarlo en el constructor
+    required this.serviceID, // Asegúrarse de pasarlo en el constructor
   });
 
   // Empty helper function
@@ -39,7 +39,7 @@ class PlaceModel {
       email: '',
       category: '',
       phoneNumber: '',
-      categoryId: '');
+      serviceID: '');
 
   // Convert model to Json structure so that you can store data in Firebase
   Map<String, dynamic> toJson() {
@@ -74,7 +74,7 @@ class PlaceModel {
         ownerName: data['ownerName'] ?? '',
         category: data['category'] ?? '',
         email: data['email'] ?? '',
-        categoryId: document.reference.parent.id,
+        serviceID: document.reference.parent.id,
       );
     } else {
       return PlaceModel.empty();

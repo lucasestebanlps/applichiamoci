@@ -1,6 +1,6 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
-import 'package:applichiamoci/features/screens/categories/controllers/categories_controller.dart';
-import 'package:applichiamoci/features/screens/categories/controllers/places_controller.dart';
+import 'package:applichiamoci/features/screens/services/controllers/services_controller.dart';
+import 'package:applichiamoci/features/screens/services/controllers/places_controller.dart';
 import 'package:applichiamoci/features/screens/news/controllers/news_controller.dart';
 import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -255,12 +255,12 @@ class LHelperFunctions {
                           await NewsController.instance.fetchNews();
 
                           // Actualizar las categorías después de cambiar el idioma
-                          await CategoryController.instance.fetchCategories();
+                          await ServiceController.instance.fetchServices();
 
                           // Actualizar los lugares después de cambiar el idioma
                           await PlacesController.instance
-                              .fetchPlacesForCategory(
-                                  PlacesController.instance.currentCategory);
+                              .fetchPlacesForServices(
+                                  PlacesController.instance.currentService);
 
                           // Cerrar el diálogo después de completar todas las operaciones
                           Get.back();

@@ -1,8 +1,8 @@
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 
-class LCategoryShimmer extends StatelessWidget {
-  const LCategoryShimmer({super.key, required this.itemCount});
+class LServiceShimmer extends StatelessWidget {
+  const LServiceShimmer({super.key, required this.itemCount});
 
   final int itemCount;
 

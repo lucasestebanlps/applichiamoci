@@ -1,20 +1,20 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/drawer/custom_drawer.dart';
 import 'package:applichiamoci/common/widgets/shimmer/category_shimmer.dart';
-import 'package:applichiamoci/features/screens/categories/controllers/categories_controller.dart';
-import 'package:applichiamoci/features/screens/categories/screen/widgets/category_card.dart';
+import 'package:applichiamoci/features/screens/services/controllers/services_controller.dart';
+import 'package:applichiamoci/features/screens/services/screen/widgets/service_card.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+class ServicesScreen extends StatelessWidget {
+  const ServicesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final categoryController = Get.find<CategoryController>();
+    final serviceController = Get.find<ServiceController>();
 
     return Scaffold(
       appBar: LAppBar(
@@ -29,8 +29,8 @@ class CategoriesScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: LSizes.sm),
         child: Obx(() {
           // Si todavia no cargaron las categorias muestra el shimmer personalizado
-          if (categoryController.isLoading.value) {
-            return const LCategoryShimmer(itemCount: 8);
+          if (serviceController.isLoading.value) {
+            return const LServiceShimmer(itemCount: 8);
           }
           // Cuando las categorias estan cargadas genera la grid de categorias
           return GridView.builder(
@@ -42,10 +42,10 @@ class CategoriesScreen extends StatelessWidget {
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
             ),
-            itemCount: categoryController.allCategories.length,
+            itemCount: serviceController.allServices.length,
             itemBuilder: (_, index) {
-              final category = categoryController.allCategories[index];
-              return LCategoryCard(category: category);
+              final service = serviceController.allServices[index];
+              return LServiceCard(service: service);
             },
           );
         }),
