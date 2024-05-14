@@ -1,5 +1,5 @@
 import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
-import 'package:applichiamoci/data/repositories/categories/categories_repository.dart';
+import 'package:applichiamoci/data/repositories/categories/services_repository.dart';
 import 'package:applichiamoci/features/screens/services/models/service_model.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:easy_localization/easy_localization.dart';

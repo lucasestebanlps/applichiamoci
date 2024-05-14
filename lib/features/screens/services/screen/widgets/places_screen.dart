@@ -12,7 +12,7 @@ import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
-class PlacesScreen extends StatelessWidget {
+class PlacesScreen extends StatefulWidget {
   final String service;
   final String nameService;
 
@@ -20,23 +20,29 @@ class PlacesScreen extends StatelessWidget {
       {super.key, required this.service, required this.nameService});
 
   @override
-  Widget build(BuildContext context) {
-    final PlacesController placesController = Get.find<PlacesController>();
+  _PlacesScreenState createState() => _PlacesScreenState();
+}
 
+class _PlacesScreenState extends State<PlacesScreen> {
+  final PlacesController placesController = Get.find<PlacesController>();
+  String? selectedCategory;
+
+  @override
+  Widget build(BuildContext context) {
     if (placesController.placesForServices.isEmpty ||
-        placesController.currentService != service) {
-      placesController.fetchPlacesForService(service);
+        placesController.currentService != widget.service) {
+      placesController.fetchPlacesForService(widget.service);
     }
 
     return Scaffold(
       appBar: LAppBar(
         showBackArrow: true,
-        title: Text(nameService,
+        title: Text(widget.nameService,
             style: Theme.of(context).textTheme.headlineSmall!),
       ),
       endDrawer: const CustomDrawer(),
       body: Padding(
-        padding: const EdgeInsets.all(LSizes.sm),
+        padding: const EdgeInsets.symmetric(horizontal: LSizes.sm),
         child: Obx(() {
           if (placesController.isLoading.value) {
             return Center(
@@ -60,61 +66,121 @@ class PlacesScreen extends StatelessWidget {
             );
           } else {
             List<PlaceModel> places = placesController.placesForServices;
-            return ListView.builder(
-              itemCount: places.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  margin: const EdgeInsets.only(bottom: LSizes.spaceBtwItems),
-                  elevation: 5.0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(LSizes.md),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(places[index].title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context).textTheme.titleLarge),
-                        const SizedBox(
-                          height: LSizes.sm,
-                        ),
-                        Text(
-                          places[index].description.replaceAll(r'\n', '\n'),
-                          maxLines: 2, // Limita el texto a dos líneas
-                          overflow: TextOverflow
-                              .ellipsis, // Agrega puntos suspensivos si el texto se desborda
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                        const SizedBox(height: LSizes.spaceBtwItems),
-                        if (places[index].category != null &&
-                            places[index].category!.isNotEmpty)
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  const Icon(Icons.people),
-                                  const SizedBox(width: LSizes.spaceBtwItems),
-                                  Text(
-                                    places[index].category!,
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge,
-                                  ),
-                                ],
-                              ),
-                              ViewMoreButton(
-                                onPressed: () {
-                                  Get.to(() =>
-                                      PlaceDetailScreen(place: places[index]));
-                                },
-                              ),
-                            ],
-                          )
-                      ],
+            List<String> categories = [
+              'Todos',
+              'Minori',
+              'Famiglia',
+              'Adulti',
+              'Migrazione'
+            ];
+
+            // Aplicar filtrado si se selecciona una categoría
+            if (selectedCategory != null && selectedCategory != 'Todos') {
+              places = places
+                  .where((place) => place.category == selectedCategory)
+                  .toList();
+            }
+
+            return Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    DropdownButton<String>(
+                      value: selectedCategory,
+                      hint: const Text('Filtrar por categoría'),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedCategory = newValue;
+                        });
+                      },
+                      items: categories
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                     ),
-                  ),
-                );
-              },
+                  ],
+                ),
+                const SizedBox(
+                  height: LSizes.spaceBtwItems,
+                ),
+                Expanded(
+                  child: places.isEmpty
+                      ? LErrorCenteredText(
+                          icon: Icons.warning,
+                          text: tr(LocaleKeys.noLogoAvailable),
+                        )
+                      : ListView.builder(
+                          itemCount: places.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Card(
+                              margin: const EdgeInsets.only(
+                                  bottom: LSizes.spaceBtwItems),
+                              elevation: 5.0,
+                              child: Padding(
+                                padding: const EdgeInsets.all(LSizes.md),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(places[index].title,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleLarge),
+                                    const SizedBox(
+                                      height: LSizes.sm,
+                                    ),
+                                    Text(
+                                      places[index]
+                                          .description
+                                          .replaceAll(r'\n', '\n'),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
+                                    ),
+                                    const SizedBox(
+                                        height: LSizes.spaceBtwItems),
+                                    if (places[index].category != null &&
+                                        places[index].category!.isNotEmpty)
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              const Icon(Icons.people),
+                                              const SizedBox(
+                                                  width: LSizes.spaceBtwItems),
+                                              Text(
+                                                places[index].category!,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyLarge,
+                                              ),
+                                            ],
+                                          ),
+                                          ViewMoreButton(
+                                            onPressed: () {
+                                              Get.to(() => PlaceDetailScreen(
+                                                  place: places[index]));
+                                            },
+                                          ),
+                                        ],
+                                      )
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                ),
+              ],
             );
           }
         }),
