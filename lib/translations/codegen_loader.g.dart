@@ -128,7 +128,7 @@ class CodegenLoader extends AssetLoader {
     "processingInformation": "We are processing your information...",
     "processing": "Processing...",
     "noInternet": "No internet connection. Check your connection.",
-    "companyNumber": "Our number:",
+    "companyNumber": "PIS",
     "otherNumbers": "Other numbers:",
     "companyEmergency": "Social Emergency Response",
     "medicalEmergency": "Medical Emergency",
@@ -139,7 +139,7 @@ class CodegenLoader extends AssetLoader {
     "accessToPhoneRequiredMessage": "Phone access required to make a call.",
     "accessToLocationRequiredMessage": "Location access required to open maps.",
     "companyExplanation":
-        "This is a brief explanation about the company number and how it can help customers.",
+        "Public service to deal with social emergency situations that require interventions.",
     "goToWebsite": "Go to website",
     "openSettingsText": "Open Settings",
     "selectLanguage": "Select Language",
@@ -265,7 +265,7 @@ class CodegenLoader extends AssetLoader {
     "processingInformation": "Estamos procesando tu información...",
     "processing": "Procesando...",
     "noInternet": "Sin conexión a internet. Verifica tu conexión.",
-    "companyNumber": "Nuestro número:",
+    "companyNumber": "PIS",
     "otherNumbers": "Otros números:",
     "companyEmergency": "Servicio de Emergencia de la Empresa",
     "medicalEmergency": "Emergencia Médica",
@@ -278,7 +278,7 @@ class CodegenLoader extends AssetLoader {
     "accessToLocationRequiredMessage":
         "Se requiere acceso a la ubicación para abrir mapas.",
     "companyExplanation":
-        "Esta es una breve explicación sobre el número de la empresa y cómo puede ayudar a los clientes.",
+        "Servicio público para atender situaciones de emergencia social que requieran intervenciones.",
     "goToWebsite": "Ir al sitio web",
     "openSettingsText": "Abrir Configuración",
     "selectLanguage": "Selecciona el idioma",
@@ -407,7 +407,7 @@ class CodegenLoader extends AssetLoader {
     "processingInformation": "Nous traitons vos informations...",
     "processing": "Traitement...",
     "noInternet": "Pas de connexion Internet. Vérifiez votre connexion.",
-    "companyNumber": "Notre numéro:",
+    "companyNumber": "PIS",
     "otherNumbers": "Autres numéros:",
     "companyEmergency": "Intervention Sociale d'Urgence",
     "medicalEmergency": "Urgence médicale",
@@ -420,7 +420,7 @@ class CodegenLoader extends AssetLoader {
     "accessToLocationRequiredMessage":
         "Accès à la localisation requis pour ouvrir les cartes.",
     "companyExplanation":
-        "Il s'agit d'une brève explication sur le numéro d'entreprise et comment il peut aider les clients.",
+        "Service public pour faire face aux situations d'urgence sociale qui nécessitent des interventions.",
     "goToWebsite": "Aller sur le site",
     "openSettingsText": "Ouvrir les paramètres",
     "selectLanguage": "Choisir la langue",
@@ -546,7 +546,7 @@ class CodegenLoader extends AssetLoader {
     "processingInformation": "Stiamo elaborando le tue informazioni...",
     "processing": "Elaborazione..",
     "noInternet": "Nessuna connessione internet. Controlla la tua connessione.",
-    "companyNumber": "Nostro numero:",
+    "companyNumber": "PIS",
     "otherNumbers": "Altri numeri:",
     "companyEmergency": "Pronto intervento sociale",
     "medicalEmergency": "Emergenza medica",
@@ -559,7 +559,7 @@ class CodegenLoader extends AssetLoader {
     "accessToLocationRequiredMessage":
         "Accesso alla posizione richiesto per aprire le mappe.",
     "companyExplanation":
-        "Questa è una breve spiegazione sul numero dell'azienda e su come può aiutare i clienti.",
+        "Servizio pubblico per fronteggiare situazioni di emergenza sociale che richiedono interventi.",
     "goToWebsite": "Vai al sito",
     "openSettingsText": "Apri Impostazioni",
     "selectLanguage": "Seleziona la lingua",

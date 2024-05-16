@@ -39,6 +39,7 @@ class PlacesRepository extends GetxController {
           image: data['image'],
           ownerName: ownerName,
           email: data['email'],
+          website: data['website'],
           category: category,
           serviceId: service,
         );

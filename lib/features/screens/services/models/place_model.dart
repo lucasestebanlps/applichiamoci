@@ -10,6 +10,7 @@ class PlaceModel {
   String? image;
   String? ownerName;
   String? email;
+  String? website;
   String? category;
   String serviceId; // Nuevo campo para la relación con el servicio
 
@@ -23,6 +24,7 @@ class PlaceModel {
     this.image,
     this.ownerName,
     this.email,
+    this.website,
     this.category,
     required this.serviceId, // Asegúrarse de pasarlo en el constructor
   });
@@ -37,6 +39,7 @@ class PlaceModel {
       mapCoordinates: '',
       ownerName: '',
       email: '',
+      website: '',
       category: '',
       phoneNumber: '',
       serviceId: '');
@@ -52,6 +55,7 @@ class PlaceModel {
       'image': image,
       'ownerName': ownerName,
       'email': email,
+      'website': website,
       'category': category,
     };
   }
@@ -74,6 +78,7 @@ class PlaceModel {
         ownerName: data['ownerName'] ?? '',
         category: data['category'] ?? '',
         email: data['email'] ?? '',
+        website: data['website'] ?? '',
         serviceId: document.reference.parent.id,
       );
     } else {

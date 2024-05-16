@@ -1,5 +1,6 @@
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_button.dart';
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/modal_company.dart';
+import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -26,7 +27,7 @@ class EmergencyCallBottomSheet extends StatelessWidget {
             ]),
             // Company number
             EmergencyServiceButton(
-              iconData: Icons.business,
+              assetImage: const AssetImage(LImages.pisLogo),
               label: LocaleKeys.companyEmergency.tr(),
               phoneNumber: '123456789', // Número de emergencia de la empresa
               highlightColor: Colors.green, // Color para resaltar el botón

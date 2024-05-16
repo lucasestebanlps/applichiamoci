@@ -1,8 +1,8 @@
 import 'package:applichiamoci/common/widgets/l_circular_image.dart';
-import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/personalization/controllers/user_controller.dart';
 import 'package:applichiamoci/features/screens/chi_siamo/chi_siamo.dart';
+import 'package:applichiamoci/features/screens/faq_legale/faq_legale.dart';
 import 'package:applichiamoci/features/screens/profile/profile_screen.dart';
 import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
@@ -13,7 +13,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:iconsax/iconsax.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -86,22 +85,14 @@ class CustomDrawer extends StatelessWidget {
             );
 
             if (confirm) {
-              var url = Uri.parse('https://fondazione-emmanuel.org');
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url);
-              } else {
-                LLoaders.errorSnackBar(
-                  title: tr(LocaleKeys.error),
-                  message: tr(LocaleKeys.errorNonEpossibile),
-                );
-              }
+              LHelperFunctions.urlAction('https://fondazione-emmanuel.org');
             }
           },
         ),
         ListTile(
           leading: const Icon(Iconsax.message_question),
           title: Text('FAQ ${tr(LocaleKeys.legal)}'),
-          onTap: () {},
+          onTap: () => Get.to(() => FAQScreen()),
         ),
         ListTile(
           leading: const Icon(Iconsax.people),

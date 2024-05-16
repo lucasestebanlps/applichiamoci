@@ -1,7 +1,9 @@
-import 'package:applichiamoci/common/widgets/buttons/view_more_button.dart';
+import 'package:applichiamoci/common/widgets/buttons/text_button.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:applichiamoci/features/screens/news/screen/widgets/news_detail_screen.dart';
+import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:applichiamoci/features/screens/news/models/news_model.dart';
@@ -70,7 +72,8 @@ class NewsCard extends StatelessWidget {
                   const SizedBox(height: LSizes.spaceBtwItems),
 
                   // ------ BUTTON VIEW MORE ------
-                  ViewMoreButton(
+                  LTextButton(
+                    text: tr(LocaleKeys.viewMore),
                     onPressed: () {
                       Get.to(() => NewsDetailScreen(
                             home: home,

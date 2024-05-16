@@ -1,5 +1,6 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -11,7 +12,7 @@ class ModalCompany extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: const Icon(
-        Iconsax.info_circle,
+        Iconsax.message_question,
         color: Colors.blue,
       ),
       iconSize: 24,
@@ -36,9 +37,8 @@ class ModalCompany extends StatelessWidget {
               ),
               actions: <Widget>[
                 TextButton(
-                  onPressed: () {
-                    // Agrega aquí la lógica para ir al sitio web de la empresa
-                  },
+                  onPressed: () => LHelperFunctions.urlAction(
+                      'https://fondazione-emmanuel.org'),
                   child: Text(tr(LocaleKeys.goToWebsite)),
                 ),
                 TextButton(

@@ -1,14 +1,14 @@
-import 'package:applichiamoci/utils/constants/text_strings.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class ViewMoreButton extends StatelessWidget {
-  const ViewMoreButton({
+class LTextButton extends StatelessWidget {
+  const LTextButton({
     super.key,
     required this.onPressed,
+    required this.text,
   });
 
   final VoidCallback onPressed; // Cambia el tipo de onPressed a VoidCallback
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ViewMoreButton extends StatelessWidget {
           style: TextButton.styleFrom(
             backgroundColor: Colors.green,
           ),
-          child: Text(tr(LocaleKeys.viewMore),
+          child: Text(text,
               style: Theme.of(context)
                   .textTheme
                   .labelLarge

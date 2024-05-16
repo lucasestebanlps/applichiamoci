@@ -1,5 +1,5 @@
 import 'package:applichiamoci/features/screens/services/models/service_model.dart';
-import 'package:applichiamoci/features/screens/services/screen/widgets/places_screen.dart';
+import 'package:applichiamoci/features/screens/services/screen/places_screen.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

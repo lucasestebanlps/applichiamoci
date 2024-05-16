@@ -3,6 +3,7 @@ class LImages {
   //-- App Logos
   static const String darkApplogo = "assets/logo/logo_rounded.png";
   static const String lightApplogo = "assets/logo/logo_rounded.png";
+  static const String pisLogo = "assets/logo/pis-logo.png";
 
   // -- Social Logos
   static const String google = "assets/logo/google-logo.png";
@@ -45,4 +46,33 @@ class LImages {
       "assets/logo/partners/logopplichiamoci_chiSiamo.png";
   static const String chiSiamoImg1 = "assets/images/chiSiamo2.jpg";
   static const String chiSiamoImg2 = "assets/images/chiSiamo1.jpg";
+  static const String lavoroPoliticheSSociali =
+      "assets/logo/partners/LavoroPoliticheSociali.jpg";
+  static const String logoComune = "assets/logo/partners/logoComune.png";
+  static const String logoDivagare = "assets/logo/partners/logo_divagare.png";
+  static const String logoHumanFirst =
+      "assets/logo/partners/Logo_Humanfirst.jpg";
+  static const String logoCentroStudi =
+      "assets/logo/partners/LogoCentrostudi.jpeg";
+  static const String associazioneRadio = "assets/logo/partners/noname.jpg";
+  static const String quiSalento = "assets/logo/partners/qui_salento.png";
+  static const String regionePuglia = "assets/logo/partners/regione_puglia.png";
+  static const String universitaSalento =
+      "assets/logo/partners/Università_del_Salento.png";
+}
+
+class ImagePaths {
+  static const List<String> partnerLogos = [
+    "assets/logo/partners/logo_emmanuel.png",
+    "assets/logo/partners/regione_puglia.png",
+    "assets/logo/partners/Università_del_Salento.png",
+    "assets/logo/partners/LavoroPoliticheSociali.jpg",
+    "assets/logo/partners/logoComune.png",
+    "assets/logo/partners/logo_divagare.png",
+    "assets/logo/partners/Logo_Humanfirst.jpg",
+    "assets/logo/partners/LogoCentrostudi.jpeg",
+    "assets/logo/partners/noname.jpg",
+    "assets/logo/partners/qui_salento.png",
+    "assets/logo/partners/camera_avvocati.jpeg"
+  ];
 }

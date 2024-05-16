@@ -157,6 +157,27 @@ class LHelperFunctions {
     }
   }
 
+  static void urlAction(String urlActionParameter) async {
+    String correctedUrl = urlActionParameter;
+
+    // Verificar si la URL empieza con "http://" o "https://"
+    if (!urlActionParameter.startsWith('http://') &&
+        !urlActionParameter.startsWith('https://')) {
+      correctedUrl = 'https://$urlActionParameter';
+    }
+
+    final url = Uri.parse(correctedUrl);
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      LLoaders.errorSnackBar(
+        title: tr(LocaleKeys.error),
+        message: tr(LocaleKeys.errorNonEpossibile),
+      );
+    }
+  }
+
   static void mapAction(String? mapActionParameter) async {
     final status = await Permission.locationWhenInUse.request();
     if (status.isGranted) {
@@ -165,7 +186,7 @@ class LHelperFunctions {
       } else {
         LLoaders.errorSnackBar(
           title: tr(LocaleKeys.error),
-          message: 'Il mapa non é disponibile',
+          message: 'Nessuna mappa disponibile.',
         );
       }
     } else {

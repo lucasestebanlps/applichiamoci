@@ -8,16 +8,17 @@ class LCheckboxTheme {
 
   /// Customizable Light Text Theme
   static CheckboxThemeData lightCheckboxTheme = CheckboxThemeData(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(LSizes.xs)),
-    checkColor: MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
+    shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(LSizes.xs)),
+    checkColor: WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.selected)) {
         return LColors.white;
       } else {
         return LColors.black;
       }
     }),
-    fillColor: MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
+    fillColor: WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.selected)) {
         return LColors.primary;
       } else {
         return Colors.transparent;
@@ -27,16 +28,17 @@ class LCheckboxTheme {
 
   /// Customizable Dark Text Theme
   static CheckboxThemeData darkCheckboxTheme = CheckboxThemeData(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(LSizes.xs)),
-    checkColor: MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
+    shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(LSizes.xs)),
+    checkColor: WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.selected)) {
         return LColors.white;
       } else {
         return LColors.black;
       }
     }),
-    fillColor: MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
+    fillColor: WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.selected)) {
         return LColors.primary;
       } else {
         return Colors.transparent;
