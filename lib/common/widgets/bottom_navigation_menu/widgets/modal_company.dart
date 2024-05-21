@@ -24,7 +24,7 @@ class ModalCompany extends StatelessWidget {
               title: Text(LocaleKeys.companyNumber.tr()),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(LSizes
-                    .cardRadiusSm), // Cambia el radio de borde según lo necesites
+                    .cardRadiusSm),
               ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,

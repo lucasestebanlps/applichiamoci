@@ -6,7 +6,7 @@
 
     
     <application
-        android:label="applichiamoci"
+        android:label="Applichiamoci"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

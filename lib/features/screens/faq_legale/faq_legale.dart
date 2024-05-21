@@ -1,6 +1,8 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
+import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -167,15 +169,31 @@ class FAQScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = LHelperFunctions.isDarkMode(context);
+
     return Scaffold(
       appBar: LAppBar(
         title: Text('FAQ ${tr(LocaleKeys.legal)}'),
-        showBackArrow: true,
       ),
       body: ListView.builder(
         itemCount: faqList.length,
         itemBuilder: (context, index) {
-          return FAQItemWidget(faqItem: faqList[index]);
+          final item = faqList[index];
+          final backgroundColor = dark
+              ? index % 2 == 0
+                  ? LColors.darkContainer
+                  : LColors.black
+              : index % 2 == 0
+                  ? Colors.grey[200]
+                  : LColors.white;
+
+          return Container(
+            color: backgroundColor,
+            child: FAQItemWidget(
+              question: item.question,
+              answer: item.answer,
+            ),
+          );
         },
       ),
     );
@@ -190,21 +208,22 @@ class FAQItem {
 }
 
 class FAQItemWidget extends StatelessWidget {
-  final FAQItem faqItem;
+  final String question;
+  final String answer;
 
-  const FAQItemWidget({super.key, required this.faqItem});
+  const FAQItemWidget(
+      {super.key, required this.question, required this.answer});
 
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      title:
-          Text(faqItem.question, style: Theme.of(context).textTheme.titleLarge),
+      title: Text(question, style: Theme.of(context).textTheme.titleMedium),
       children: [
         Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: LSizes.md, vertical: LSizes.sm),
-            child: Text(faqItem.answer,
-                style: Theme.of(context).textTheme.bodyMedium)),
+          padding: const EdgeInsets.symmetric(
+              horizontal: LSizes.lg, vertical: LSizes.sm),
+          child: Text(answer),
+        )
       ],
     );
   }
