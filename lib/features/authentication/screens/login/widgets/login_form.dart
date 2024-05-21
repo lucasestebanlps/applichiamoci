@@ -1,8 +1,10 @@
-import 'package:applichiamoci/common/widgets/bottom_navigation_menu/navigation_menu.dart';
+import 'package:applichiamoci/features/authentication/controllers/login/login_controller.dart';
 import 'package:applichiamoci/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/signup.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:applichiamoci/utils/validators/validation.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -14,32 +16,45 @@ class LLoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Form(
+      key: controller.loginFormKey,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-            vertical: LSizes.spaceBtwSections),
+        padding: const EdgeInsets.symmetric(vertical: LSizes.spaceBtwSections),
         child: Column(
           children: [
             // Email
             TextFormField(
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Iconsax.direct_right),
-                  labelText: LTexts.email),
+              controller: controller.email,
+              validator: (value) => LValidator.validateEmail(value),
+              decoration: InputDecoration(
+                  prefixIcon: const Icon(Iconsax.direct_right),
+                  labelText: tr(LocaleKeys.email)),
             ),
-    
+
             const SizedBox(height: LSizes.spaceBtwInputFields),
-    
+
             // Passsword
-            TextFormField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Iconsax.password_check),
-                  labelText: LTexts.password,
-                  suffixIcon: Icon(Iconsax.eye_slash)),
+            Obx(
+              () => TextFormField(
+                controller: controller.password,
+                validator: (value) => LValidator.validateEmptyText(
+                    value, tr(LocaleKeys.password)),
+                obscureText: controller.hidePassword.value,
+                decoration: InputDecoration(
+                    labelText: tr(LocaleKeys.password),
+                    prefixIcon: const Icon(Iconsax.password_check),
+                    suffixIcon: IconButton(
+                        onPressed: () => controller.hidePassword.value =
+                            !controller.hidePassword.value,
+                        icon: Icon(controller.hidePassword.value
+                            ? Iconsax.eye_slash
+                            : Iconsax.eye))),
+              ),
             ),
-    
+
             const SizedBox(height: LSizes.spaceBtwInputFields / 2),
-    
+
             // Remember me & forget password
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,35 +62,47 @@ class LLoginForm extends StatelessWidget {
                 // Remember me
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (value) {}),
-                    const Text(LTexts.rememberMe)
+                    Obx(
+                      () => Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: (value) => controller.rememberMe.value =
+                            !controller.rememberMe.value,
+                        visualDensity: const VisualDensity(
+                            horizontal: -4,
+                            vertical: -4), // Ajustar el margen izquierdo
+                      ),
+                    ),
+                    Text(
+                      tr(LocaleKeys.rememberMe),
+                      overflow: TextOverflow.ellipsis,
+                    )
                   ],
                 ),
-    
+
                 // Forget password
                 TextButton(
                     onPressed: () => Get.to(() => const ForgetPassword()),
-                    child: const Text(LTexts.forgetPassword))
+                    child: Text(tr(LocaleKeys.forgetPassword)))
               ],
             ),
-    
+
             const SizedBox(height: LSizes.spaceBtwSections),
-    
+
             // Sign In Button
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(() => const NavigationMenu()),
-                    child: const Text(LTexts.signIn))),
-    
+                    onPressed: () => controller.emailAndPasswordSignIn(),
+                    child: Text(tr(LocaleKeys.signIn)))),
+
             const SizedBox(height: LSizes.spaceBtwItems),
-    
+
             // Create Account button
             SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
                     onPressed: () => Get.to(() => const SignupScreen()),
-                    child: const Text(LTexts.createAccount)))
+                    child: Text(tr(LocaleKeys.createAccount))))
           ],
         ),
       ),

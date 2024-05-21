@@ -1,4 +1,3 @@
-import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/device/device_utility.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -9,16 +8,16 @@ class LAppBar extends StatelessWidget implements PreferredSizeWidget {
   const LAppBar({
     super.key,
     this.title,
-    this.actions,
-    this.leadingIcon,
     this.showBackArrow = true,
+    this.leadingIcon,
+    this.actions = true,
     this.leadingOnPressed,
   });
 
   final Widget? title;
   final bool showBackArrow;
   final IconData? leadingIcon;
-  final List<Widget>? actions;
+  final bool actions;
   final VoidCallback? leadingOnPressed;
 
   @override
@@ -27,7 +26,6 @@ class LAppBar extends StatelessWidget implements PreferredSizeWidget {
     final backArrowColor = darkMode ? Colors.white : Colors.black;
 
     return AppBar(
-      backgroundColor: darkMode ? LColors.dark : LColors.light,
       automaticallyImplyLeading: false,
       leading: showBackArrow
           ? IconButton(
@@ -40,20 +38,19 @@ class LAppBar extends StatelessWidget implements PreferredSizeWidget {
               ? IconButton(onPressed: leadingOnPressed, icon: Icon(leadingIcon))
               : null,
       title: title,
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            Scaffold.of(context).openEndDrawer();
-          },
-        ),
-      ],
+      actions: actions
+          ? [
+              IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+              ),
+            ]
+          : null, // Mostrará el icono del menú solo si actions es true
     );
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(LDeviceUtils.getAppBarHeight());
 }
-
-

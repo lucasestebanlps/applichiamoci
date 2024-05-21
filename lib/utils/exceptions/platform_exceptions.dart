@@ -8,6 +8,8 @@ class LPlatformException implements Exception {
     switch (code) {
       case 'INVALID_LOGIN_CREDENTIALS':
         return 'Invalid login credentials. Please double-check your information.';
+      case 'ERROR_INVALID_CREDENTIAL':
+        return 'Invalid login credentials. Please double-check your information.';
       case 'too-many-requests':
         return 'Too many requests. Please try again later.';
       case 'invalid-argument':

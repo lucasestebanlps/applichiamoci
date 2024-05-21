@@ -3,12 +3,11 @@ import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class ActionButtons extends StatelessWidget {
-  // ignore: use_super_parameters
   const ActionButtons({
-    Key? key,
+    super.key,
     this.callActionParameter,
     this.mapActionParameter,
-  }) : super(key: key);
+  });
 
   final String? callActionParameter;
   final String? mapActionParameter;
@@ -18,36 +17,54 @@ class ActionButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        if (callActionParameter != null)
-          ElevatedButton(
-            onPressed: () => LHelperFunctions.callAction(callActionParameter!),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
-              side: const BorderSide(color: Colors.green),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+        if (callActionParameter != null && callActionParameter!.isNotEmpty)
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.green, // Color de fondo
+              borderRadius: BorderRadius.circular(100), // Borde redondeado
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Color de la sombra
+                  spreadRadius: 1, // Radio de propagación de la sombra
+                  blurRadius: 4, // Radio de desenfoque de la sombra
+                  offset: const Offset(0, 4), // Desplazamiento de la sombra
+                ),
+              ],
             ),
-            child: const Text('Chiama'),
+            child: IconButton(
+              onPressed: () =>
+                  LHelperFunctions.callAction(callActionParameter!),
+              icon: const Icon(Icons.call),
+              iconSize: 40, // Tamaño del icono
+              color: Colors.white, // Color del icono
+              padding: const EdgeInsets.all(10),
+            ),
           ),
-        if (mapActionParameter != null) ...[
+        if (mapActionParameter != null && mapActionParameter!.isNotEmpty) ...[
           const SizedBox(width: LSizes.spaceBtwItems),
-          ElevatedButton(
-            onPressed: () => LHelperFunctions.mapAction(mapActionParameter),
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.blueAccent, // Color de fondo
+              borderRadius: BorderRadius.circular(100), // Borde redondeado
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3), // Color de la sombra
+                  spreadRadius: 1, // Radio de propagación de la sombra
+                  blurRadius: 4, // Radio de desenfoque de la sombra
+                  offset: const Offset(0, 4), // Desplazamiento de la sombra
+                ),
+              ],
             ),
-            child: const Text('Mappa'),
+            child: IconButton(
+              onPressed: () => LHelperFunctions.mapAction(mapActionParameter),
+              icon: const Icon(Icons.location_on),
+              iconSize: 40, // Tamaño del icono
+              color: Colors.white, // Color del icono
+              padding: const EdgeInsets.all(10),
+            ),
           ),
         ],
       ],
     );
   }
-
 }
-
-

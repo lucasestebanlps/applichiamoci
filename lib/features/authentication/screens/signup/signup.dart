@@ -1,8 +1,10 @@
+import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
 import 'package:applichiamoci/common/widgets/login_signup/form_divider.dart';
 import 'package:applichiamoci/common/widgets/login_signup/social_buttons.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -11,7 +13,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const LAppBar(actions: false),
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(LSizes.defaultSpace),
@@ -19,7 +21,7 @@ class SignupScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Title
-            Text(LTexts.signupTitle,
+            Text(tr(LocaleKeys.signupTitle),
                 style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: LSizes.spaceBtwSections),
 
@@ -28,7 +30,7 @@ class SignupScreen extends StatelessWidget {
             const SizedBox(height: LSizes.spaceBtwSections),
 
             // Divider
-            const LFormDivider(dividerText: LTexts.orSignInWith),
+            LFormDivider(dividerText: tr(LocaleKeys.orSignInWith)),
             const SizedBox(height: LSizes.spaceBtwSections),
 
             // Social Buttoms

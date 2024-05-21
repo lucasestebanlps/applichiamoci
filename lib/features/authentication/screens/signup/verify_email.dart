@@ -1,24 +1,28 @@
-import 'package:applichiamoci/common/widgets/success_screen/success_screen.dart';
-import 'package:applichiamoci/features/authentication/screens/login/login.dart';
+import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
+import 'package:applichiamoci/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => AuthenticationRepository.instance.logout(),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -34,29 +38,32 @@ class VerifyEmailScreen extends StatelessWidget {
               const SizedBox(height: LSizes.spaceBtwSections),
 
               // Title & SubTitle
-              Text(
-                LTexts.confirmEmail,
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.center
-              ),
+              Text(tr(LocaleKeys.confirmEmail),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center),
               const SizedBox(height: LSizes.spaceBtwItems),
-              Text(
-                'support@foundazione.com',
-                style: Theme.of(context).textTheme.labelLarge,
-                textAlign: TextAlign.center
-              ),
+              Text(email ?? '',
+                  style: Theme.of(context).textTheme.labelLarge,
+                  textAlign: TextAlign.center),
               const SizedBox(height: LSizes.spaceBtwItems),
-              Text(
-                LTexts.confirmEmailsubTitle,
-                style: Theme.of(context).textTheme.labelMedium,
-                textAlign: TextAlign.center
-              ),
+              Text(tr(LocaleKeys.confirmEmailSubTitle),
+                  style: Theme.of(context).textTheme.labelMedium,
+                  textAlign: TextAlign.center),
               const SizedBox(height: LSizes.spaceBtwSections),
 
               // Buttons
-              SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() => SuccessScreen(image: LImages.staticSuccessIllustration, title: LTexts.yourAccountCreatedTitle, subTitle: LTexts.yourAccountCreatedSubTitle, onPressed: () => Get.to(() => const LoginScreen()),),), child: const Text('Continue'))),
+              SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () =>
+                          controller.checkEmailVerificationStatus(),
+                      child: Text(tr(LocaleKeys.continueButton)))),
               const SizedBox(height: LSizes.spaceBtwItems),
-              SizedBox(width: double.infinity, child: TextButton(onPressed: (){}, child: const Text(LTexts.resendEmail)))
+              SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                      onPressed: () => controller.sendEmailVerification(),
+                      child: Text(tr(LocaleKeys.resendEmail))))
             ],
           ),
         ),

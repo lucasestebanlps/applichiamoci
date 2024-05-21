@@ -1,7 +1,9 @@
 import 'package:applichiamoci/common/styles/spacing_styles.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
-import 'package:applichiamoci/utils/helpers/helper_functions.dart';
+import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({
@@ -21,15 +23,13 @@ class SuccessScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: LSpacingStyle.paddingWithAppBarWeight,
+            padding: LSpacingStyle.paddingWithAppBarWeight * 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // IMAGE
-                Image(
-                  image: AssetImage(image),
-                  width: LHelperFunctions.screenWidth() * 0.6,
-                ),
+                Lottie.asset(image,
+                    width: MediaQuery.of(context).size.width * 0.6),
                 const SizedBox(height: LSizes.spaceBtwSections),
 
                 // Title & SubTitle
@@ -52,7 +52,7 @@ class SuccessScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: onPressed,
-                    child: const Text('Continue'),
+                    child: Text(tr(LocaleKeys.continueButton)),
                   ),
                 ),
               ],

@@ -1,4 +1,3 @@
-import 'package:applichiamoci/common/styles/spacing_styles.dart';
 import 'package:applichiamoci/common/widgets/login_signup/form_divider.dart';
 import 'package:applichiamoci/common/widgets/login_signup/social_buttons.dart';
 import 'package:applichiamoci/features/authentication/screens/login/widgets/login_form.dart';
@@ -6,8 +5,8 @@ import 'package:applichiamoci/features/authentication/screens/login/widgets/logi
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -19,7 +18,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
           child: Padding(
-        padding: LSpacingStyle.paddingWithAppBarWeight,
+        padding: const EdgeInsets.all(LSizes.md),
         child: Column(
           children: [
             // Logo, Title & Subtitle
@@ -29,21 +28,14 @@ class LoginScreen extends StatelessWidget {
             const LLoginForm(),
 
             // Divider
-            LFormDivider(dividerText: LTexts.orSignInWith.capitalize!),
-          
+            LFormDivider(dividerText: tr(LocaleKeys.orSignInWith)),
+
             const SizedBox(height: LSizes.spaceBtwSections),
             // Footer
             const LSocialButtons()
-
-          ],        
+          ],
         ),
       )),
     );
   }
 }
-
-
-
-
-
-
