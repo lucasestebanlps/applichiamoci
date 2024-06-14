@@ -67,7 +67,8 @@ class PlacesScreenState extends State<PlacesScreen> {
       floatingActionButton: widget.service == 'unita_di_strada'
           ? LTextButton(
               onPressed: () {
-                LHelperFunctions.emailAction('casacomunelecce@gmail.com');
+                LHelperFunctions.urlAction(
+                    'https://fondazione-emmanuel.org/unisciti-a-noi/');
               },
               text: '+ Iscriviti come volontario ',
             )
@@ -78,11 +79,14 @@ class PlacesScreenState extends State<PlacesScreen> {
   Widget _buildPlacesList(PlacesController placesController) {
     List<PlaceModel> places = placesController.placesForServices;
     List<String> categories = [
-      'Todos',
+      'Tutti',
       'Minori',
       'Famiglia',
       'Adulti',
       'Migrazione',
+      'Donne',
+      'Disabilità',
+      'Volonteriato'
     ];
 
     if (selectedCategory != null && selectedCategory != 'Todos') {
@@ -109,8 +113,13 @@ class PlacesScreenState extends State<PlacesScreen> {
                   text: tr(LocaleKeys.noLogoAvailable),
                 )
               : ListView.builder(
-                  itemCount: places.length,
+                  itemCount: places.length + 1, // +1 for the SizedBox
                   itemBuilder: (BuildContext context, int index) {
+                    if (index == places.length) {
+                      return const SizedBox(
+                          height: LSizes.spaceBtwSections *
+                              2); // Add space at the end
+                    }
                     return PlaceCard(place: places[index]);
                   },
                 ),
