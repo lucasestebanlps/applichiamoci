@@ -54,7 +54,8 @@ class FAQScreen extends StatelessWidget {
             "- Autocertificazione stato di famiglia in Italia\n\n"
             "- Autocertificazione riguardante le certificazioni penali in Italia (se hai avuto condanne o hai processi in piedi\n\n"
             "- Modello CU, Unico o Modello 730\n\n"
-            "- Attestato di conoscenza della lingua italiana a livello non inferiore a B1, rilasciata da un istituto scolastico pubblico o parificato da un ente certificatore"),
+            "- Attestato di conoscenza della lingua italiana a livello non inferiore a B1, rilasciata da un istituto scolastico pubblico o parificato da un ente certificatore\n\n"
+            "- I titolari di asilo politico la residenza è di 5 anni. \nI titolari di pds slp ex art 9 tu immigrazione sono esonerati dal deposito di certificato conoscenza lingua italiana."),
     FAQItem(
         question: "Quanto dura un permesso di soggiorno per motivi di lavoro?",
         answer:

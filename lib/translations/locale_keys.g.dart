@@ -121,4 +121,23 @@ abstract class LocaleKeys {
   static const updateLanguajeTitle = 'updateLanguajeTitle';
   static const updateLanguajeMsj = 'updateLanguajeMsj';
   static const selectPreferredLanguage = "selectPreferredLanguage";
+  static const scrivitiComeVolontariato = 'scrivitiComeVolontariato';
+
+  // FAQ Legale
+  static const question1 = 'question1';
+  static const answer1 = 'answer1';
+  static const question2 = 'question2';
+  static const answer2 = 'answer2';
+  static const question3 = 'question3';
+  static const answer3 = 'answer3';
+  static const question4 = 'question4';
+  static const answer4 = 'answer4';
+  static const question5 = 'question5';
+  static const answer5 = 'answer5';
+  static const question6 = 'question6';
+  static const answer6 = 'answer6';
+  static const question7 = 'question7';
+  static const answer7 = 'answer7';
+  static const question8 = 'question8';
+  static const answer8 = 'answer8';
 }

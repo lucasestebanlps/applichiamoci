@@ -70,7 +70,7 @@ class PlacesScreenState extends State<PlacesScreen> {
                 LHelperFunctions.urlAction(
                     'https://fondazione-emmanuel.org/unisciti-a-noi/');
               },
-              text: '+ Iscriviti come volontario ',
+              text: tr(LocaleKeys.scrivitiComeVolontariato),
             )
           : null,
     );

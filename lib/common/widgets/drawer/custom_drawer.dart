@@ -102,7 +102,8 @@ class CustomDrawer extends StatelessWidget {
         ListTile(
           leading: const Icon(Iconsax.document),
           title: Text(tr(LocaleKeys.termsOfUse)),
-          onTap: () {},
+          onTap: () => LHelperFunctions.urlAction(
+              'https://www.iubenda.com/privacy-policy/27488853'),
         ),
         ListTile(
           leading: const Icon(Iconsax.logout),

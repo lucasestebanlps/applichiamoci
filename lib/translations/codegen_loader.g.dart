@@ -146,7 +146,8 @@ class CodegenLoader extends AssetLoader {
     "legal": "legal",
     "updateLanguajeTitle": "Updated languaje",
     "updateLanguajeMsj": "The app language has been successfully updated.",
-    "selectPreferredLanguage": "Select your preferred language to start"
+    "selectPreferredLanguage": "Select your preferred language to start",
+    "scrivitiComeVolontariato": "+ Sign up as a volunteer"
   };
   static const Map<String, dynamic> es = {
     "emergencyNumber": "Número de emergencia:",
@@ -286,7 +287,8 @@ class CodegenLoader extends AssetLoader {
     "updateLanguajeTitle": "Idioma actualizado",
     "updateLanguajeMsj":
         "El idioma de la aplicación ha sido actualizado correctamente.",
-    "selectPreferredLanguage": "Selecciona tu idioma preferido para comenzar"
+    "selectPreferredLanguage": "Selecciona tu idioma preferido para comenzar",
+    "scrivitiComeVolontariato": "+ Inscribete como voluntario"
   };
   static const Map<String, dynamic> fr = {
     "emergencyNumber": "Numéros d'urgence :",
@@ -429,7 +431,8 @@ class CodegenLoader extends AssetLoader {
     "updateLanguajeMsj":
         "La langue de l'application a été mise à jour avec succès.",
     "selectPreferredLanguage":
-        "Sélectionnez votre langue préférée pour commencer"
+        "Sélectionnez votre langue préférée pour commencer",
+    "scrivitiComeVolontariato": "+ Inscrivez-vous en tant que bénévole"
   };
   static const Map<String, dynamic> it = {
     "emergencyNumber": "Numeri di emergenza:",
