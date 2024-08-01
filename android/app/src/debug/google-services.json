@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "536809525168-rn9a9579gphlv314b9ndajoe5mmj4ei7.apps.googleusercontent.com",
+          "client_id": "536809525168-vbn464bssvnhi49322chqg9a1jsv2krm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.fonzadione_emmanuel.applichiamoc",
-            "certificate_hash": "b53c37422d81f9d08443a5b2e5d024243760e2b6"
+            "certificate_hash": "758a5f87c9494945373f386c5149beee51816a8d"
           }
         },
         {

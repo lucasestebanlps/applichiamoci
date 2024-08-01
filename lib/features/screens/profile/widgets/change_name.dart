@@ -14,6 +14,8 @@ class ChangeName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(UpdateNameController());
+    final updateUserNameFormKey = GlobalKey<FormState>();
+
     return Scaffold(
       appBar: LAppBar(
           title: Text(tr(LocaleKeys.changeName)),
@@ -24,49 +26,39 @@ class ChangeName extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Headings
             Text(
               tr(LocaleKeys.insertNewName),
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: LSizes.spaceBtwSections),
-
-            // Text field and button
-
             Form(
-              key: controller.updateUserNameFormKey,
+              key: updateUserNameFormKey,
               child: Column(children: [
-                // Edit name
                 TextFormField(
                   controller: controller.firstName,
                   validator: (value) =>
                       LValidator.validateEmptyText(value, 'First Name'),
-                  expands: false,
                   decoration: InputDecoration(
                       labelText: tr(LocaleKeys.firstName),
                       prefixIcon: const Icon(Iconsax.user)),
                 ),
                 const SizedBox(height: LSizes.spaceBtwInputFields),
-
-                // Edit Last Name
                 TextFormField(
                   controller: controller.lastName,
                   validator: (value) =>
                       LValidator.validateEmptyText(value, 'Last Name'),
-                  expands: false,
                   decoration: InputDecoration(
-                      labelText: tr(LocaleKeys.firstName),
+                      labelText: tr(LocaleKeys.lastName),
                       prefixIcon: const Icon(Iconsax.user)),
                 ),
               ]),
             ),
             const SizedBox(height: LSizes.spaceBtwSections),
-
-            // Save Button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => controller.updateUserName(),
+                onPressed: () =>
+                    controller.updateUserName(updateUserNameFormKey),
                 child: Text(tr(LocaleKeys.changeName)),
               ),
             )

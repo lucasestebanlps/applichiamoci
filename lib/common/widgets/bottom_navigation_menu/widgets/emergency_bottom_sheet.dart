@@ -29,7 +29,7 @@ class EmergencyCallBottomSheet extends StatelessWidget {
             EmergencyServiceButton(
               assetImage: const AssetImage(LImages.pisLogo),
               label: LocaleKeys.companyEmergency.tr(),
-              phoneNumber: '123456789', // Número de emergencia de la empresa
+              phoneNumber: '+39800208082', // Número de emergencia de la empresa
               highlightColor: Colors.green, // Color para resaltar el botón
             ),
             const SizedBox(height: LSizes.defaultSpace),

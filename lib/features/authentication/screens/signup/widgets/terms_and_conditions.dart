@@ -26,9 +26,9 @@ class TermsAndConditions extends StatelessWidget {
             width: 24,
             height: 24,
             child: Obx(() => Checkbox(
-                  value: controller.privacyPolicy.value,
+                  value: !controller.privacyPolicy.value,
                   onChanged: (value) {
-                    controller.privacyPolicy.value = value ?? false;
+                    controller.privacyPolicy.value = !(value ?? false);
                   },
                 ))),
         const SizedBox(width: LSizes.spaceBtwItems),

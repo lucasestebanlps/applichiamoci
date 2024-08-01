@@ -17,9 +17,6 @@ class UpdateNameController extends GetxController {
   final lastName = TextEditingController();
   final userController = UserController.instance;
   final userRepository = Get.put(UserRepository());
-  GlobalKey<FormState> updateUserNameFormKey = GlobalKey<FormState>();
-
-  // init user data when Hoem Screen appears
 
   @override
   void onInit() {
@@ -27,48 +24,40 @@ class UpdateNameController extends GetxController {
     super.onInit();
   }
 
-  // Fetch user record
   Future<void> initializeNames() async {
     firstName.text = userController.user.value.firstName;
     lastName.text = userController.user.value.lastName;
   }
 
-  Future<void> updateUserName() async {
+  Future<void> updateUserName(GlobalKey<FormState> formKey) async {
     try {
-      // Start Loading
       LFullScreenLoader.openLoadingDialog(
           tr(LocaleKeys.updatingInformation), LImages.checkInformation);
 
-      // Check internet conectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
         return;
       }
 
-      // Form Validation
-      if (!updateUserNameFormKey.currentState!.validate()) {
+      if (!formKey.currentState!.validate()) {
         LFullScreenLoader.stopLoading();
         return;
       }
 
-      // Update user's first & last name in the firebase firestore
       Map<String, dynamic> name = {
-        'FirstName': firstName.text.trim(),
-        'LastName': lastName.text.trim()
+        'firstName': firstName.text.trim(),
+        'lastName': lastName.text.trim()
       };
       await userRepository.updateSingleField(name);
 
-      // Update the Rx user value
       userController.user.value.firstName = firstName.text.trim();
       userController.user.value.lastName = lastName.text.trim();
 
-      // Show succsess Message
       LLoaders.successSnackBar(
           title: tr(LocaleKeys.congratulations),
           message: tr(LocaleKeys.nameUpdated));
 
-      // Move to prevous screen
       Get.off(() => const ProfileScreen());
     } catch (e) {
       LFullScreenLoader.stopLoading();

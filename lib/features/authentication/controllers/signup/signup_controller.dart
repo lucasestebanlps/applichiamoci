@@ -16,7 +16,7 @@ class SignUpController extends GetxController {
 
   // Variables
   final hidePassword = true.obs; // observable fo
-  final privacyPolicy = true.obs;
+  final privacyPolicy = false.obs;
   final firstName = TextEditingController();
   final lastName = TextEditingController();
   final email = TextEditingController();
