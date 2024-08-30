@@ -146,4 +146,15 @@ abstract class LocaleKeys {
   static const answer7 = 'answer7';
   static const question8 = 'question8';
   static const answer8 = 'answer8';
+
+  static const chooseCategory = 'choose_category';
+
+  static const categoryAll = 'category_all';
+  static const categoryMinors = 'category_minors';
+  static const categoryFamily = 'category_family';
+  static const categoryAdults = 'category_adults';
+  static const categoryMigration = 'category_migration';
+  static const categoryWomen = 'category_women';
+  static const categoryDisability = 'category_disability';
+  static const categoryVolunteering = 'category_volunteering';
 }

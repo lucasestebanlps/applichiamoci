@@ -127,7 +127,16 @@
         "The Emmanuel Foundation for Migrations and the South of the World was established in 1992 as the operational arm of the Emmanuel Community. It is a Non-Governmental Organization, Third Sector Entity, and has been operating for over 25 years at the local, national, and international levels. It aims to promote, encourage, and support initiatives designed to create conditions and provide tools for the self-determination of the peoples of Southern Italy, Europe, and the World, in fulfillment of the social solidarity duties enshrined in the United Nations Charter. With particular attention to migrants and populations, both near and far, that suffer most from the planet's imbalances. Among the founding principles and values of the Emmanuel Foundation are: social participation and active citizenship; social justice; promotion of dialogue between different cultures and religions; respect for human rights and democracy; environmental protection and sustainable development.",
         "capofila": "Lead Partner",
         "finanziatori": "Funders",
-        "iCollaboratori": "Collaborators"
+        "iCollaboratori": "Collaborators",
+        "choose_category": "Choose a category",
+        "category_all": "All",
+        "category_minors": "Minors",
+        "category_family": "Family",
+        "category_adults": "Adults",
+        "category_migration": "Migration",
+        "category_women": "Women",
+        "category_disability": "Disability",
+        "category_volunteering": "Volunteering"
 
 
   }

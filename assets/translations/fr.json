@@ -127,7 +127,17 @@
         "La Fondation Emmanuel pour les migrations et le Sud du Monde a été créée en 1992 comme bras opérationnel de la Communauté Emmanuel. C’est une Organisation Non Gouvernementale, Entité du Tiers Secteur, et elle opère depuis plus de 25 ans au niveau local, national et international. Elle vise à promouvoir, encourager et soutenir les initiatives visant à créer les conditions et fournir les outils pour l'autodétermination des peuples du Sud de l'Italie, d'Europe et du Monde, en conformité avec les devoirs de solidarité sociale établis par la Charte des Nations Unies. Avec une attention particulière envers les migrants et les populations, proches et lointaines, qui souffrent le plus des déséquilibres de la planète. Parmi les principes et valeurs fondamentaux de la Fondation Emmanuel figurent : la participation sociale et la citoyenneté active ; la justice sociale ; la promotion du dialogue entre les cultures et les religions différentes ; le respect des droits de l’homme et de la démocratie ; la protection de l'environnement et le développement durable",
         "capofila": "Partenaire Principal",
   "finanziatori": "Financiers",
-  "iCollaboratori": "Collaborateurs"
+  "iCollaboratori": "Collaborateurs",
+  "choose_category": "Choisissez une catégorie",
+
+  "category_all": "Tous",
+  "category_minors": "Mineurs",
+  "category_family": "Famille",
+  "category_adults": "Adultes",
+  "category_migration": "Migration",
+  "category_women": "Femmes",
+  "category_disability": "Handicap",
+  "category_volunteering": "Bénévolat"
 
   }
   

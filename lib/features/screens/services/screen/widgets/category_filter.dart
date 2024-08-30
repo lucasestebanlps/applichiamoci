@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../translations/locale_keys.g.dart';
 
 class CategoryFilter extends StatelessWidget {
   final String? selectedCategory;
@@ -19,7 +22,7 @@ class CategoryFilter extends StatelessWidget {
       children: [
         DropdownButton<String>(
           value: selectedCategory,
-          hint: const Text('Scegli la categoria'),
+          hint: Text(tr(LocaleKeys.chooseCategory)),
           onChanged: onChanged,
           items: categories.map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(

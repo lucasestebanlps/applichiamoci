@@ -156,7 +156,17 @@ class CodegenLoader extends AssetLoader {
         "The Emmanuel Foundation for Migrations and the South of the World was established in 1992 as the operational arm of the Emmanuel Community. It is a Non-Governmental Organization, Third Sector Entity, and has been operating for over 25 years at the local, national, and international levels. It aims to promote, encourage, and support initiatives designed to create conditions and provide tools for the self-determination of the peoples of Southern Italy, Europe, and the World, in fulfillment of the social solidarity duties enshrined in the United Nations Charter. With particular attention to migrants and populations, both near and far, that suffer most from the planet's imbalances. Among the founding principles and values of the Emmanuel Foundation are: social participation and active citizenship; social justice; promotion of dialogue between different cultures and religions; respect for human rights and democracy; environmental protection and sustainable development.",
     "capofila": "Lead Partner",
     "finanziatori": "Funders",
-    "iCollaboratori": "Collaborators"
+    "iCollaboratori": "Collaborators",
+    "no_logo_available": "No logos available",
+    "category_all": "All",
+    "category_minors": "Minors",
+    "category_family": "Family",
+    "category_adults": "Adults",
+    "category_migration": "Migration",
+    "category_women": "Women",
+    "category_disability": "Disability",
+    "category_volunteering": "Volunteering",
+    "choose_category": "Choose a category",
   };
   static const Map<String, dynamic> es = {
     "emergencyNumber": "Número de emergencia:",
@@ -306,7 +316,16 @@ class CodegenLoader extends AssetLoader {
         "La Fundación Emmanuel para las migraciones y el Sur del Mundo se creó en 1992 como el brazo operativo de la Comunidad Emmanuel. Es una Organización No Gubernamental, Entidad del Tercer Sector y ha estado operando durante más de 25 años a nivel local, nacional e internacional. Busca promover, alentar y apoyar las iniciativas destinadas a crear las condiciones y proporcionar las herramientas para la autodeterminación de los pueblos del Sur de Italia, de Europa y del Mundo, en cumplimiento de los deberes de solidaridad social establecidos por la Carta de las Naciones Unidas. Con especial atención hacia los migrantes y las poblaciones, cercanas y lejanas, que sufren más los desequilibrios del planeta. Entre los principios y valores fundamentales de la Fundación Emmanuel encontramos: participación social y ciudadanía activa; justicia social; promoción del diálogo entre culturas y religiones diversas; respeto por los derechos humanos y la democracia; protección del medio ambiente y desarrollo sostenible.",
     "capofila": "Socio Principal",
     "finanziatori": "Financiadores",
-    "iCollaboratori": "Colaboradores"
+    "iCollaboratori": "Colaboradores",
+    "category_all": "Todos",
+    "category_minors": "Menores",
+    "category_family": "Familia",
+    "category_adults": "Adultos",
+    "category_migration": "Migración",
+    "category_women": "Mujeres",
+    "category_disability": "Discapacidad",
+    "category_volunteering": "Voluntariado",
+    "choose_category": "Elige una categoría",
   };
   static const Map<String, dynamic> fr = {
     "emergencyNumber": "Numéros d'urgence :",
@@ -458,7 +477,17 @@ class CodegenLoader extends AssetLoader {
         "La Fondation Emmanuel pour les migrations et le Sud du Monde a été créée en 1992 comme bras opérationnel de la Communauté Emmanuel. C’est une Organisation Non Gouvernementale, Entité du Tiers Secteur, et elle opère depuis plus de 25 ans au niveau local, national et international. Elle vise à promouvoir, encourager et soutenir les initiatives visant à créer les conditions et fournir les outils pour l'autodétermination des peuples du Sud de l'Italie, d'Europe et du Monde, en conformité avec les devoirs de solidarité sociale établis par la Charte des Nations Unies. Avec une attention particulière envers les migrants et les populations, proches et lointaines, qui souffrent le plus des déséquilibres de la planète. Parmi les principes et valeurs fondamentaux de la Fondation Emmanuel figurent : la participation sociale et la citoyenneté active ; la justice sociale ; la promotion du dialogue entre les cultures et les religions différentes ; le respect des droits de l’homme et de la démocratie ; la protection de l'environnement et le développement durable",
     "capofila": "Partenaire Principal",
     "finanziatori": "Financiers",
-    "iCollaboratori": "Collaborateurs"
+    "iCollaboratori": "Collaborateurs",
+    "no_logo_available": "Aucun logo disponible",
+    "choose_category": "Choisissez une catégorie",
+    "category_all": "Tous",
+    "category_minors": "Mineurs",
+    "category_family": "Famille",
+    "category_adults": "Adultes",
+    "category_migration": "Migration",
+    "category_women": "Femmes",
+    "category_disability": "Handicap",
+    "category_volunteering": "Bénévolat"
   };
   static const Map<String, dynamic> it = {
     "emergencyNumber": "Numeri di emergenza:",
@@ -604,7 +633,17 @@ class CodegenLoader extends AssetLoader {
         "La Fondazione Emmanuel per le migrazioni e il Sud del Mondo nasce nel 1992 come braccio operativo della Comunità Emmanuel. È un’Organizzazione Non Governativa, Ente del Terzo Settore e opera da oltre 25 anni sul territorio locale, nazionale e internazionale. Vuole promuovere, incoraggiare e sostenere le iniziative atte a creare le condizioni e fornire gli strumenti per l’autodeterminazione dei popoli del Sud d’Italia, d’Europa e del Mondo, in adempimento ai doveri di solidarietà sociale sanciti dalla Carta delle Nazioni Unite.  Con particolare attenzione verso i migranti e le popolazioni, vicine e lontane, che più soffrono gli squilibri del pianeta. Tra i principi e valori fondanti della Fondazione Emmanuel ritroviamo: partecipazione sociale e cittadinanza attiva; giustizia sociale; promozione del dialogo tra culture e religioni diverse; rispetto dei diritti umani e della democrazia; tutela dell’ambiente e sviluppo sostenibile.",
     "capofila": "Capofila",
     "finanziatori": "Finanziatori",
-    "iCollaboratori": "Collaboratori"
+    "iCollaboratori": "Collaboratori",
+    "no_logo_available": "Nessun logo disponibile",
+    "choose_category": "Scegli la categoria",
+    "category_all": "Tutti",
+    "category_minors": "Minori",
+    "category_family": "Famiglia",
+    "category_adults": "Adulti",
+    "category_migration": "Migrazione",
+    "category_women": "Donne",
+    "category_disability": "Disabilità",
+    "category_volunteering": "Volontariato"
   };
   static const Map<String, Map<String, dynamic>> mapLocales = {
     "en": en,

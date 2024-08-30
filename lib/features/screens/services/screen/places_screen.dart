@@ -10,9 +10,10 @@ import 'package:applichiamoci/features/screens/services/controllers/places_contr
 import 'package:applichiamoci/features/screens/services/models/place_model.dart';
 import 'package:applichiamoci/common/widgets/text/error_text_icon.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
-import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/features/screens/services/screen/widgets/category_filter.dart';
 import 'package:applichiamoci/features/screens/services/screen/widgets/place_card.dart';
+
+import '../../../../translations/locale_keys.g.dart';
 
 class PlacesScreen extends StatefulWidget {
   final String service;
@@ -79,17 +80,18 @@ class PlacesScreenState extends State<PlacesScreen> {
   Widget _buildPlacesList(PlacesController placesController) {
     List<PlaceModel> places = placesController.placesForServices;
     List<String> categories = [
-      'Tutti',
-      'Minori',
-      'Famiglia',
-      'Adulti',
-      'Migrazione',
-      'Donne',
-      'Disabilità',
-      'Volonteriato'
+      tr(LocaleKeys.categoryAll),
+      tr(LocaleKeys.categoryMinors),
+      tr(LocaleKeys.categoryFamily),
+      tr(LocaleKeys.categoryAdults),
+      tr(LocaleKeys.categoryMigration),
+      tr(LocaleKeys.categoryWomen),
+      tr(LocaleKeys.categoryDisability),
+      tr(LocaleKeys.categoryVolunteering),
     ];
 
-    if (selectedCategory != null && selectedCategory != 'Todos') {
+    if (selectedCategory != null &&
+        selectedCategory != tr(LocaleKeys.categoryAll)) {
       places =
           places.where((place) => place.category == selectedCategory).toList();
     }
