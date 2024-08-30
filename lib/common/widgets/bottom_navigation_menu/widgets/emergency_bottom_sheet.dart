@@ -20,6 +20,17 @@ class EmergencyCallBottomSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Text and icon for company button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  LocaleKeys.emergencyTitle.tr(),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ],
+            ),
+            const SizedBox(height: LSizes.md),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text(LocaleKeys.companyNumber.tr(),
                   style: Theme.of(context).textTheme.headlineSmall),
@@ -29,7 +40,7 @@ class EmergencyCallBottomSheet extends StatelessWidget {
             EmergencyServiceButton(
               assetImage: const AssetImage(LImages.pisLogo),
               label: LocaleKeys.companyEmergency.tr(),
-              phoneNumber: '+39800208082', // Número de emergencia de la empresa
+              phoneNumber: '800208082', // Número de emergencia de la empresa
               highlightColor: Colors.green, // Color para resaltar el botón
             ),
             const SizedBox(height: LSizes.defaultSpace),

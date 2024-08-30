@@ -122,6 +122,12 @@ abstract class LocaleKeys {
   static const updateLanguajeMsj = 'updateLanguajeMsj';
   static const selectPreferredLanguage = "selectPreferredLanguage";
   static const scrivitiComeVolontariato = 'scrivitiComeVolontariato';
+  static const ourPartners = 'ourPartners';
+  static const applichiamociInfo = 'applichiamociInfo';
+  static const fondazioneInfo = 'fondazioneInfo';
+  static const capofila = 'capofila';
+  static const finanziatori = 'finanziatori';
+  static const iCollaboratori = 'iCollaboratori';
 
   // FAQ Legale
   static const question1 = 'question1';

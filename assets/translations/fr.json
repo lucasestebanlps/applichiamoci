@@ -118,6 +118,16 @@
     "updateLanguajeTitle": "Langue mise à jour",
     "updateLanguajeMsj": "La langue de l'application a été mise à jour avec succès.",
     "selectPreferredLanguage": "Sélectionnez votre langue préférée pour commencer",
-    "scrivitiComeVolontariato": "+ Inscrivez-vous en tant que bénévole"
+    "scrivitiComeVolontariato": "+ Inscrivez-vous en tant que bénévole",
+    "emergencyTitle": "Numéros utiles d'Urgence",
+    "ourPartners": "Nos Partenaires",
+    "applichiamociInfo":
+       "APPlichiAMOci est le résultat de l'expérience acquise par la Fondation Emmanuel sur le territoire, en étroite contact avec les besoins et les exigences des personnes en difficulté et en situation d'exclusion sociale. La conviction que les nouvelles technologies peuvent être une ressource importante, offrant des outils innovants pour les actions de lutte et de prévention des phénomènes de difficulté et d'exclusion sociale, ainsi que la prise de conscience que ces phénomènes doivent être abordés de manière collective, sont à l'origine de l'idée de fusionner les mots APPLICATION et AMOUR, donnant ainsi naissance au titre APPlichiAMOci. L'objectif est de lutter contre les conditions de désavantage, de difficulté, d'exclusion et d'isolement social à travers l'engagement des acteurs et de la société civile, actifs sur le territoire, et l'implémentation des services de bénévolat, en utilisant des systèmes interactifs facilement accessibles qui connectent les prestataires de services avec les bénéficiaires. Le but est de favoriser le développement de la citoyenneté active.",
+   "fondazioneInfo":
+        "La Fondation Emmanuel pour les migrations et le Sud du Monde a été créée en 1992 comme bras opérationnel de la Communauté Emmanuel. C’est une Organisation Non Gouvernementale, Entité du Tiers Secteur, et elle opère depuis plus de 25 ans au niveau local, national et international. Elle vise à promouvoir, encourager et soutenir les initiatives visant à créer les conditions et fournir les outils pour l'autodétermination des peuples du Sud de l'Italie, d'Europe et du Monde, en conformité avec les devoirs de solidarité sociale établis par la Charte des Nations Unies. Avec une attention particulière envers les migrants et les populations, proches et lointaines, qui souffrent le plus des déséquilibres de la planète. Parmi les principes et valeurs fondamentaux de la Fondation Emmanuel figurent : la participation sociale et la citoyenneté active ; la justice sociale ; la promotion du dialogue entre les cultures et les religions différentes ; le respect des droits de l’homme et de la démocratie ; la protection de l'environnement et le développement durable",
+        "capofila": "Partenaire Principal",
+  "finanziatori": "Financiers",
+  "iCollaboratori": "Collaborateurs"
+
   }
   

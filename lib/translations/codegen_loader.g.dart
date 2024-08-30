@@ -147,7 +147,16 @@ class CodegenLoader extends AssetLoader {
     "updateLanguajeTitle": "Updated languaje",
     "updateLanguajeMsj": "The app language has been successfully updated.",
     "selectPreferredLanguage": "Select your preferred language to start",
-    "scrivitiComeVolontariato": "+ Sign up as a volunteer"
+    "scrivitiComeVolontariato": "+ Sign up as a volunteer",
+    "emergencyTitle": "Emergency Useful Numbers",
+    "ourPartners": "Our Partners",
+    "applichiamociInfo":
+        "APPlichiAMOci is the result of the experience gained by the Emmanuel Foundation in the field, in close contact with the needs and issues of people facing hardship and social exclusion. The belief that new technologies can be an important resource, offering innovative tools for combating and containing the phenomena of hardship and social exclusion, and the awareness that these phenomena should be addressed from a collective perspective, are the basis for the idea of merging the words APPLICATION and LOVE, which give rise to the title APPlichiAMOci. The goal is to counter conditions of disadvantage, hardship, exclusion, and social isolation through the involvement of actors and civil society, active in the field, and the implementation of volunteer services, using easily accessible interactive systems that connect service providers with recipients. The aim is to promote the development of active citizenship.",
+    "fondazioneInfo":
+        "The Emmanuel Foundation for Migrations and the South of the World was established in 1992 as the operational arm of the Emmanuel Community. It is a Non-Governmental Organization, Third Sector Entity, and has been operating for over 25 years at the local, national, and international levels. It aims to promote, encourage, and support initiatives designed to create conditions and provide tools for the self-determination of the peoples of Southern Italy, Europe, and the World, in fulfillment of the social solidarity duties enshrined in the United Nations Charter. With particular attention to migrants and populations, both near and far, that suffer most from the planet's imbalances. Among the founding principles and values of the Emmanuel Foundation are: social participation and active citizenship; social justice; promotion of dialogue between different cultures and religions; respect for human rights and democracy; environmental protection and sustainable development.",
+    "capofila": "Lead Partner",
+    "finanziatori": "Funders",
+    "iCollaboratori": "Collaborators"
   };
   static const Map<String, dynamic> es = {
     "emergencyNumber": "Número de emergencia:",
@@ -288,7 +297,16 @@ class CodegenLoader extends AssetLoader {
     "updateLanguajeMsj":
         "El idioma de la aplicación ha sido actualizado correctamente.",
     "selectPreferredLanguage": "Selecciona tu idioma preferido para comenzar",
-    "scrivitiComeVolontariato": "+ Inscribete como voluntario"
+    "scrivitiComeVolontariato": "+ Inscribete como voluntario",
+    "emergencyTitle": "Números útiles de EMERGENCIA",
+    "ourPartners": "Nuestros socios",
+    "applichiamociInfo":
+        "APPlichiAMOci es el resultado de la experiencia adquirida por la Fundación Emmanuel en el territorio, en estrecho contacto con las necesidades y los problemas de las personas en situación de dificultad y exclusión social. La convicción de que las nuevas tecnologías pueden ser un recurso importante, ya que ofrecen herramientas innovadoras para las acciones de contraposición y contención de los fenómenos de dificultad y exclusión social, y la conciencia de que estos fenómenos deben abordarse desde una perspectiva colectiva, son la base de la idea de fusionar las palabras APLICACIÓN y AMOR, de las cuales nace el título APPlichiAMOci. El objetivo es combatir las condiciones de desventaja, dificultad, exclusión y aislamiento social a través de la participación de los actores y la sociedad civil, activos en el territorio, y la implementación de servicios de voluntariado, mediante el uso de sistemas interactivos de fácil acceso que conecten a quienes prestan los servicios con los destinatarios. El propósito es fomentar el desarrollo de la ciudadanía activa.",
+    "fondazioneInfo":
+        "La Fundación Emmanuel para las migraciones y el Sur del Mundo se creó en 1992 como el brazo operativo de la Comunidad Emmanuel. Es una Organización No Gubernamental, Entidad del Tercer Sector y ha estado operando durante más de 25 años a nivel local, nacional e internacional. Busca promover, alentar y apoyar las iniciativas destinadas a crear las condiciones y proporcionar las herramientas para la autodeterminación de los pueblos del Sur de Italia, de Europa y del Mundo, en cumplimiento de los deberes de solidaridad social establecidos por la Carta de las Naciones Unidas. Con especial atención hacia los migrantes y las poblaciones, cercanas y lejanas, que sufren más los desequilibrios del planeta. Entre los principios y valores fundamentales de la Fundación Emmanuel encontramos: participación social y ciudadanía activa; justicia social; promoción del diálogo entre culturas y religiones diversas; respeto por los derechos humanos y la democracia; protección del medio ambiente y desarrollo sostenible.",
+    "capofila": "Socio Principal",
+    "finanziatori": "Financiadores",
+    "iCollaboratori": "Colaboradores"
   };
   static const Map<String, dynamic> fr = {
     "emergencyNumber": "Numéros d'urgence :",
@@ -432,7 +450,15 @@ class CodegenLoader extends AssetLoader {
         "La langue de l'application a été mise à jour avec succès.",
     "selectPreferredLanguage":
         "Sélectionnez votre langue préférée pour commencer",
-    "scrivitiComeVolontariato": "+ Inscrivez-vous en tant que bénévole"
+    "scrivitiComeVolontariato": "+ Inscrivez-vous en tant que bénévole",
+    "emergencyTitle": "Numéros utiles d'Urgence",
+    "applichiamociInfo":
+        "APPlichiAMOci est le résultat de l'expérience acquise par la Fondation Emmanuel sur le territoire, en étroite contact avec les besoins et les exigences des personnes en difficulté et en situation d'exclusion sociale. La conviction que les nouvelles technologies peuvent être une ressource importante, offrant des outils innovants pour les actions de lutte et de prévention des phénomènes de difficulté et d'exclusion sociale, ainsi que la prise de conscience que ces phénomènes doivent être abordés de manière collective, sont à l'origine de l'idée de fusionner les mots APPLICATION et AMOUR, donnant ainsi naissance au titre APPlichiAMOci. L'objectif est de lutter contre les conditions de désavantage, de difficulté, d'exclusion et d'isolement social à travers l'engagement des acteurs et de la société civile, actifs sur le territoire, et l'implémentation des services de bénévolat, en utilisant des systèmes interactifs facilement accessibles qui connectent les prestataires de services avec les bénéficiaires. Le but est de favoriser le développement de la citoyenneté active.",
+    "fondazioneInfo":
+        "La Fondation Emmanuel pour les migrations et le Sud du Monde a été créée en 1992 comme bras opérationnel de la Communauté Emmanuel. C’est une Organisation Non Gouvernementale, Entité du Tiers Secteur, et elle opère depuis plus de 25 ans au niveau local, national et international. Elle vise à promouvoir, encourager et soutenir les initiatives visant à créer les conditions et fournir les outils pour l'autodétermination des peuples du Sud de l'Italie, d'Europe et du Monde, en conformité avec les devoirs de solidarité sociale établis par la Charte des Nations Unies. Avec une attention particulière envers les migrants et les populations, proches et lointaines, qui souffrent le plus des déséquilibres de la planète. Parmi les principes et valeurs fondamentaux de la Fondation Emmanuel figurent : la participation sociale et la citoyenneté active ; la justice sociale ; la promotion du dialogue entre les cultures et les religions différentes ; le respect des droits de l’homme et de la démocratie ; la protection de l'environnement et le développement durable",
+    "capofila": "Partenaire Principal",
+    "finanziatori": "Financiers",
+    "iCollaboratori": "Collaborateurs"
   };
   static const Map<String, dynamic> it = {
     "emergencyNumber": "Numeri di emergenza:",
@@ -569,7 +595,16 @@ class CodegenLoader extends AssetLoader {
     "legal": "legale",
     "updateLanguajeTitle": "Lingua aggiornata",
     "updateLanguajeMsj": "La lingua dell'app è stata aggiornata con successo.",
-    "selectPreferredLanguage": "Seleziona la tua lingua preferita per iniziare"
+    "selectPreferredLanguage": "Seleziona la tua lingua preferita per iniziare",
+    "emergencyTitle": "Numeri utili di EMERGENZA",
+    "ourPartners": "I Nostri Partner",
+    "applichiamociInfo":
+        "APPlichiAMOci è il risultato dell’esperienza maturata da Fondazione Emmanuel sul territorio, a stretto contatto con le esigenze e i bisogni delle persone soggette a disagio ed emarginazione sociale. La convinzione che le nuove tecnologie possano essere una risorsa importante, in quanto offrono strumenti innovativi alle azioni di contrasto e contenimento dei fenomeni di disagio ed emarginazione sociale e la consapevolezza che tali fenomeni debbano essere affrontati in un’ottica collettiva, sono all’origine dell’idea di fondere insieme le parole APPLICAZIONE e AMORE dalle quali nasce il titolo APPlichiAMOci. L’obiettivo consiste nel contrasto alle condizioni di svantaggio, disagio, emarginazione ed esclusione sociale attraverso il coinvolgimento degli attori e la società civile, attivi sul territorio e l’implementazione dei servizi di volontariato, tramite l’utilizzo di sistemi interattivi di facile accesso che connettano chi eroga i servizi con i destinatari. Lo scopo è favorire lo sviluppo della cittadinanza attiva.",
+    "fondazioneInfo":
+        "La Fondazione Emmanuel per le migrazioni e il Sud del Mondo nasce nel 1992 come braccio operativo della Comunità Emmanuel. È un’Organizzazione Non Governativa, Ente del Terzo Settore e opera da oltre 25 anni sul territorio locale, nazionale e internazionale. Vuole promuovere, incoraggiare e sostenere le iniziative atte a creare le condizioni e fornire gli strumenti per l’autodeterminazione dei popoli del Sud d’Italia, d’Europa e del Mondo, in adempimento ai doveri di solidarietà sociale sanciti dalla Carta delle Nazioni Unite.  Con particolare attenzione verso i migranti e le popolazioni, vicine e lontane, che più soffrono gli squilibri del pianeta. Tra i principi e valori fondanti della Fondazione Emmanuel ritroviamo: partecipazione sociale e cittadinanza attiva; giustizia sociale; promozione del dialogo tra culture e religioni diverse; rispetto dei diritti umani e della democrazia; tutela dell’ambiente e sviluppo sostenibile.",
+    "capofila": "Capofila",
+    "finanziatori": "Finanziatori",
+    "iCollaboratori": "Collaboratori"
   };
   static const Map<String, Map<String, dynamic>> mapLocales = {
     "en": en,

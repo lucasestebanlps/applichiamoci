@@ -121,6 +121,7 @@ class LocaleKeys {
   static const String otherNumbers = "otherNumbers";
 
   // LLamadas de emergenciaQ
+  static const String emergencyTitle = 'emergencyTitle';
   static const String companyEmergency = "companyEmergency";
   static const String medicalEmergency = "medicalEmergency";
   static const String securityEmergency1 = "securityEmergency1";

@@ -118,6 +118,17 @@
     "updateLanguajeTitle": "Updated languaje",
     "updateLanguajeMsj": "The app language has been successfully updated.",
     "selectPreferredLanguage": "Select your preferred language to start",
-    "scrivitiComeVolontariato": "+ Sign up as a volunteer"
+    "scrivitiComeVolontariato": "+ Sign up as a volunteer",
+    "emergencyTitle": "Emergency Useful Numbers",
+    "ourPartners": "Our Partners",
+    "applichiamociInfo":
+        "APPlichiAMOci is the result of the experience gained by the Emmanuel Foundation in the field, in close contact with the needs and issues of people facing hardship and social exclusion. The belief that new technologies can be an important resource, offering innovative tools for combating and containing the phenomena of hardship and social exclusion, and the awareness that these phenomena should be addressed from a collective perspective, are the basis for the idea of merging the words APPLICATION and LOVE, which give rise to the title APPlichiAMOci. The goal is to counter conditions of disadvantage, hardship, exclusion, and social isolation through the involvement of actors and civil society, active in the field, and the implementation of volunteer services, using easily accessible interactive systems that connect service providers with recipients. The aim is to promote the development of active citizenship.",
+         "fondazioneInfo":
+        "The Emmanuel Foundation for Migrations and the South of the World was established in 1992 as the operational arm of the Emmanuel Community. It is a Non-Governmental Organization, Third Sector Entity, and has been operating for over 25 years at the local, national, and international levels. It aims to promote, encourage, and support initiatives designed to create conditions and provide tools for the self-determination of the peoples of Southern Italy, Europe, and the World, in fulfillment of the social solidarity duties enshrined in the United Nations Charter. With particular attention to migrants and populations, both near and far, that suffer most from the planet's imbalances. Among the founding principles and values of the Emmanuel Foundation are: social participation and active citizenship; social justice; promotion of dialogue between different cultures and religions; respect for human rights and democracy; environmental protection and sustainable development.",
+        "capofila": "Lead Partner",
+        "finanziatori": "Funders",
+        "iCollaboratori": "Collaborators"
+
+
   }
   

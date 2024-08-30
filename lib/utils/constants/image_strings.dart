@@ -62,17 +62,21 @@ class LImages {
 }
 
 class ImagePaths {
-  static const List<String> partnerLogos = [
-    "assets/logo/partners/logo_emmanuel.png",
-    "assets/logo/partners/regione_puglia.png",
-    "assets/logo/partners/Università_del_Salento.png",
-    "assets/logo/partners/LavoroPoliticheSociali.jpg",
-    "assets/logo/partners/logoComune.png",
-    "assets/logo/partners/logo_divagare.png",
-    "assets/logo/partners/Logo_Humanfirst.jpg",
-    "assets/logo/partners/LogoCentrostudi.jpeg",
-    "assets/logo/partners/noname.jpg",
-    "assets/logo/partners/qui_salento.png",
-    "assets/logo/partners/camera_avvocati.jpeg"
-  ];
+  static const String logoEmmanuel = "assets/logo/partners/logo_emmanuel.png";
+  static const String regionePuglia = "assets/logo/partners/regione_puglia.png";
+  static const String unisalento =
+      "assets/logo/partners/Università_del_Salento.png";
+  static const String lavoroPoliticheSociali =
+      "assets/logo/partners/LavoroPoliticheSociali.jpg";
+  static const String logoComune = "assets/logo/partners/logoComune.png";
+  static const String logoDivagare = "assets/logo/partners/logo_divagare.png";
+  static const String logoHumanfirst =
+      "assets/logo/partners/Logo_Humanfirst.jpg";
+  static const String logoCentrostudi =
+      "assets/logo/partners/LogoCentrostudi.jpeg";
+  static const String noname = "assets/logo/partners/noname.jpg";
+  static const String quiSalento = "assets/logo/partners/qui_salento.png";
+  static const String cameraAvvocati =
+      "assets/logo/partners/camera_avvocati.jpeg";
+  static const String disus = "assets/logo/partners/disus.jpeg";
 }
