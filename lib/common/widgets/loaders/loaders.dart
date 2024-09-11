@@ -1,5 +1,6 @@
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -21,7 +22,7 @@ class LLoaders {
       backgroundColor: Colors.orange,
       padding: const EdgeInsets.symmetric(horizontal: LSizes.md, vertical: 0),
       snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 2),
       messageText: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -48,8 +49,12 @@ class LLoaders {
                           fontWeight: FontWeight.w800,
                           fontSize: 16),
                     ),
+                    const SizedBox(
+                      height: 4,
+                    ),
                     Text(
                       message,
+                      softWrap: true,
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w300,
@@ -96,7 +101,7 @@ class LLoaders {
       margin: const EdgeInsets.all(LSizes.md),
       padding: const EdgeInsets.symmetric(horizontal: LSizes.sm, vertical: 0),
       snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 2),
       messageText: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -123,8 +128,12 @@ class LLoaders {
                           fontWeight: FontWeight.w800,
                           fontSize: 16),
                     ),
+                    const SizedBox(
+                      height: 4,
+                    ),
                     Text(
                       message,
+                      softWrap: true,
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w300,
@@ -150,8 +159,8 @@ class LLoaders {
                   onPressed: () async {
                     await openAppSettings();
                   },
-                  child: const Text(LTexts.openSettingsText,
-                      style: TextStyle(color: Colors.white)),
+                  child: Text(tr(LocaleKeys.openSettingsText),
+                      style: const TextStyle(color: Colors.white)),
                 ),
               ],
             ),
@@ -179,7 +188,7 @@ class LLoaders {
 
       padding: const EdgeInsets.symmetric(horizontal: LSizes.md, vertical: 0),
       snackPosition: SnackPosition.BOTTOM,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 2),
       messageText: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -206,8 +215,12 @@ class LLoaders {
                           fontWeight: FontWeight.w800,
                           fontSize: 16),
                     ),
+                    const SizedBox(
+                      height: 4,
+                    ),
                     Text(
                       message,
+                      softWrap: true,
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w300,

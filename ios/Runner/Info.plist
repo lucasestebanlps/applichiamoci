@@ -23,7 +23,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>applichiamoci</string>
+		<string>Applichiamoci</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -60,6 +60,11 @@
 		<key>LSApplicationQueriesSchemes</key>
 		<array>
 			<string>tel</string>
+		</array>
+		<key>CFBundleLocalizations</key>
+		<array>
+			<string>en</string>
+			<string>nb</string>
 		</array>
 	</dict>
 </plist>

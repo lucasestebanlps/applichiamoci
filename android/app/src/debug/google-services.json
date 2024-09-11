@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "536809525168",
+    "project_id": "applichiamoci-fondazione",
+    "storage_bucket": "applichiamoci-fondazione.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536809525168:android:81383ab6313a28aa149075",
+        "android_client_info": {
+          "package_name": "com.fonzadione_emmanuel.applichiamoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536809525168-vbn464bssvnhi49322chqg9a1jsv2krm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fonzadione_emmanuel.applichiamoc",
+            "certificate_hash": "758a5f87c9494945373f386c5149beee51816a8d"
+          }
+        },
+        {
+          "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSYbWq8W9hDh9C8p9e1WMqiWUz0dA36uY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536809525168-oc0t70i28nisdo4jnh3br3tjpacs2og1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.applichiamoci"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536809525168:android:96b5bdf8ecc38f73149075",
+        "android_client_info": {
+          "package_name": "com.fonzadione_emmanuel.applichiamoc.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536809525168-m0cvlotesct66bd8dd8j1i6dlc05sm0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fonzadione_emmanuel.applichiamoc.debug",
+            "certificate_hash": "48c754c28257937842db25aa5fa30c448dcf984f"
+          }
+        },
+        {
+          "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSYbWq8W9hDh9C8p9e1WMqiWUz0dA36uY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536809525168-oc0t70i28nisdo4jnh3br3tjpacs2og1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.applichiamoci"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

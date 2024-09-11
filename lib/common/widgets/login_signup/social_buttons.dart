@@ -27,18 +27,21 @@ class LSocialButtons extends StatelessWidget {
                   height: LSizes.iconMd,
                   image: AssetImage(LImages.google))),
         ),
-        const SizedBox(width: LSizes.spaceBtwSections),
-        Container(
-          decoration: BoxDecoration(
-              border: Border.all(color: LColors.grey),
-              borderRadius: BorderRadius.circular(100)),
-          child: IconButton(
-              onPressed: () {},
-              icon: const Image(
-                  width: LSizes.iconMd,
-                  height: LSizes.iconMd,
-                  image: AssetImage(LImages.facebook))),
-        ),
+
+        // Para agregrar el logo de facebook descomentar abajo, falta configurar para que funcione el login
+
+        // const SizedBox(width: LSizes.spaceBtwSections),
+        // Container(
+        //   decoration: BoxDecoration(
+        //       border: Border.all(color: LColors.grey),
+        //       borderRadius: BorderRadius.circular(100)),
+        //   child: IconButton(
+        //       onPressed: () {},
+        //       icon: const Image(
+        //           width: LSizes.iconMd,
+        //           height: LSizes.iconMd,
+        //           image: AssetImage(LImages.facebook))),
+        // ),
       ],
     );
   }

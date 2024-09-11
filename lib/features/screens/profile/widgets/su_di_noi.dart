@@ -1,4 +1,5 @@
 import 'package:applichiamoci/common/widgets/appbar/appbar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
@@ -10,9 +11,9 @@ class SuDiNoi extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = LHelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: const LAppBar(
+      appBar: LAppBar(
         showBackArrow: true,
-        title: Text(LTexts.sopraNoi),
+        title: Text(tr(LocaleKeys.sopraNoi)),
       ),
       body: Center(
         child: Column(

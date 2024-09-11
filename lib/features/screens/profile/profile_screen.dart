@@ -11,6 +11,7 @@ import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
 import 'package:clipboard/clipboard.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -23,9 +24,9 @@ class ProfileScreen extends StatelessWidget {
     final controller = UserController.instance;
 
     return Scaffold(
-      appBar: const LAppBar(
+      appBar: LAppBar(
         showBackArrow: true,
-        title: Text(LTexts.editProfile),
+        title: Text(tr(LocaleKeys.editProfile)),
       ),
       endDrawer: const CustomDrawer(),
 
@@ -58,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
                     }),
                     TextButton(
                         onPressed: () => controller.uploadUserProfilePicture(),
-                        child: const Text(LTexts.changeProfilePicture)),
+                        child: Text(tr(LocaleKeys.changeProfilePicture))),
                   ],
                 ),
               ),
@@ -66,13 +67,14 @@ class ProfileScreen extends StatelessWidget {
               const Divider(),
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ PROFILE INFORMATION -------
-              const LSSectionHeading(
-                  title: LTexts.profileInformation, showActionButton: false),
+              LSSectionHeading(
+                  title: tr(LocaleKeys.profileInformation),
+                  showActionButton: false),
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ CHANGE NAME -------
               LProfileMenu(
                   onPressed: () => Get.to(() => const ChangeName()),
-                  title: LTexts.name,
+                  title: tr(LocaleKeys.name),
                   value: controller.user.value.fullName),
               // ------ USERNAME -------
               LProfileMenu(
@@ -80,7 +82,7 @@ class ProfileScreen extends StatelessWidget {
                     _copyToClipboard(
                         context, controller.user.value.username, 'Username');
                   },
-                  title: LTexts.userName,
+                  title: tr(LocaleKeys.userName),
                   value: controller.user.value.username,
                   icon: Iconsax.copy),
 
@@ -88,8 +90,10 @@ class ProfileScreen extends StatelessWidget {
               const Divider(),
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ PERSONAL INFORMATION -------
-              const LSSectionHeading(
-                  title: LTexts.personalInformation, showActionButton: false),
+
+              LSSectionHeading(
+                  title: tr(LocaleKeys.personalInformation),
+                  showActionButton: false),
               const SizedBox(height: LSizes.spaceBtwItems),
               // ------ EMAIL -------
               LProfileMenu(
@@ -97,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                   _copyToClipboard(
                       context, controller.user.value.email, 'Email');
                 },
-                title: LTexts.email,
+                title: tr(LocaleKeys.email),
                 value: controller.user.value.email,
                 icon: Iconsax.copy,
               ),
@@ -106,9 +110,9 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: TextButton(
                   onPressed: () => controller.deleteAccountWarningPopup(),
-                  child: const Text(
-                    LTexts.deleteAccount,
-                    style: TextStyle(color: Colors.red),
+                  child: Text(
+                    tr(LocaleKeys.deleteAccount),
+                    style: const TextStyle(color: Colors.red),
                   ),
                 ),
               )
@@ -125,7 +129,7 @@ void _copyToClipboard(
     BuildContext context, String textToCopy, String fieldName) {
   FlutterClipboard.copy(textToCopy).then((_) {
     LLoaders.successSnackBar(
-        title: LTexts.copied,
-        message: '$fieldName ${LTexts.copiedToClipboard}');
+        title: tr(LocaleKeys.copied),
+        message: '$fieldName ${tr(LocaleKeys.copiedToClipboard)}');
   });
 }

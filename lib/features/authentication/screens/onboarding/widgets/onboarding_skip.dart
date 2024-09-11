@@ -1,4 +1,3 @@
-
 import 'package:applichiamoci/features/authentication/screens/login/login.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/device/device_utility.dart';
@@ -13,10 +12,11 @@ class OnBoardingSkip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: LDeviceUtils.getAppBarHeight(), 
-      right: LSizes.defaultSpace, 
-      child: TextButton(
-        onPressed: () => Get.to( () => const LoginScreen()), 
-        child: const Text('Skip'),));
+        top: LDeviceUtils.getAppBarHeight(),
+        right: LSizes.defaultSpace,
+        child: TextButton(
+          onPressed: () => Get.to(() => const LoginScreen()),
+          child: const Text('Skip'),
+        ));
   }
 }

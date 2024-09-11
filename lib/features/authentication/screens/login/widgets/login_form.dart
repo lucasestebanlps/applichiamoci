@@ -4,6 +4,7 @@ import 'package:applichiamoci/features/authentication/screens/signup/signup.dart
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/validators/validation.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -26,9 +27,9 @@ class LLoginForm extends StatelessWidget {
             TextFormField(
               controller: controller.email,
               validator: (value) => LValidator.validateEmail(value),
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Iconsax.direct_right),
-                  labelText: LTexts.email),
+              decoration: InputDecoration(
+                  prefixIcon: const Icon(Iconsax.direct_right),
+                  labelText: tr(LocaleKeys.email)),
             ),
 
             const SizedBox(height: LSizes.spaceBtwInputFields),
@@ -37,11 +38,11 @@ class LLoginForm extends StatelessWidget {
             Obx(
               () => TextFormField(
                 controller: controller.password,
-                validator: (value) =>
-                    LValidator.validateEmptyText(value, LTexts.password),
+                validator: (value) => LValidator.validateEmptyText(
+                    value, tr(LocaleKeys.password)),
                 obscureText: controller.hidePassword.value,
                 decoration: InputDecoration(
-                    labelText: LTexts.password,
+                    labelText: tr(LocaleKeys.password),
                     prefixIcon: const Icon(Iconsax.password_check),
                     suffixIcon: IconButton(
                         onPressed: () => controller.hidePassword.value =
@@ -63,18 +64,25 @@ class LLoginForm extends StatelessWidget {
                   children: [
                     Obx(
                       () => Checkbox(
-                          value: controller.rememberMe.value,
-                          onChanged: (value) => controller.rememberMe.value =
-                              !controller.rememberMe.value),
+                        value: controller.rememberMe.value,
+                        onChanged: (value) => controller.rememberMe.value =
+                            !controller.rememberMe.value,
+                        visualDensity: const VisualDensity(
+                            horizontal: -4,
+                            vertical: -4), // Ajustar el margen izquierdo
+                      ),
                     ),
-                    const Text(LTexts.rememberMe)
+                    Text(
+                      tr(LocaleKeys.rememberMe),
+                      overflow: TextOverflow.ellipsis,
+                    )
                   ],
                 ),
 
                 // Forget password
                 TextButton(
                     onPressed: () => Get.to(() => const ForgetPassword()),
-                    child: const Text(LTexts.forgetPassword))
+                    child: Text(tr(LocaleKeys.forgetPassword)))
               ],
             ),
 
@@ -85,7 +93,7 @@ class LLoginForm extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () => controller.emailAndPasswordSignIn(),
-                    child: const Text(LTexts.signIn))),
+                    child: Text(tr(LocaleKeys.signIn)))),
 
             const SizedBox(height: LSizes.spaceBtwItems),
 
@@ -94,7 +102,7 @@ class LLoginForm extends StatelessWidget {
                 width: double.infinity,
                 child: OutlinedButton(
                     onPressed: () => Get.to(() => const SignupScreen()),
-                    child: const Text(LTexts.createAccount)))
+                    child: Text(tr(LocaleKeys.createAccount))))
           ],
         ),
       ),

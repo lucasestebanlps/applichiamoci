@@ -5,6 +5,7 @@ import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -31,14 +32,15 @@ class LoginController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          LTexts.loginLoading, LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
-        LLoaders.errorSnackBar(title: LTexts.error, message: LTexts.noInternet);
+        LLoaders.errorSnackBar(
+            title: tr(LocaleKeys.error), message: tr(LocaleKeys.noInternet));
         return;
       }
 
@@ -55,7 +57,7 @@ class LoginController extends GetxController {
       }
 
       // Login user using Email & password Authentication
-      final userCredentials = await AuthenticationRepository.instance
+      await AuthenticationRepository.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
       // Remove loader
       LFullScreenLoader.stopLoading();
@@ -66,7 +68,8 @@ class LoginController extends GetxController {
       // Remove loader
       LFullScreenLoader.stopLoading();
       // show some generic error to the user
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 
@@ -75,14 +78,15 @@ class LoginController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          LTexts.loginLoading, LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         LFullScreenLoader.stopLoading();
         // Mostrar mensaje de error al usuario
-        LLoaders.errorSnackBar(title: LTexts.error, message: LTexts.noInternet);
+        LLoaders.errorSnackBar(
+            title: tr(LocaleKeys.error), message: tr(LocaleKeys.noInternet));
         return;
       }
 
@@ -100,7 +104,8 @@ class LoginController extends GetxController {
       AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 }

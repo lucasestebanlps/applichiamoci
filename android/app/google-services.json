@@ -7,18 +7,62 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:536809525168:android:4536e648bef2c92c149075",
+        "mobilesdk_app_id": "1:536809525168:android:81383ab6313a28aa149075",
         "android_client_info": {
-          "package_name": "com.example.applichiamoci"
+          "package_name": "com.fonzadione_emmanuel.applichiamoc"
         }
       },
       "oauth_client": [
         {
-          "client_id": "536809525168-q5a2r8a808nsjhf2dradriejvv1is86q.apps.googleusercontent.com",
+          "client_id": "536809525168-rn9a9579gphlv314b9ndajoe5mmj4ei7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.applichiamoci",
-            "certificate_hash": "7d07306dd2ef692fca6fb121949444a429bdc09c"
+            "package_name": "com.fonzadione_emmanuel.applichiamoc",
+            "certificate_hash": "b53c37422d81f9d08443a5b2e5d024243760e2b6"
+          }
+        },
+        {
+          "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSYbWq8W9hDh9C8p9e1WMqiWUz0dA36uY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536809525168-9p1s65mc2hdjnucnthlaesjo8j4qeqqf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536809525168-oc0t70i28nisdo4jnh3br3tjpacs2og1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.applichiamoci"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536809525168:android:96b5bdf8ecc38f73149075",
+        "android_client_info": {
+          "package_name": "com.fonzadione_emmanuel.applichiamoc.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536809525168-m0cvlotesct66bd8dd8j1i6dlc05sm0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fonzadione_emmanuel.applichiamoc.debug",
+            "certificate_hash": "48c754c28257937842db25aa5fa30c448dcf984f"
           }
         },
         {

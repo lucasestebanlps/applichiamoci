@@ -1,17 +1,18 @@
 import 'package:applichiamoci/common/widgets/l_circular_image.dart';
-import 'package:applichiamoci/common/widgets/loaders/loaders.dart';
 import 'package:applichiamoci/data/repositories/authentication/authentication_repository.dart';
 import 'package:applichiamoci/features/personalization/controllers/user_controller.dart';
+import 'package:applichiamoci/features/screens/chi_siamo/chi_siamo.dart';
+import 'package:applichiamoci/features/screens/faq_legale/faq_legale.dart';
 import 'package:applichiamoci/features/screens/profile/profile_screen.dart';
+import 'package:applichiamoci/translations/locale_keys.g.dart';
 import 'package:applichiamoci/utils/constants/colors.dart';
 import 'package:applichiamoci/utils/constants/image_strings.dart';
-import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
 import 'package:applichiamoci/common/widgets/shimmer/shimmer.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide Trans;
 import 'package:iconsax/iconsax.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -27,7 +28,7 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(padding: EdgeInsets.zero, children: [
         Obx(() {
           if (controller.profileLoading.value) {
-            return const LShimerEffect(width: 80, height: 200);
+            return const LShimerEffect(width: 80, height: 150);
           } else {
             return UserAccountsDrawerHeader(
               // Name
@@ -62,51 +63,51 @@ class CustomDrawer extends StatelessWidget {
           }
         }),
         ListTile(
+          leading: const Icon(Icons.language),
+          title: Text(LocaleKeys.selectLanguage.tr()),
+          onTap: () {
+            LHelperFunctions().showLanguageDialog(context);
+          },
+        ),
+        ListTile(
           leading: const Icon(Iconsax.edit),
-          title: const Text(LTexts.editProfile),
+          title: const Text(LocaleKeys.editProfile).tr(),
           onTap: () => Get.to(() => const ProfileScreen()),
         ),
         ListTile(
           leading: const Icon(Iconsax.heart),
-          title: const Text(LTexts.donaOra),
+          title: Text(tr(LocaleKeys.donaOra)),
           onTap: () async {
             bool confirm = await LHelperFunctions().showConfirmationDialog(
               context,
-              LTexts.warning,
-              LTexts.sitoFondazioneEmanuele,
+              tr(LocaleKeys.warning),
+              tr(LocaleKeys.sitoFondazioneEmanuele),
             );
 
             if (confirm) {
-              var url = Uri.parse('https://fondazione-emmanuel.org');
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url);
-              } else {
-                LLoaders.errorSnackBar(
-                  title: LTexts.error,
-                  message: LTexts.errorNonEpossibile,
-                );
-              }
+              LHelperFunctions.urlAction('https://fondazione-emmanuel.org');
             }
           },
         ),
         ListTile(
           leading: const Icon(Iconsax.message_question),
-          title: const Text('FAQ'),
-          onTap: () {},
+          title: Text('FAQ ${tr(LocaleKeys.legal)}'),
+          onTap: () => Get.to(() => FAQScreen()),
         ),
         ListTile(
           leading: const Icon(Iconsax.people),
-          title: const Text(LTexts.sopraNoi),
-          onTap: () {},
+          title: Text(tr(LocaleKeys.sopraNoi)),
+          onTap: () => Get.to(() => const ChiSiamo()),
         ),
         ListTile(
           leading: const Icon(Iconsax.document),
-          title: const Text(LTexts.termsOfUse),
-          onTap: () {},
+          title: Text(tr(LocaleKeys.termsOfUse)),
+          onTap: () => LHelperFunctions.urlAction(
+              'https://www.iubenda.com/privacy-policy/27488853'),
         ),
         ListTile(
           leading: const Icon(Iconsax.logout),
-          title: const Text(LTexts.chiudiSessione),
+          title: Text(tr(LocaleKeys.chiudiSessione)),
           onTap: () => AuthenticationRepository.instance.logout(),
         ),
       ]),

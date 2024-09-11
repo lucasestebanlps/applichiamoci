@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 class EmergencyServiceButton extends StatelessWidget {
   final String label;
   final String phoneNumber;
-  final IconData iconData;
+  final IconData? iconData;
+  final AssetImage? assetImage; // Nuevo parámetro para la imagen
   final Color? highlightColor;
 
-  const EmergencyServiceButton({super.key, 
+  const EmergencyServiceButton({
+    super.key,
     required this.label,
     required this.phoneNumber,
-    required this.iconData,
+    this.iconData,
+    this.assetImage, // Inicialización del nuevo parámetro
     this.highlightColor,
   });
 
@@ -30,14 +33,21 @@ class EmergencyServiceButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              // Envuelve la primera parte de la fila con Expanded
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Icon(
-                    iconData,
-                    color: Colors.white,
-                  ),
+                  // Comprueba si hay una imagen y la muestra, si no, muestra el icono
+                  if (assetImage != null)
+                    Image(
+                      image: assetImage!,
+                      width: 34.0,
+                      height: 34.0,
+                    )
+                  else if (iconData != null)
+                    Icon(
+                      iconData,
+                      color: Colors.white,
+                    ),
                   const SizedBox(width: 16.0),
                   Flexible(
                     child: Text(

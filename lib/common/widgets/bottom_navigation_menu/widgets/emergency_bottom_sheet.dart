@@ -1,7 +1,9 @@
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/emergency_button.dart';
 import 'package:applichiamoci/common/widgets/bottom_navigation_menu/widgets/modal_company.dart';
+import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class EmergencyCallBottomSheet extends StatelessWidget {
@@ -18,52 +20,63 @@ class EmergencyCallBottomSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Text and icon for company button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  LocaleKeys.emergencyTitle.tr(),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ],
+            ),
+            const SizedBox(height: LSizes.md),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(LTexts.companyNumber,
+              Text(LocaleKeys.companyNumber.tr(),
                   style: Theme.of(context).textTheme.headlineSmall),
               const ModalCompany()
             ]),
             // Company number
-            const EmergencyServiceButton(
-              iconData: Icons.business,
-              label: LTexts.companyEmergency,
-              phoneNumber: '123456789', // Número de emergencia de la empresa
+            EmergencyServiceButton(
+              assetImage: const AssetImage(LImages.pisLogo),
+              label: LocaleKeys.companyEmergency.tr(),
+              phoneNumber: '800208082', // Número de emergencia de la empresa
               highlightColor: Colors.green, // Color para resaltar el botón
             ),
             const SizedBox(height: LSizes.defaultSpace),
 
             // Text for other numbers
-            Text(LTexts.otherNumbers,
+            Text(LocaleKeys.otherNumbers.tr(),
                 style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 12),
-            const EmergencyServiceButton(
+            EmergencyServiceButton(
               iconData: Icons.local_hospital,
-              label: LTexts.medicalEmergency,
+              label: tr(LocaleKeys.medicalEmergency),
               phoneNumber: '118',
             ),
             const SizedBox(height: LSizes.spaceBtwItems),
 
             // -- OTHER NUMBERS ---
-            const EmergencyServiceButton(
+            EmergencyServiceButton(
               iconData: Icons.security,
-              label: LTexts.securityEmergency1,
+              label: tr(LocaleKeys.securityEmergency1),
               phoneNumber: '112',
             ),
             const SizedBox(height: LSizes.spaceBtwItems),
-            const EmergencyServiceButton(
+            EmergencyServiceButton(
               iconData: Icons.security,
-              label: LTexts.securityEmergency2,
+              label: tr(LocaleKeys.securityEmergency2),
               phoneNumber: '113',
             ),
             const SizedBox(height: LSizes.spaceBtwItems),
-            const EmergencyServiceButton(
+            EmergencyServiceButton(
               iconData: Icons.fire_extinguisher,
-              label: LTexts.fireEmergency,
+              label: tr(LocaleKeys.fireEmergency),
               phoneNumber: '115',
             ),
             const SizedBox(height: LSizes.spaceBtwInputFields),
-            const EmergencyServiceButton(
-              label: LTexts.antiViolenceEmergency,
+            EmergencyServiceButton(
+              label: tr(LocaleKeys.antiViolenceEmergency),
               phoneNumber: '1522',
               iconData: Icons.heart_broken_outlined,
             ),

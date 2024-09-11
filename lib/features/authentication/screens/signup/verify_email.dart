@@ -4,6 +4,7 @@ import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,7 +38,7 @@ class VerifyEmailScreen extends StatelessWidget {
               const SizedBox(height: LSizes.spaceBtwSections),
 
               // Title & SubTitle
-              Text(LTexts.confirmEmail,
+              Text(tr(LocaleKeys.confirmEmail),
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
               const SizedBox(height: LSizes.spaceBtwItems),
@@ -45,7 +46,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelLarge,
                   textAlign: TextAlign.center),
               const SizedBox(height: LSizes.spaceBtwItems),
-              Text(LTexts.confirmEmailSubTitle,
+              Text(tr(LocaleKeys.confirmEmailSubTitle),
                   style: Theme.of(context).textTheme.labelMedium,
                   textAlign: TextAlign.center),
               const SizedBox(height: LSizes.spaceBtwSections),
@@ -56,13 +57,13 @@ class VerifyEmailScreen extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () =>
                           controller.checkEmailVerificationStatus(),
-                      child: const Text(LTexts.continueButton))),
+                      child: Text(tr(LocaleKeys.continueButton)))),
               const SizedBox(height: LSizes.spaceBtwItems),
               SizedBox(
                   width: double.infinity,
                   child: TextButton(
                       onPressed: () => controller.sendEmailVerification(),
-                      child: const Text(LTexts.resendEmail)))
+                      child: Text(tr(LocaleKeys.resendEmail))))
             ],
           ),
         ),

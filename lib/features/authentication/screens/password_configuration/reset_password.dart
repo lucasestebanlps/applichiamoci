@@ -5,6 +5,7 @@ import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/sizes.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/helper_functions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +39,7 @@ class ResetPasswordScreen extends StatelessWidget {
               const SizedBox(height: LSizes.spaceBtwItems),
 
               Text(
-                LTexts.changeYourPasswordSubTitle,
+                tr(LocaleKeys.changeYourPasswordSubTitle),
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -49,7 +50,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => Get.offAll(() => const LoginScreen()),
-                  child: const Text(LTexts.done),
+                  child: Text(tr(LocaleKeys.done)),
                 ),
               ),
               const SizedBox(height: LSizes.spaceBtwItems),
@@ -58,7 +59,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => ForgetPasswordController.insstance
                       .resendPasswordResetEmail(email),
-                  child: const Text(LTexts.resendEmail),
+                  child: Text(tr(LocaleKeys.resendEmail)),
                 ),
               ),
             ],

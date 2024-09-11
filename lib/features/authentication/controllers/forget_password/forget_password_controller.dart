@@ -5,6 +5,7 @@ import 'package:applichiamoci/utils/constants/image_strings.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/helpers/network_manager.dart';
 import 'package:applichiamoci/utils/popups/full_screen_loader.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,7 @@ class ForgetPasswordController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          LTexts.loginLoading, LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -44,13 +45,15 @@ class ForgetPasswordController extends GetxController {
 
       // Show success message
       LLoaders.successSnackBar(
-          title: LTexts.emailSentTitle, message: LTexts.emailSentMessage.tr);
+          title: tr(LocaleKeys.emailSentTitle),
+          message: tr(LocaleKeys.emailSentMessage));
 
       // Redirect
       Get.to(() => ResetPasswordScreen(email: email.text.trim()));
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 
@@ -58,7 +61,7 @@ class ForgetPasswordController extends GetxController {
     try {
       // Start Loading
       LFullScreenLoader.openLoadingDialog(
-          LTexts.loginLoading, LImages.checkInformation);
+          tr(LocaleKeys.loginLoading), LImages.checkInformation);
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -75,10 +78,12 @@ class ForgetPasswordController extends GetxController {
 
       // Show success message
       LLoaders.successSnackBar(
-          title: LTexts.emailSentTitle, message: LTexts.emailSentMessage.tr);
+          title: tr(LocaleKeys.emailSentTitle),
+          message: tr(LocaleKeys.emailSentMessage));
     } catch (e) {
       LFullScreenLoader.stopLoading();
-      LLoaders.errorSnackBar(title: LTexts.error, message: e.toString());
+      LLoaders.errorSnackBar(
+          title: tr(LocaleKeys.error), message: e.toString());
     }
   }
 }

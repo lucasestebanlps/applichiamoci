@@ -3,13 +3,18 @@ import 'package:applichiamoci/data/repositories/user/user_repository.dart';
 import 'package:applichiamoci/features/authentication/screens/login/login.dart';
 import 'package:applichiamoci/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:applichiamoci/features/authentication/screens/signup/verify_email.dart';
+import 'package:applichiamoci/features/screens/services/controllers/services_controller.dart';
+import 'package:applichiamoci/features/screens/services/controllers/places_controller.dart';
+import 'package:applichiamoci/features/screens/news/controllers/news_controller.dart';
 import 'package:applichiamoci/utils/constants/text_strings.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/firebase_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/format_exceptions.dart';
 import 'package:applichiamoci/utils/exceptions/platform_exceptions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -29,10 +34,16 @@ class AuthenticationRepository extends GetxController {
   // Called from main.dart on app launch
   @override
   void onReady() {
+    // I'm loading the controllers here so I can change the language from the entire app
+    Get.put<NewsController>(NewsController());
+    Get.put<ServiceController>(ServiceController());
+    Get.put<PlacesController>(PlacesController());
     // Remove the native splash screen
     FlutterNativeSplash.remove();
     // Redirect to the appropriate screen
-    screenRedirect();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      screenRedirect();
+    });
   }
 
   // Function to determine the relevant screen and redirect accordingly
@@ -78,7 +89,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -97,7 +108,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -114,7 +125,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -131,7 +142,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -153,7 +164,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -205,7 +216,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 
@@ -223,7 +234,7 @@ class AuthenticationRepository extends GetxController {
     } on PlatformException catch (e) {
       throw LPlatformException(e.code).message;
     } catch (e) {
-      throw LTexts.somethingWentWrong;
+      throw tr(LocaleKeys.somethingWentWrong);
     }
   }
 }
